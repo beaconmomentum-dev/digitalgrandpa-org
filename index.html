@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wisdom from Digital Grandpa: Resources for veterans, formerly incarcerated individuals, and at-risk youth to transform setbacks into comebacks.">
+    <meta property="og:title" content="Digital Grandpa - Sometimes you don't need a guru. You need a grandpa.">
+    <meta property="og:description" content="Honorably discharged veteran sharing hard-won wisdom to help others rebuild their lives. Part of the Beacon Momentum collective.">
+    <meta property="og:image" content="https://digitalgrandpa.org/bob-profile-photo.jpg">
+    <meta property="og:url" content="https://digitalgrandpa.org">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Digital Grandpa - Sometimes you don't need a guru. You need a grandpa.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1F2937;
+            background: #FFFFFF;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #0F766E;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: #FFFFFF;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0F766E;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #1F2937;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #0F766E;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #0F766E 0%, #D97706 100%);
+            color: white !important;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0F766E 0%, #D97706 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.2;
+        }
+        
+        .hero-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: #0F766E;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Beacon Badge */
+        .beacon-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            margin-top: 2rem;
+        }
+        
+        /* About Bob Section */
+        .about-section {
+            padding: 5rem 2rem;
+            background: #F3F4F6;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .veteran-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #0F766E;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .about-credentials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .credential {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #D97706;
+        }
+        
+        .credential strong {
+            color: #0F766E;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Journey Timeline */
+        .journey-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: #6B7280;
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #0F766E 0%, #D97706 100%);
+        }
+        
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: 50%;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #D97706;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #0F766E;
+        }
+        
+        .timeline-content {
+            background: #F3F4F6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #0F766E;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            color: #6B7280;
+        }
+        
+        /* Impact Metrics */
+        .impact-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0F766E 0%, #D97706 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .impact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .impact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .impact-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 2rem;
+            background: #F3F4F6;
+        }
+        
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #6B7280;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #0F766E;
+        }
+        
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: #9CA3AF;
+        }
+        
+        /* Resources Section */
+        .resources-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .resources-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: #F3F4F6;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-btn {
+            display: inline-block;
+            background: #0F766E;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .resource-btn:hover {
+            background: #0D5F58;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0F766E 0%, #D97706 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .cta-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #0F766E;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: background 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1F2937;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section a {
+            display: block;
+            color: #9CA3AF;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #D97706;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9CA3AF;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 0;
+            }
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-marker {
+                left: 0;
+            }
+            
+            .impact-grid,
+            .testimonials-grid,
+            .resources-grid,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#0F766E"/>
+                    <path d="M50 20L60 40H40L50 20Z" fill="#D97706"/>
+                    <circle cx="50" cy="60" r="15" fill="#D97706"/>
+                </svg>
+                Digital Grandpa
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About Bob</a>
+                <a href="#journey" class="nav-link">My Journey</a>
+                <a href="#resources" class="nav-link">Resources</a>
+                <a href="https://beaconmomentum.com" class="nav-link">Beacon Momentum</a>
+                <a href="https://joinriseandreclaim.com" class="nav-cta">Join Rise & Reclaim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sometimes you don't need a guru.<br>You need a grandpa.</h1>
+            <p class="hero-tagline">Wisdom from the trenches for those rebuilding their lives</p>
+            <p class="hero-subtitle">Honorably discharged veteran sharing hard-won wisdom to help veterans, formerly incarcerated individuals, and at-risk youth transform setbacks into comebacks.</p>
+            <a href="#resources" class="hero-cta">Get Free Resources</a>
+            <div class="beacon-badge">Part of the Beacon Momentum Collective</div>
+        </div>
+    </section>
+
+    <!-- About Bob Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="bob-profile-photo.jpg" alt="Bob Burr - Digital Grandpa">
+                <div class="veteran-badge">✓ Verified Veteran</div>
+            </div>
+            <div class="about-content">
+                <h2>Meet Bob Burr</h2>
+                <p>I'm not a guru with all the answers. I'm a grandpa who's made plenty of mistakes and learned from every one of them.</p>
+                <p>After serving my country, losing everything, and rebuilding from scratch multiple times, I've learned that the path forward isn't about perfection—it's about persistence, purpose, and the wisdom that comes from walking through fire.</p>
+                <p>Now I share what I've learned with those who need it most: veterans transitioning to civilian life, formerly incarcerated individuals rebuilding their futures, and at-risk youth looking for a way forward.</p>
+                <div class="about-credentials">
+                    <div class="credential">
+                        <strong>Military Service</strong>
+                        Honorably discharged veteran
+                    </div>
+                    <div class="credential">
+                        <strong>Presidential Recognition</strong>
+                        Commended for service to veterans
+                    </div>
+                    <div class="credential">
+                        <strong>Lives Impacted</strong>
+                        1,200+ individuals transformed
+                    </div>
+                    <div class="credential">
+                        <strong>Years of Service</strong>
+                        8+ years mentoring and guiding
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section id="journey" class="journey-section">
+        <div class="section-header">
+            <h2>How Pain Becomes Purpose</h2>
+            <p>My journey from service to setback to significance</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Military Service</h3>
+                    <p>Served my country with honor, learning discipline, duty, and the meaning of sacrifice.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>The 1990s - Lost Everything</h3>
+                    <p>Transition to civilian life brought challenges I wasn't prepared for. Lost my business, my marriage, everything I thought defined me.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>After 9/11 - Finding Purpose</h3>
+                    <p>Watched the towers fall and knew I had to serve again, but differently. Started mentoring veterans and at-risk youth.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>The Ultimate Choice</h3>
+                    <p>Faced my darkest moment and chose life. That choice changed everything and showed me my true purpose.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>2003-2017 - Rebuilding</h3>
+                    <p>Rebuilt my life from scratch, learning that setbacks are setups for comebacks. Started sharing my story.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>2017-2021 - Digital Grandpa Born</h3>
+                    <p>Launched Digital Grandpa to reach more people with the wisdom I wish I'd had during my darkest days.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>2022-2025 - Expanding Impact</h3>
+                    <p>Joined forces with Beacon Momentum to scale the impact and help thousands find their way forward.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>2025-Future - Your Turn</h3>
+                    <p>Now it's your turn to write your comeback story. I'm here to walk alongside you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section class="impact-section">
+        <div class="section-header">
+            <h2 style="color: white;">The Numbers Tell a Story</h2>
+            <p style="color: rgba(255,255,255,0.9);">Real impact from real relationships</p>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-number">1,200+</div>
+                <div class="impact-label">Lives Transformed</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number">8+</div>
+                <div class="impact-label">Years of Service</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number">94%</div>
+                <div class="impact-label">Improved Outlook</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number">∞</div>
+                <div class="impact-label">Potential Ahead</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>Real Stories from Real People</h2>
+            <p>Hear from those who've walked this path and found their way forward</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Bob's wisdom helped me transition from military to civilian life with purpose. He doesn't just talk about resilience—he lives it and shows you how."</p>
+                <div class="testimonial-author">Marcus T.</div>
+                <div class="testimonial-role">Army Veteran</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"After incarceration, I thought my life was over. Bob showed me it was just beginning. His guidance gave me hope and a roadmap forward."</p>
+                <div class="testimonial-author">James R.</div>
+                <div class="testimonial-role">Formerly Incarcerated</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"As an at-risk youth, I needed someone who understood struggle without judgment. Bob's been that person for me and countless others."</p>
+                <div class="testimonial-author">Sarah M.</div>
+                <div class="testimonial-role">Youth Program Participant</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources-section">
+        <div class="section-header">
+            <h2>Free Resources to Get You Started</h2>
+            <p>Tools and wisdom to help you transform setbacks into comebacks</p>
+        </div>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon">📖</div>
+                <h3>Survival Guide</h3>
+                <p>Practical wisdom for navigating life's toughest transitions</p>
+                <a href="#" class="resource-btn" id="survival-guide-btn">Download Free</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">🎯</div>
+                <h3>Purpose Finder</h3>
+                <p>Discover your mission and build a life of meaning</p>
+                <a href="#" class="resource-btn" id="purpose-finder-btn">Download Free</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">🔥</div>
+                <h3>Resilience Toolkit</h3>
+                <p>Build mental toughness and bounce back stronger</p>
+                <a href="#" class="resource-btn" id="resilience-toolkit-btn">Download Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Write Your Comeback Story?</h2>
+            <p>Join the Rise & Reclaim community and get support from people who understand your journey.</p>
+            <div class="cta-buttons">
+                <a href="https://joinriseandreclaim.com" class="btn-primary">Join Rise & Reclaim</a>
+                <a href="https://beaconmomentum.com" class="btn-secondary">Explore Beacon Momentum</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Digital Grandpa</h4>
+                <p style="color: #9CA3AF;">Wisdom from the trenches for those rebuilding their lives.</p>
+                <p style="color: #9CA3AF; margin-top: 1rem;">Part of the Beacon Momentum Collective</p>
+            </div>
+            <div class="footer-section">
+                <h4>Divisions</h4>
+                <a href="https://digitalgrandpa.org">Digital Grandpa</a>
+                <a href="https://joinriseandreclaim.com">Rise & Reclaim</a>
+                <a href="https://beaconmomentum.com/labs.html">Beacon Labs</a>
+                <a href="https://beaconmomentum.com">Beacon Momentum</a>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <a href="#resources">Free Resources</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/store.html">Books & Tools</a>
+                <a href="#about">About Bob</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="/contact.html">Contact</a>
+                <a href="https://joinriseandreclaim.com">Join Community</a>
+                <a href="mailto:bob@digitalgrandpa.org">Email Bob</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Digital Grandpa | Part of Beacon Momentum | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Resource download buttons - placeholder for GHL integration
+        document.getElementById('survival-guide-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('GHL form integration will be added here');
+        });
+
+        document.getElementById('purpose-finder-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('GHL form integration will be added here');
+        });
+
+        document.getElementById('resilience-toolkit-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('GHL form integration will be added here');
+        });
+    </script>
+</body>
+</html>
+
