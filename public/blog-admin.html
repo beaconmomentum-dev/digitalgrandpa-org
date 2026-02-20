@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Admin - Digital Grandpa</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .admin-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .admin-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .admin-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .admin-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .admin-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .panel-content {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            min-height: 300px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+        
+        .preview-area {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .preview-content {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: left;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .status-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .existing-posts {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+        
+        .post-item {
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .post-item:last-child {
+            border-bottom: none;
+        }
+        
+        .post-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        
+        .post-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-container {
+                padding: 0 1rem;
+            }
+            
+            .panel-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <div class="admin-header">
+            <h1>🎖️ Digital Grandpa Blog Admin</h1>
+            <p>Create and manage blog posts with ease. Share your wisdom with the world.</p>
+        </div>
+        
+        <div class="admin-grid">
+            <!-- Create New Post -->
+            <div class="admin-panel">
+                <div class="panel-header">
+                    ✍️ Create New Blog Post
+                </div>
+                <div class="panel-content">
+                    <form id="blogForm">
+                        <div class="form-group">
+                            <label for="postTitle">Post Title</label>
+                            <input type="text" id="postTitle" name="title" placeholder="Enter your blog post title..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postSlug">URL Slug (auto-generated)</label>
+                            <input type="text" id="postSlug" name="slug" placeholder="url-friendly-title" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postCategory">Category</label>
+                            <select id="postCategory" name="category" required>
+                                <option value="">Select a category...</option>
+                                <option value="Veterans">Veterans</option>
+                                <option value="Resilience">Resilience</option>
+                                <option value="Formerly Incarcerated">Formerly Incarcerated</option>
+                                <option value="At-Risk Youth">At-Risk Youth</option>
+                                <option value="AI & Technology">AI & Technology</option>
+                                <option value="Personal Stories">Personal Stories</option>
+                                <option value="Practical Advice">Practical Advice</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postExcerpt">Excerpt (Brief Description)</label>
+                            <textarea id="postExcerpt" name="excerpt" rows="3" placeholder="Write a brief description of your post..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postContent">Content (Markdown or HTML)</label>
+                            <textarea id="postContent" name="content" placeholder="Write your blog post content here...
+
+You can use Markdown formatting:
+# Heading 1
+## Heading 2
+**Bold text**
+*Italic text*
+- Bullet points
+1. Numbered lists
+[Link text](URL)
+> Blockquotes
+
+Or write in plain HTML if you prefer."></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="isFeatured" name="featured">
+                            <label for="isFeatured">Mark as Featured Post</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="isPublished" name="published" checked>
+                            <label for="isPublished">Publish Immediately</label>
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                            <button type="button" class="btn btn-primary" onclick="previewPost()">Preview Post</button>
+                            <button type="submit" class="btn btn-success">Create Post</button>
+                        </div>
+                    </form>
+                    
+                    <div id="statusMessage"></div>
+                </div>
+            </div>
+            
+            <!-- Preview & Management -->
+            <div class="admin-panel">
+                <div class="panel-header">
+                    👀 Preview & Management
+                </div>
+                <div class="panel-content">
+                    <div id="previewArea" class="preview-area">
+                        <p>👆 Fill out the form and click "Preview Post" to see how your blog post will look.</p>
+                    </div>
+                    
+                    <div style="margin: 2rem 0;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📚 Existing Posts</h3>
+                        <div id="existingPosts" class="existing-posts">
+                            <div class="post-item">
+                                <div class="post-info">
+                                    <h4>How AI Can Transform Your Life</h4>
+                                    <p>AI & Technology • January 23, 2025 • Featured</p>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="editPost('ai-transform-life')">Edit</button>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-info">
+                                    <h4>The Second Battle: Veterans Coming Home</h4>
+                                    <p>Veterans • January 20, 2025</p>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="editPost('second-battle')">Edit</button>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-info">
+                                    <h4>When Everything Falls Apart</h4>
+                                    <p>Resilience • January 18, 2025</p>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="editPost('falls-apart')">Edit</button>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-info">
+                                    <h4>Beyond the Gates: After Incarceration</h4>
+                                    <p>Formerly Incarcerated • January 15, 2025</p>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="editPost('beyond-gates')">Edit</button>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-info">
+                                    <h4>Finding Your Path When Everyone Gives Up</h4>
+                                    <p>At-Risk Youth • January 12, 2025</p>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="editPost('finding-path')">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button class="btn btn-primary" onclick="regenerateIndex()">Update Blog Index</button>
+                        <button class="btn btn-danger" onclick="exportData()">Export All Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Blog Admin JavaScript
+        class BlogAdmin {
+            constructor() {
+                this.posts = [];
+                this.init();
+            }
+            
+            init() {
+                // Auto-generate slug from title
+                document.getElementById('postTitle').addEventListener('input', (e) => {
+                    const title = e.target.value;
+                    const slug = this.generateSlug(title);
+                    document.getElementById('postSlug').value = slug;
+                });
+                
+                // Form submission
+                document.getElementById('blogForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.createPost();
+                });
+                
+                console.log('🎖️ Digital Grandpa Blog Admin initialized');
+            }
+            
+            generateSlug(title) {
+                return title
+                    .toLowerCase()
+                    .replace(/[^a-z0-9\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-')
+                    .trim();
+            }
+            
+            previewPost() {
+                const formData = new FormData(document.getElementById('blogForm'));
+                const postData = Object.fromEntries(formData);
+                
+                if (!postData.title || !postData.content) {
+                    this.showMessage('Please fill in at least the title and content to preview.', 'warning');
+                    return;
+                }
+                
+                const previewHTML = this.generatePreviewHTML(postData);
+                document.getElementById('previewArea').innerHTML = previewHTML;
+            }
+            
+            generatePreviewHTML(postData) {
+                const date = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                return `
+                    <div class="preview-content">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                            ${postData.featured ? '<span style="background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Featured</span>' : ''}
+                            <span style="background: var(--primary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">${postData.category}</span>
+                            <span style="color: var(--text-light); font-size: 0.9rem;">${date}</span>
+                            <span style="color: var(--text-light); font-size: 0.9rem;">~${Math.ceil(postData.content.length / 200)} min read</span>
+                        </div>
+                        <h2 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem; line-height: 1.3;">${postData.title}</h2>
+                        <p style="color: var(--text-color); line-height: 1.6; margin-bottom: 1rem; font-style: italic;">${postData.excerpt}</p>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                            <strong>Content Preview:</strong><br>
+                            ${postData.content.substring(0, 200)}${postData.content.length > 200 ? '...' : ''}
+                        </div>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #dee2e6; color: var(--text-light); font-size: 0.9rem;">
+                            <strong>URL:</strong> /blog/${postData.slug}.html
+                        </div>
+                    </div>
+                `;
+            }
+            
+            createPost() {
+                const formData = new FormData(document.getElementById('blogForm'));
+                const postData = Object.fromEntries(formData);
+                
+                // Validation
+                if (!postData.title || !postData.category || !postData.content) {
+                    this.showMessage('Please fill in all required fields (Title, Category, Content).', 'error');
+                    return;
+                }
+                
+                // Generate post data
+                const post = {
+                    id: postData.slug || this.generateSlug(postData.title),
+                    title: postData.title,
+                    slug: postData.slug || this.generateSlug(postData.title),
+                    category: postData.category,
+                    excerpt: postData.excerpt,
+                    content: postData.content,
+                    featured: postData.featured === 'on',
+                    published: postData.published === 'on',
+                    date: new Date().toISOString().split('T')[0],
+                    readTime: Math.ceil(postData.content.length / 200),
+                    author: 'Bob'
+                };
+                
+                // Generate files
+                this.generatePostFiles(post);
+                
+                // Update posts index
+                this.updatePostsIndex(post);
+                
+                // Show success message
+                this.showMessage(`✅ Blog post "${post.title}" created successfully! Files generated and ready for deployment.`, 'success');
+                
+                // Reset form
+                document.getElementById('blogForm').reset();
+                document.getElementById('previewArea').innerHTML = '<p>👆 Fill out the form and click "Preview Post" to see how your blog post will look.</p>';
+                
+                // Update existing posts list
+                this.updateExistingPostsList();
+            }
+            
+            generatePostFiles(post) {
+                // Generate HTML file content
+                const htmlContent = this.generatePostHTML(post);
+                
+                // Create downloadable files
+                this.downloadFile(`${post.slug}.html`, htmlContent, 'text/html');
+                
+                console.log(`📝 Generated HTML file for: ${post.title}`);
+            }
+            
+            generatePostHTML(post) {
+                return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="${post.excerpt}">
+    <meta property="og:title" content="${post.title} - Digital Grandpa">
+    <meta property="og:description" content="${post.excerpt}">
+    <meta property="og:image" content="https://digitalgrandpa.org/bob-profile-photo.webp">
+    <meta property="og:url" content="https://digitalgrandpa.org/blog/${post.slug}.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${post.title} - Digital Grandpa">
+    <meta name="twitter:description" content="${post.excerpt}">
+    <meta name="twitter:image" content="https://digitalgrandpa.org/bob-profile-photo.webp">
+    <title>${post.title} - Digital Grandpa</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👴🏻</text></svg>">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .post-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6rem 0 4rem;
+            margin-top: 80px;
+        }
+        
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            line-height: 1.8;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .post-category {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--border-radius);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .post-content h1, .post-content h2, .post-content h3 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-blog:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Digital Grandpa 🎖️ Veteran Owned</a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/store.html" class="nav-link">Store</a>
+                <a href="/blog.html" class="nav-link active">Blog</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="https://joinriseandreclaim.com" class="nav-link rise-reclaim-link" target="_blank">Rise & Reclaim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <header class="post-header">
+        <div class="container">
+            <a href="/blog.html" class="back-to-blog">← Back to Blog</a>
+            <div class="post-meta">
+                ${post.featured ? '<span style="background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Featured</span>' : ''}
+                <span class="post-category">${post.category}</span>
+                <span>${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span>${post.readTime} min read</span>
+            </div>
+            <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">${post.title}</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px;">${post.excerpt}</p>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <main class="post-content">
+        <div class="container">
+            ${this.processContent(post.content)}
+            
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--primary-color);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                    <img src="/bob-profile-photo.webp" alt="Bob" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="margin: 0; color: var(--primary-color);">About ${post.author}</h4>
+                        <p style="margin: 0; color: var(--text-light);">Presidential Award winner, veteran advocate, and Digital Grandpa founder</p>
+                    </div>
+                </div>
+                
+                <div style="background: var(--light-color); padding: 2rem; border-radius: var(--border-radius-lg); text-align: center;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Ready to Transform Your Life?</h3>
+                    <p style="margin-bottom: 2rem;">Join thousands who've found their path forward with practical wisdom and real support.</p>
+                    <a href="https://joinriseandreclaim.com" class="btn-primary" target="_blank">Join Rise & Reclaim Community</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Digital Grandpa Foundation</h3>
+                <p>Sometimes you don't need a guru. You need a grandpa who's been where you are and found a way forward.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Digital Grandpa Foundation. Built to serve people society has written off.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>`;
+            }
+            
+            processContent(content) {
+                // Simple markdown-like processing
+                return content
+                    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    .replace(/^- (.*$)/gim, '<li>$1</li>')
+                    .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/^(.*)$/gim, '<p>$1</p>')
+                    .replace(/<p><li>/g, '<ul><li>')
+                    .replace(/<\/li><\/p>/g, '</li></ul>')
+                    .replace(/<p><blockquote>/g, '<blockquote>')
+                    .replace(/<\/blockquote><\/p>/g, '</blockquote>');
+            }
+            
+            updatePostsIndex(post) {
+                // This would update the posts_index.json file
+                console.log('📊 Updated posts index with new post:', post.title);
+                
+                // Generate updated JSON
+                const indexData = {
+                    posts: [post], // In real implementation, this would merge with existing posts
+                    lastUpdated: new Date().toISOString()
+                };
+                
+                this.downloadFile('posts_index.json', JSON.stringify(indexData, null, 2), 'application/json');
+            }
+            
+            downloadFile(filename, content, mimeType) {
+                const blob = new Blob([content], { type: mimeType });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+            
+            showMessage(message, type) {
+                const messageEl = document.getElementById('statusMessage');
+                messageEl.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
+                
+                setTimeout(() => {
+                    messageEl.innerHTML = '';
+                }, 5000);
+            }
+            
+            updateExistingPostsList() {
+                // This would refresh the existing posts list
+                console.log('📝 Updated existing posts list');
+            }
+        }
+        
+        // Global functions
+        function previewPost() {
+            blogAdmin.previewPost();
+        }
+        
+        function editPost(slug) {
+            alert(`Editing functionality for "${slug}" would be implemented here.`);
+        }
+        
+        function regenerateIndex() {
+            alert('Blog index regeneration would be implemented here.');
+        }
+        
+        function exportData() {
+            alert('Data export functionality would be implemented here.');
+        }
+        
+        // Initialize when page loads
+        let blogAdmin;
+        document.addEventListener('DOMContentLoaded', function() {
+            blogAdmin = new BlogAdmin();
+        });
+    </script>
+</body>
+</html>
+

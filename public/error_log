@@ -1,0 +1,17 @@
+[03-Aug-2025 18:44:43 UTC] Payment intent created for product: strategic-rest-protocol, amount: $67
+[03-Aug-2025 18:44:52 UTC] Payment intent created for product: your-next-chapter, amount: $67
+[03-Aug-2025 18:45:22 UTC] Payment intent created for product: complete-transformation-course, amount: $197
+[03-Aug-2025 18:45:53 UTC] New lead subscription: bobburr80@gmail.com, Robert, source: digital_grandpa_store
+[14-Aug-2025 03:01:40 UTC] Payment processing error: Product not found
+[14-Aug-2025 03:24:34 UTC] Payment intent created for product: your-next-chapter, amount: $67
+[14-Aug-2025 20:27:13 UTC] Payment processing error: Product not found
+[14-Aug-2025 21:57:53 UTC] Payment processing error: Product not found
+[14-Aug-2025 21:57:53 UTC] Payment processing error: Product not found
+[14-Aug-2025 22:22:05 UTC] Payment processing error: Product not found
+[14-Aug-2025 23:37:38 UTC] PHP Parse error:  syntax error, unexpected token ";", expecting "]" in /home/greyobqa/digitalgrandpa.org/integrated-payment-processor.php on line 148
+[14-Aug-2025 23:52:02 UTC] PHP Warning:  Undefined variable $product_id in /home/greyobqa/digitalgrandpa.org/integrated-payment-processor.php on line 155
+[14-Aug-2025 23:52:02 UTC] PHP Warning:  Undefined variable $product_id in /home/greyobqa/digitalgrandpa.org/integrated-payment-processor.php on line 158
+[14-Aug-2025 23:52:02 UTC] PHP Warning:  Undefined variable $product_id in /home/greyobqa/digitalgrandpa.org/integrated-payment-processor.php on line 159
+[14-Aug-2025 23:52:30 UTC] PHP Warning:  Undefined variable $product_id in /home/greyobqa/digitalgrandpa.org/integrated-payment-processor.php on line 155
+[14-Aug-2025 23:52:30 UTC] PHP Warning:  Undefined variable $product_id in /home/greyobqa/digitalgrandpa.org/integrated-payment-processor.php on line 158
+[14-Aug-2025 23:52:30 UTC] PHP Warning:  Undefined variable $product_id in /home/greyobqa/digitalgrandpa.org/integrated-payment-processor.php on line 159

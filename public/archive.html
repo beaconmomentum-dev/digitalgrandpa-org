@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all Digital Grandpa blog posts by date and category. Find practical wisdom, veteran support, and life transformation resources.">
+    <meta property="og:title" content="Blog Archive - Digital Grandpa">
+    <meta property="og:description" content="Browse all blog posts by date and category. Practical wisdom for life transformation.">
+    <meta property="og:image" content="https://digitalgrandpa.org/bob-profile-photo.webp">
+    <meta property="og:url" content="https://digitalgrandpa.org/archive">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog Archive - Digital Grandpa">
+    <meta name="twitter:description" content="Browse all blog posts by date and category.">
+    <meta name="twitter:image" content="https://digitalgrandpa.org/bob-profile-photo.webp">
+    <title>Blog Archive - Digital Grandpa</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👴🏻</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👴🏻</text></svg>">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Archive Page Specific Styles */
+        .archive-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6rem 0 4rem;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .archive-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+        
+        .archive-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .archive-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .archive-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            text-align: center;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .archive-content {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .archive-controls {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 1.5rem;
+            align-items: end;
+        }
+        
+        .search-group {
+            position: relative;
+        }
+        
+        .search-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 2.5rem;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 0.875rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        
+        .filter-group {
+            min-width: 180px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .filter-select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+        }
+        
+        .sort-group {
+            min-width: 150px;
+        }
+        
+        .results-summary {
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        
+        .results-count {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .archive-post {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .archive-post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .post-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        .post-thumbnail-icon {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .post-content {
+            padding: 1.5rem;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        .post-category {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .post-date {
+            font-weight: 500;
+        }
+        
+        .post-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        
+        .post-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .post-title a:hover {
+            color: var(--accent-color);
+        }
+        
+        .post-excerpt {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .post-tag {
+            background: #f8f9fa;
+            color: var(--text-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius);
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .post-tag:hover {
+            background: #e9ecef;
+            color: var(--primary-color);
+        }
+        
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f3f4;
+        }
+        
+        .read-more {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: #c82333;
+        }
+        
+        .post-stats {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        .no-results h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .no-results p {
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .clear-filters {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .clear-filters:hover {
+            background: #1a252f;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .archive-header {
+                padding: 4rem 0 3rem;
+                margin-top: 70px;
+            }
+            
+            .archive-content {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .archive-controls {
+                padding: 1.5rem;
+            }
+            
+            .controls-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .archive-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .post-content {
+                padding: 1.25rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .archive-header {
+                padding: 3rem 0 2rem;
+            }
+            
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .archive-controls {
+                padding: 1rem;
+            }
+            
+            .search-input,
+            .filter-select {
+                padding: 0.75rem;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            .search-input {
+                padding-left: 2.25rem;
+            }
+        }
+        
+        /* Animation for filtering */
+        .archive-post.fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .archive-post.fade-in {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Digital Grandpa 🎖️ Veteran Owned</a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link">About Bob</a>
+                <a href="/store.html" class="nav-link">Books & Tools</a>
+                <a href="/blog.html" class="nav-link">Blog</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="https://joinriseandreclaim.com" class="nav-link rise-reclaim-link" target="_blank">Rise & Reclaim</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Archive Header -->
+    <header class="archive-header">
+        <div class="container">
+            <h1 class="archive-title">Blog Archive</h1>
+            <p class="archive-subtitle">
+                Browse all our posts by date and category. Find the wisdom and support you need for your journey forward.
+            </p>
+        </div>
+    </header>
+
+    <!-- Archive Content -->
+    <main class="archive-content">
+        <div class="container">
+            <!-- Search and Filter Controls -->
+            <div class="archive-controls">
+                <div class="controls-grid">
+                    <div class="search-group">
+                        <label for="searchInput">Search Posts</label>
+                        <div style="position: relative;">
+                            <input type="text" id="searchInput" class="search-input" placeholder="Search by title, content, or tags...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="categoryFilter">Category</label>
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="resilience">Resilience</option>
+                            <option value="veterans">Veterans</option>
+                            <option value="reentry">Reentry</option>
+                            <option value="youth">At-Risk Youth</option>
+                            <option value="technology">Technology</option>
+                            <option value="personal-growth">Personal Growth</option>
+                        </select>
+                    </div>
+                    
+                    <div class="sort-group">
+                        <label for="sortBy">Sort By</label>
+                        <select id="sortBy" class="filter-select">
+                            <option value="date-desc">Newest First</option>
+                            <option value="date-asc">Oldest First</option>
+                            <option value="title-asc">Title A-Z</option>
+                            <option value="title-desc">Title Z-A</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Summary -->
+            <div class="results-summary">
+                Showing <span class="results-count" id="resultsCount">5</span> posts
+            </div>
+            
+            <!-- Archive Grid -->
+            <div class="archive-grid" id="archiveGrid">
+                <!-- Posts will be populated by JavaScript -->
+            </div>
+            
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">📝</div>
+                <h3>No Posts Found</h3>
+                <p>We couldn't find any posts matching your search criteria. Try adjusting your filters or search terms.</p>
+                <button class="clear-filters" onclick="clearAllFilters()">Clear All Filters</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <h3>Digital Grandpa Foundation</h3>
+                    <p>Sometimes you don't need a guru. You need a grandpa who's been where you are and found a way forward.</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about.html">About Bob</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/store.html">Resources</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="https://joinriseandreclaim.com" target="_blank">Rise & Reclaim</a></li>
+                    <li><a href="/contact.html#crisis-support">Crisis Support</a></li>
+                    <li><a href="mailto:jarvis@joinriseandreclaim.com">Email Support</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <p>Join thousands finding their path forward:</p>
+                <div class="social-links">
+                    <a href="https://joinriseandreclaim.com" target="_blank" class="social-link">Rise & Reclaim Community</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Digital Grandpa Foundation. Built to serve people society has written off.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Blog Archive Functionality
+        class BlogArchive {
+            constructor() {
+                this.posts = [];
+                this.filteredPosts = [];
+                this.searchInput = document.getElementById('searchInput');
+                this.categoryFilter = document.getElementById('categoryFilter');
+                this.sortBy = document.getElementById('sortBy');
+                this.archiveGrid = document.getElementById('archiveGrid');
+                this.resultsCount = document.getElementById('resultsCount');
+                this.noResults = document.getElementById('noResults');
+                
+                this.init();
+            }
+            
+            async init() {
+                await this.loadPosts();
+                this.setupEventListeners();
+                this.renderPosts();
+                console.log('📚 Blog archive initialized with', this.posts.length, 'posts');
+            }
+            
+            async loadPosts() {
+                try {
+                    // Load from posts_index.json
+                    const response = await fetch('/posts_index.json');
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.posts = data.posts || [];
+                    } else {
+                        // Fallback to hardcoded posts if JSON not available
+                        this.posts = this.getFallbackPosts();
+                    }
+                } catch (error) {
+                    console.error('Error loading posts:', error);
+                    this.posts = this.getFallbackPosts();
+                }
+                
+                this.filteredPosts = [...this.posts];
+            }
+            
+            getFallbackPosts() {
+                return [
+                    {
+                        id: "ai-transform-life-grandfather-perspective",
+                        title: "How AI Can Transform Your Life: A Grandfather's Perspective",
+                        slug: "ai-transform-life-grandfather-perspective",
+                        excerpt: "Discover how artificial intelligence tools can become your personal mentor and support system, even when you're starting from rock bottom.",
+                        content: "",
+                        author: "Bob",
+                        date: "2025-01-23",
+                        category: "technology",
+                        tags: ["AI", "Technology", "Personal Growth", "Mentorship"],
+                        readTime: "8 min read",
+                        thumbnail: "🤖"
+                    },
+                    {
+                        id: "second-battle-veterans-coming-home",
+                        title: "The Second Battle: When Veterans Come Home",
+                        slug: "second-battle-veterans-coming-home",
+                        excerpt: "The war doesn't end when you take off the uniform. Here's how to fight and win the battle for your civilian life.",
+                        content: "",
+                        author: "Bob",
+                        date: "2025-01-22",
+                        category: "veterans",
+                        tags: ["Veterans", "PTSD", "Transition", "Support"],
+                        readTime: "12 min read",
+                        thumbnail: "🎖️"
+                    },
+                    {
+                        id: "when-everything-falls-apart-rebuilding-guide",
+                        title: "When Everything Falls Apart: A Rebuilding Guide",
+                        slug: "when-everything-falls-apart-rebuilding-guide",
+                        excerpt: "Life knocked you down hard. Here's how to get back up, one step at a time, with practical strategies that actually work.",
+                        content: "",
+                        author: "Bob",
+                        date: "2025-01-21",
+                        category: "resilience",
+                        tags: ["Crisis", "Rebuilding", "Resilience", "Recovery"],
+                        readTime: "15 min read",
+                        thumbnail: "💪"
+                    },
+                    {
+                        id: "beyond-gates-rebuilding-after-incarceration",
+                        title: "Beyond the Gates: Rebuilding After Incarceration",
+                        slug: "beyond-gates-rebuilding-after-incarceration",
+                        excerpt: "Coming home from prison is just the beginning. Here's how to build a life worth living on the outside.",
+                        content: "",
+                        author: "Bob",
+                        date: "2025-01-20",
+                        category: "reentry",
+                        tags: ["Reentry", "Second Chances", "Employment", "Housing"],
+                        readTime: "18 min read",
+                        thumbnail: "🔓"
+                    },
+                    {
+                        id: "finding-path-when-everyone-gives-up",
+                        title: "Finding Your Path When Everyone Has Given Up on You",
+                        slug: "finding-path-when-everyone-gives-up",
+                        excerpt: "When the world writes you off, that's when your real story begins. Here's how to prove them wrong—and yourself right.",
+                        content: "",
+                        author: "Bob",
+                        date: "2025-01-19",
+                        category: "youth",
+                        tags: ["At-Risk Youth", "Second Chances", "Self-Worth", "Determination"],
+                        readTime: "10 min read",
+                        thumbnail: "🌟"
+                    }
+                ];
+            }
+            
+            setupEventListeners() {
+                // Search input
+                this.searchInput.addEventListener('input', () => {
+                    clearTimeout(this.searchTimeout);
+                    this.searchTimeout = setTimeout(() => this.filterPosts(), 300);
+                });
+                
+                // Category filter
+                this.categoryFilter.addEventListener('change', () => this.filterPosts());
+                
+                // Sort by
+                this.sortBy.addEventListener('change', () => this.sortPosts());
+            }
+            
+            filterPosts() {
+                const searchTerm = this.searchInput.value.toLowerCase().trim();
+                const selectedCategory = this.categoryFilter.value;
+                
+                this.filteredPosts = this.posts.filter(post => {
+                    // Search filter
+                    const matchesSearch = !searchTerm || 
+                        post.title.toLowerCase().includes(searchTerm) ||
+                        post.excerpt.toLowerCase().includes(searchTerm) ||
+                        post.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                    
+                    // Category filter
+                    const matchesCategory = !selectedCategory || post.category === selectedCategory;
+                    
+                    return matchesSearch && matchesCategory;
+                });
+                
+                this.sortPosts();
+            }
+            
+            sortPosts() {
+                const sortBy = this.sortBy.value;
+                
+                this.filteredPosts.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'date-desc':
+                            return new Date(b.date) - new Date(a.date);
+                        case 'date-asc':
+                            return new Date(a.date) - new Date(b.date);
+                        case 'title-asc':
+                            return a.title.localeCompare(b.title);
+                        case 'title-desc':
+                            return b.title.localeCompare(a.title);
+                        default:
+                            return new Date(b.date) - new Date(a.date);
+                    }
+                });
+                
+                this.renderPosts();
+            }
+            
+            renderPosts() {
+                this.resultsCount.textContent = this.filteredPosts.length;
+                
+                if (this.filteredPosts.length === 0) {
+                    this.archiveGrid.style.display = 'none';
+                    this.noResults.style.display = 'block';
+                    return;
+                }
+                
+                this.archiveGrid.style.display = 'grid';
+                this.noResults.style.display = 'none';
+                
+                this.archiveGrid.innerHTML = this.filteredPosts.map(post => this.createPostCard(post)).join('');
+                
+                // Track archive view
+                if (typeof Analytics !== 'undefined') {
+                    Analytics.trackEvent('blog_archive_view', {
+                        postsShown: this.filteredPosts.length,
+                        searchTerm: this.searchInput.value,
+                        category: this.categoryFilter.value
+                    });
+                }
+            }
+            
+            createPostCard(post) {
+                const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                const categoryName = this.getCategoryName(post.category);
+                
+                return `
+                    <article class="archive-post fade-in">
+                        <div class="post-thumbnail">
+                            <span class="post-thumbnail-icon">${post.thumbnail}</span>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">${categoryName}</span>
+                                <span class="post-date">${formattedDate}</span>
+                            </div>
+                            <h2 class="post-title">
+                                <a href="/blog/${post.slug}.html">${post.title}</a>
+                            </h2>
+                            <p class="post-excerpt">${post.excerpt}</p>
+                            <div class="post-tags">
+                                ${post.tags.map(tag => `<a href="#" class="post-tag" onclick="filterByTag('${tag}')">${tag}</a>`).join('')}
+                            </div>
+                            <div class="post-footer">
+                                <a href="/blog/${post.slug}.html" class="read-more">Read More →</a>
+                                <span class="post-stats">${post.readTime}</span>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }
+            
+            getCategoryName(category) {
+                const categoryMap = {
+                    'resilience': 'Resilience',
+                    'veterans': 'Veterans',
+                    'reentry': 'Reentry',
+                    'youth': 'At-Risk Youth',
+                    'technology': 'Technology',
+                    'personal-growth': 'Personal Growth'
+                };
+                return categoryMap[category] || category;
+            }
+        }
+        
+        // Global functions
+        function filterByTag(tag) {
+            const archive = window.blogArchive;
+            if (archive) {
+                archive.searchInput.value = tag;
+                archive.filterPosts();
+            }
+        }
+        
+        function clearAllFilters() {
+            const archive = window.blogArchive;
+            if (archive) {
+                archive.searchInput.value = '';
+                archive.categoryFilter.value = '';
+                archive.sortBy.value = 'date-desc';
+                archive.filterPosts();
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            window.blogArchive = new BlogArchive();
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Robert Burr - Digital Grandpa. Navy veteran, former business owner who served 14 years to protect his family. Founded GraceHouse with <10% recidivism rate. Now serving 1,200+ souls globally through Digital Grandpa and Rise & Reclaim Community.">
+    <meta property="og:title" content="About Robert Burr - Digital Grandpa Founder">
+    <meta property="og:description" content="From Broken to Bridge: Navy veteran's journey from business success through 14 years in prison to founding Digital Grandpa, serving 1,200+ souls worldwide.">
+    <meta property="og:image" content="https://digitalgrandpa.org/bob-profile-photo.jpg">
+    <meta property="og:url" content="https://digitalgrandpa.org/about">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Robert Burr - Digital Grandpa Founder">
+    <meta name="twitter:description" content="From broken to bridge: A Navy veteran's transformation journey that now serves 1,200+ souls globally.">
+    <meta name="twitter:image" content="https://digitalgrandpa.org/bob-profile-photo.jpg">
+    <title>About Robert Burr - Digital Grandpa Founder</title>
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Enhanced About Page Styles */
+        .founder-hero {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #1a252f 50%, var(--navy-blue) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .founder-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.02)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.02)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.01)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .founder-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .founder-image-container {
+            position: relative;
+        }
+        
+        .founder-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .founder-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .founder-intro {
+            text-align: left;
+        }
+        
+        .founder-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--gold-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .founder-subtitle {
+            font-size: 1.4rem;
+            color: var(--gold-accent);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .founder-tagline {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .founder-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--gold-accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        /* Journey Timeline */
+        .journey-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--gold-accent), var(--navy-blue));
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 0 2rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--gold-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-year {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--gold-accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-description {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            padding: 6rem 0;
+            background: var(--navy-blue);
+            color: white;
+        }
+        
+        .mission-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .mission-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--gold-accent);
+        }
+        
+        .mission-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-quote {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--gold-accent);
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .quote-author {
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: var(--gold-accent);
+        }
+        
+        /* Programs Preview */
+        .programs-preview {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .programs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .program-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-accent), var(--navy-blue));
+        }
+        
+        .program-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .program-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .program-description {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .program-link {
+            color: var(--gold-accent);
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .program-link:hover {
+            color: var(--navy-blue);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .founder-hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .founder-title {
+                font-size: 2.5rem;
+            }
+            
+            .founder-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .timeline::before {
+                left: 2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+            }
+            
+            .timeline-content {
+                margin-left: 4rem;
+                margin-right: 0;
+            }
+            
+            .timeline-icon {
+                left: 2rem;
+                transform: translateY(-50%);
+            }
+            
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="nav-brand" aria-label="Digital Grandpa Home">
+                <img src="favicon.png" alt="Digital Grandpa Logo" class="brand-logo">
+                Digital Grandpa
+                <span class="veteran-badge">🎖️ Veteran Owned</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link active">About</a>
+                <a href="/store.html" class="nav-link">Store</a>
+                <a href="/blog.html" class="nav-link">Blog</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="https://riseandreclaim.community" class="nav-link cta-button">Rise & Reclaim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Founder Hero Section -->
+    <section class="founder-hero">
+        <div class="founder-hero-content">
+            <div class="founder-image-container">
+                <img src="bob-profile-photo.jpg" alt="Robert Burr - Digital Grandpa Founder" class="founder-image">
+            </div>
+            <div class="founder-intro">
+                <h1 class="founder-title">Robert Burr</h1>
+                <p class="founder-subtitle">Navy Veteran • Founder • Transformation Guide</p>
+                <p class="founder-tagline">
+                    "Sometimes you don't need a guru. You need a grandpa."<br>
+                    From broken to bridge - a journey of redemption that now serves souls worldwide.
+                </p>
+                <div class="founder-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1,200+</span>
+                        <span class="stat-label">Souls Served</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">&lt;10%</span>
+                        <span class="stat-label">Recidivism Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">14</span>
+                        <span class="stat-label">Years Transformed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section class="journey-section">
+        <div class="section-header">
+            <h2 class="section-title">From Broken to Bridge</h2>
+            <p class="section-subtitle">A journey of transformation that proves no fall is too far for redemption to reach</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">⚓</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1981-1987</div>
+                    <h3 class="timeline-title">Navy Service & Divine Encounter</h3>
+                    <p class="timeline-description">
+                        Served with distinction in the U.S. Navy. Experienced a profound supernatural encounter with the Holy Spirit during a conversation with the ship's Chaplain - a moment of literal weightlessness that would remain locked in his heart for decades.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">🏆</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1987-2003</div>
+                    <h3 class="timeline-title">Business Success & Recognition</h3>
+                    <p class="timeline-description">
+                        Built Pinnacle Insurance Agency, expanded into investment banking, and received Operation Share's 1000 Points of Light award. Achieved the American dream by age 40, but pride led to a dangerous sense of self-sufficiency.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">⚖️</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2003</div>
+                    <h3 class="timeline-title">The Impossible Choice</h3>
+                    <p class="timeline-description">
+                        Faced with an untenable choice: plead guilty to white collar crimes he didn't commit, or watch his family be destroyed while fighting from prison. As a father and husband, he chose to sacrifice his freedom for their future.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">🙏</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2003-2017</div>
+                    <h3 class="timeline-title">Prison: Breaking & Remaking</h3>
+                    <p class="timeline-description">
+                        14 years in North Carolina's prison system became God's classroom. Served as chaplain's clerk, librarian, GED tutor, and teaching assistant. Learned that ministry isn't about position—it's about meeting people in their brokenness.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">🏠</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2017-2021</div>
+                    <h3 class="timeline-title">GraceHouse: Proving Transformation</h3>
+                    <p class="timeline-description">
+                        Founded GraceHouse Transitional Ministries in Durham, NC. While state statistics show 66% of released inmates return to prison, GraceHouse graduates maintained a recidivism rate of less than 10%—proving transformation is possible.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">🌐</div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2022-Present</div>
+                    <h3 class="timeline-title">Digital Grandpa: Global Mission Field</h3>
+                    <p class="timeline-description">
+                        Launched Digital Grandpa as a mission field, not a ministry—serving 1,200+ souls worldwide regardless of religious background. In 2025, expanded with Rise & Reclaim Community, welcoming survivors, veterans, and freedom fighters.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <div class="mission-text">
+                <h2>The Starfish Principle</h2>
+                <p>
+                    My life remains like that metaphorical starfish thrown back into life-giving waters, but now I understand my rescue wasn't just for my own salvation—it was so I could help throw others back into the waters of grace and purpose.
+                </p>
+                <p>
+                    Digital Grandpa operates as a mission field, not a ministry. We welcome people of any faith or no faith at all, because spirituality is a deeply personal journey that transcends denominational boundaries.
+                </p>
+                <p>
+                    Today, through Digital Grandpa and Rise & Reclaim Community, this movement continues to demonstrate that no fall is too far for redemptive power to reach, and that broken people, when touched by grace, become the very instruments of healing for others walking the same difficult path.
+                </p>
+            </div>
+            <div class="mission-quote">
+                <p>"Mission fields are real, while religions are man-made. Each serves as a control device over the communities they claim to serve. True transformation happens when we meet people where they are, not where we think they should be."</p>
+                <div class="quote-author">— Robert Burr</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Preview -->
+    <section class="programs-preview">
+        <div class="section-header">
+            <h2 class="section-title">Signature Programs</h2>
+            <p class="section-subtitle">Transformation pathways based on real experience and proven results</p>
+        </div>
+        
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-icon">🌉</div>
+                <h3 class="program-title">From Broken to Bridge</h3>
+                <p class="program-description">
+                    A 14-week transformation journey that mirrors Robert's prison experience, helping participants rebuild their lives with purpose and authentic community support.
+                </p>
+                <a href="/programs/broken-to-bridge.html" class="program-link">
+                    Learn More →
+                </a>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-icon">⭐</div>
+                <h3 class="program-title">Starfish Principle Mentorship</h3>
+                <p class="program-description">
+                    Learn to become a rescuer of others. This program teaches the principles of effective mentorship and community leadership for those called to serve.
+                </p>
+                <a href="/programs/starfish-mentorship.html" class="program-link">
+                    Learn More →
+                </a>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-icon">🎯</div>
+                <h3 class="program-title">Mission Field Mindset</h3>
+                <p class="program-description">
+                    Move beyond traditional ministry approaches. Develop an inclusive, results-focused mindset that serves people regardless of background or beliefs.
+                </p>
+                <a href="/programs/mission-field-mindset.html" class="program-link">
+                    Learn More →
+                </a>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-icon">⚓</div>
+                <h3 class="program-title">Veteran Transition Pathway</h3>
+                <p class="program-description">
+                    Specialized support for military veterans navigating civilian life, drawing from Robert's Navy experience and understanding of service-connected challenges.
+                </p>
+                <a href="/programs/veteran-transition.html" class="program-link">
+                    Learn More →
+                </a>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-icon">🔓</div>
+                <h3 class="program-title">Second Chance Success</h3>
+                <p class="program-description">
+                    Reentry support program based on the GraceHouse model. Proven strategies for rebuilding life after incarceration with dignity and purpose.
+                </p>
+                <a href="/programs/second-chance.html" class="program-link">
+                    Learn More →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Digital Grandpa</h4>
+                <p>Transforming setbacks into comebacks through authentic mentorship and proven strategies.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                    <a href="#" aria-label="YouTube">📺</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/store.html">Store</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Programs</h5>
+                <ul>
+                    <li><a href="/programs/broken-to-bridge.html">From Broken to Bridge</a></li>
+                    <li><a href="/programs/starfish-mentorship.html">Starfish Mentorship</a></li>
+                    <li><a href="/programs/mission-field-mindset.html">Mission Field Mindset</a></li>
+                    <li><a href="/programs/veteran-transition.html">Veteran Transition</a></li>
+                    <li><a href="/programs/second-chance.html">Second Chance Success</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://riseandreclaim.community">Rise & Reclaim</a></li>
+                    <li><a href="/veterans">Veterans</a></li>
+                    <li><a href="/formerly-incarcerated">Formerly Incarcerated</a></li>
+                    <li><a href="/at-risk-youth">At-Risk Youth</a></li>
+                </ul>
+                <div class="footer-mission">
+                    <h5>Our Mission</h5>
+                    <blockquote>"Our greatest failures often become our most valuable wisdom."</blockquote>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Digital Grandpa Foundation. Built to serve people society has written off.</p>
+            <div class="footer-legal">
+                <a href="/contact.html">Privacy Policy</a>
+                <a href="/contact.html">Terms of Service</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </div>
+        
+        <!-- Messianic Faith Alliance Support -->
+        <div class="messianic-faith-support">
+            <div class="messianic-content">
+                <img src="messianic-symbol.jpeg" alt="Messianic Faith Alliance Symbol" class="messianic-symbol">
+                <div class="messianic-text">
+                    <p>Digital Grandpa supports the <a href="https://drive.google.com/file/d/1wqoO-mUylZRXMQdMLQcSEeRcLXByT3OP/view?usp=sharing" target="_blank" rel="noopener noreferrer">Messianic Faith Alliance</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
+

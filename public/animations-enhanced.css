@@ -1,0 +1,765 @@
+/* Digital Grandpa - Advanced Animations and Effects */
+
+/* Advanced Keyframe Animations */
+@keyframes heroGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(243, 156, 18, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(243, 156, 18, 0.6);
+    }
+}
+
+@keyframes floatingElements {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-10px) rotate(-2deg);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleInBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    0% {
+        opacity: 0;
+        transform: rotate(-200deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+@keyframes flipInX {
+    0% {
+        opacity: 0;
+        transform: perspective(400px) rotateX(90deg);
+    }
+    40% {
+        transform: perspective(400px) rotateX(-20deg);
+    }
+    60% {
+        transform: perspective(400px) rotateX(10deg);
+    }
+    80% {
+        transform: perspective(400px) rotateX(-5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@keyframes zoomInUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) translateY(2000px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(0.475) translateY(-60px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes lightSpeedIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%) skewX(-30deg);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(-20%) skewX(20deg);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(0%) skewX(-5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%) skewX(0deg);
+    }
+}
+
+@keyframes rollIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) rotate(-120deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px) rotate(0deg);
+    }
+}
+
+@keyframes jackInTheBox {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) rotate(30deg);
+        transform-origin: center bottom;
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    70% {
+        transform: rotate(3deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.3);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.3);
+    }
+    70% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rubberBand {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scaleX(1.25) scaleY(0.75);
+    }
+    40% {
+        transform: scaleX(0.75) scaleY(1.25);
+    }
+    50% {
+        transform: scaleX(1.15) scaleY(0.85);
+    }
+    65% {
+        transform: scaleX(0.95) scaleY(1.05);
+    }
+    75% {
+        transform: scaleX(1.05) scaleY(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes tada {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    10%, 20% {
+        transform: scale(0.9) rotate(-3deg);
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale(1.1) rotate(3deg);
+    }
+    40%, 60%, 80% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes wobble {
+    0% {
+        transform: translateX(0%);
+    }
+    15% {
+        transform: translateX(-25%) rotate(-5deg);
+    }
+    30% {
+        transform: translateX(20%) rotate(3deg);
+    }
+    45% {
+        transform: translateX(-15%) rotate(-3deg);
+    }
+    60% {
+        transform: translateX(10%) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-5%) rotate(-1deg);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes jello {
+    0%, 11.1%, 100% {
+        transform: skewX(0deg) skewY(0deg);
+    }
+    22.2% {
+        transform: skewX(-12.5deg) skewY(-12.5deg);
+    }
+    33.3% {
+        transform: skewX(6.25deg) skewY(6.25deg);
+    }
+    44.4% {
+        transform: skewX(-3.125deg) skewY(-3.125deg);
+    }
+    55.5% {
+        transform: skewX(1.5625deg) skewY(1.5625deg);
+    }
+    66.6% {
+        transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    }
+    77.7% {
+        transform: skewX(0.390625deg) skewY(0.390625deg);
+    }
+    88.8% {
+        transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    }
+}
+
+/* Particle Effects */
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(90deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-40px) translateX(-5px) rotate(180deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(-20px) translateX(-15px) rotate(270deg);
+        opacity: 0.7;
+    }
+}
+
+@keyframes particleTwinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Gradient Animations */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes colorShift {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Text Animations */
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blinkCursor {
+    0%, 50% {
+        border-color: transparent;
+    }
+    51%, 100% {
+        border-color: var(--gold-color);
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(243, 156, 18, 0.8), 0 0 30px rgba(243, 156, 18, 0.6);
+    }
+}
+
+/* Loading Animations */
+@keyframes loadingDots {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes loadingPulse {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes loadingSpinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hover Effect Animations */
+@keyframes hoverGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(243, 156, 18, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(243, 156, 18, 0.6), 0 0 30px rgba(243, 156, 18, 0.4);
+    }
+}
+
+@keyframes hoverBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes hoverShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Background Animations */
+@keyframes backgroundFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes backgroundPulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Animation Classes */
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+    animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+    animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+.animate-fade-in-bottom {
+    animation: slideInFromBottom 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleInBounce 0.8s ease-out forwards;
+}
+
+.animate-rotate-in {
+    animation: rotateIn 0.8s ease-out forwards;
+}
+
+.animate-flip-in {
+    animation: flipInX 0.8s ease-out forwards;
+}
+
+.animate-zoom-in-up {
+    animation: zoomInUp 0.8s ease-out forwards;
+}
+
+.animate-light-speed {
+    animation: lightSpeedIn 0.8s ease-out forwards;
+}
+
+.animate-roll-in {
+    animation: rollIn 0.8s ease-out forwards;
+}
+
+.animate-jack-in-box {
+    animation: jackInTheBox 0.8s ease-out forwards;
+}
+
+/* Hover Animation Classes */
+.hover-heart-beat:hover {
+    animation: heartBeat 1s ease-in-out;
+}
+
+.hover-rubber-band:hover {
+    animation: rubberBand 1s ease-in-out;
+}
+
+.hover-swing:hover {
+    animation: swing 1s ease-in-out;
+}
+
+.hover-tada:hover {
+    animation: tada 1s ease-in-out;
+}
+
+.hover-wobble:hover {
+    animation: wobble 1s ease-in-out;
+}
+
+.hover-jello:hover {
+    animation: jello 1s ease-in-out;
+}
+
+.hover-glow:hover {
+    animation: hoverGlow 0.3s ease-in-out forwards;
+}
+
+.hover-bounce:hover {
+    animation: hoverBounce 0.6s ease-in-out;
+}
+
+/* Continuous Animation Classes */
+.animate-float {
+    animation: floatingElements 6s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: heroGlow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background: linear-gradient(-45deg, #f39c12, #d4af37, #f39c12, #d4af37);
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+}
+
+.animate-color-shift {
+    animation: colorShift 10s linear infinite;
+}
+
+.animate-text-glow {
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+.animate-particle-float {
+    animation: particleFloat 8s ease-in-out infinite;
+}
+
+.animate-particle-twinkle {
+    animation: particleTwinkle 2s ease-in-out infinite;
+}
+
+/* Stagger Animation Classes */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Loading Animation Classes */
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    margin-left: 4px;
+    animation: loadingDots 1.4s infinite ease-in-out both;
+}
+
+.loading-dots::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    margin-right: 4px;
+    animation: loadingDots 1.4s infinite ease-in-out both;
+    animation-delay: -0.16s;
+}
+
+.loading-pulse {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: currentColor;
+    border-radius: 50%;
+    animation: loadingPulse 1s infinite ease-in-out;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: loadingSpinner 1s linear infinite;
+}
+
+/* Typewriter Effect */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--gold-color);
+    white-space: nowrap;
+    animation: typewriter 3s steps(40, end), blinkCursor 0.75s step-end infinite;
+}
+
+/* Parallax Effects */
+.parallax-slow {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.parallax-medium {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.parallax-fast {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Scroll-triggered Animations */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Performance Optimizations */
+.will-animate {
+    will-change: transform, opacity;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .animate-float,
+    .animate-glow,
+    .animate-gradient,
+    .animate-color-shift,
+    .animate-text-glow,
+    .animate-particle-float,
+    .animate-particle-twinkle {
+        animation: none !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .animate-gradient {
+        background: var(--gold-color) !important;
+        animation: none !important;
+    }
+    
+    .animate-text-glow {
+        text-shadow: none !important;
+        animation: none !important;
+    }
+}
+
+/* Dark Mode Animations */
+@media (prefers-color-scheme: dark) {
+    .animate-glow {
+        animation: heroGlow 3s ease-in-out infinite;
+        filter: brightness(0.8);
+    }
+    
+    .animate-text-glow {
+        animation: textGlow 2s ease-in-out infinite;
+        filter: brightness(1.2);
+    }
+}
+

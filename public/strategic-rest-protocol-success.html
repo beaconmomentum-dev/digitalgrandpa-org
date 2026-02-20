@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Strategic Rest Protocol | Digital Grandpa</title>
+    <meta name="description" content="Thank you for purchasing The Strategic Rest Protocol. Your transformation journey begins now.">
+    
+    <link rel="icon" type="image/png" href="https://digitalgrandpa.org/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://digitalgrandpa.org/favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c3e50 50%, #34495e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .success-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .success-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #d4af37 0%, #f39c12 100%);
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .success-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .success-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #d4af37;
+        }
+        
+        .download-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .download-description {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .download-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #f39c12 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .download-btn.secondary {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        }
+        
+        .download-btn.secondary:hover {
+            box-shadow: 0 12px 30px rgba(23, 162, 184, 0.4);
+        }
+        
+        .bonus-section {
+            background: white;
+            border: 2px solid #28a745;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .bonus-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #28a745;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .bonus-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .bonus-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .bonus-list li::before {
+            content: '🎁';
+            font-size: 1.2rem;
+        }
+        
+        .next-steps {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .next-steps h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #d4af37 0%, #f39c12 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .community-cta {
+            background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .community-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .community-description {
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .community-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .community-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .support-info {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .support-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .support-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .support-text a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .support-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-message {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e9ecef;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .signature {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .success-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .success-title {
+                font-size: 2rem;
+            }
+            
+            .download-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading animation for download buttons */
+        .download-btn.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .download-btn.loading::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 0.5rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">🎉</div>
+        <h1 class="success-title">Welcome to Your Transformation!</h1>
+        <p class="success-subtitle">
+            Thank you for investing in The Strategic Rest Protocol. Your journey to strategic recovery and sustainable success starts right now.
+        </p>
+        
+        <div class="download-section">
+            <h2 class="download-title">
+                <span>📥</span>
+                Instant Access - Download Your Complete Package
+            </h2>
+            <p class="download-description">
+                Your complete Strategic Rest Protocol package is ready for immediate download. 
+                Save these files to your device and start your transformation today.
+            </p>
+            <div class="download-buttons">
+                <a href="#" class="download-btn" id="downloadMain" onclick="downloadFile('main')">
+                    <span>📖</span>
+                    Download Main Guide (PDF)
+                </a>
+                <a href="#" class="download-btn secondary" id="downloadAudio" onclick="downloadFile('audio')">
+                    <span>🎧</span>
+                    Download Audio Version
+                </a>
+                <a href="#" class="download-btn secondary" id="downloadCards" onclick="downloadFile('cards')">
+                    <span>📋</span>
+                    Download Reference Cards
+                </a>
+                <a href="#" class="download-btn secondary" id="downloadBonus" onclick="downloadFile('bonus')">
+                    <span>🎁</span>
+                    Download Bonus Materials
+                </a>
+            </div>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                <strong>Note:</strong> Download links are active for 30 days. Save all files to your device immediately.
+            </p>
+        </div>
+        
+        <div class="bonus-section">
+            <h3 class="bonus-title">
+                <span>🎁</span>
+                Your Bonus Package (Worth $147)
+            </h3>
+            <ul class="bonus-list">
+                <li><strong>Audio Version ($47 value):</strong> Complete guide narrated by Digital Grandpa himself</li>
+                <li><strong>Quick Reference Cards ($27 value):</strong> Printable cards for immediate implementation</li>
+                <li><strong>30-Day Email Support ($73 value):</strong> Personal guidance and accountability</li>
+            </ul>
+        </div>
+        
+        <div class="next-steps">
+            <h3>Your Next Steps to Success</h3>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Download & Save</div>
+                    <div class="step-description">Download all files and save them to your device for offline access</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Start Reading</div>
+                    <div class="step-description">Begin with Chapter 1 to understand why strong people rest strategically</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Implement Daily</div>
+                    <div class="step-description">Use the quick reference cards to implement one rest type each day</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Track Progress</div>
+                    <div class="step-description">Monitor your energy, decision-making, and overall well-being</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="community-cta">
+            <h3 class="community-title">Join the Rise & Reclaim Community</h3>
+            <p class="community-description">
+                Connect with other life rebuilders, share your progress, and get ongoing support from Bob and the community.
+            </p>
+            <a href="https://riseandreclaim.community" class="community-btn">
+                <span>🚀</span>
+                Join the Community
+            </a>
+        </div>
+        
+        <div class="support-info">
+            <div class="support-title">Need Help or Have Questions?</div>
+            <div class="support-text">
+                Your 30-day email support starts immediately. You'll receive your first check-in email within 24 hours. 
+                For immediate assistance, contact us at <a href="mailto:director@digitalgrandpa.org">director@digitalgrandpa.org</a>
+            </div>
+        </div>
+        
+        <div class="footer-message">
+            "Your biggest breakthrough might be waiting on the other side of a good night's sleep. 
+            You've taken the first step. Now let's make it count."
+            <div class="signature">
+                - Bob Burr, "Digital Grandpa"<br>
+                U.S. Navy Veteran | Founder, Rise & Reclaim Community
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Get session ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+        
+        // Download file function
+        function downloadFile(type) {
+            const button = document.getElementById('download' + type.charAt(0).toUpperCase() + type.slice(1));
+            
+            // Add loading state
+            button.classList.add('loading');
+            button.style.pointerEvents = 'none';
+            
+            // Simulate download (replace with actual download URLs)
+            const downloadUrls = {
+                'main': 'https://digitalgrandpa.org/downloads/strategic-rest-protocol-main-guide.pdf',
+                'audio': 'https://digitalgrandpa.org/downloads/strategic-rest-protocol-audio.mp3',
+                'cards': 'https://digitalgrandpa.org/downloads/strategic-rest-protocol-reference-cards.pdf',
+                'bonus': 'https://digitalgrandpa.org/downloads/strategic-rest-protocol-bonus-materials.zip'
+            };
+            
+            // Create temporary download link
+            const link = document.createElement('a');
+            link.href = downloadUrls[type];
+            link.download = '';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            
+            // Trigger download
+            setTimeout(() => {
+                link.click();
+                document.body.removeChild(link);
+                
+                // Remove loading state
+                button.classList.remove('loading');
+                button.style.pointerEvents = 'auto';
+                
+                // Change button text to indicate success
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span>✅</span> Downloaded!';
+                button.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                }, 3000);
+            }, 1500);
+        }
+        
+        // Track page view and conversion
+        if (sessionId) {
+            // Send conversion tracking data
+            console.log('Strategic Rest Protocol purchase completed:', sessionId);
+            
+            // You can add Google Analytics, Facebook Pixel, or other tracking here
+            // gtag('event', 'purchase', { ... });
+            // fbq('track', 'Purchase', { ... });
+        }
+        
+        // Auto-scroll to download section after 2 seconds
+        setTimeout(() => {
+            document.querySelector('.download-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 2000);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="From Broken to Bridge - 14-week transformation journey based on Robert Burr's prison experience. Turn your setbacks into comebacks with proven strategies.">
+    <meta property="og:title" content="From Broken to Bridge - Digital Grandpa">
+    <meta property="og:description" content="14-week transformation journey that mirrors Robert's 14-year prison experience. Breaking, rebuilding, and bridging to help others.">
+    <meta property="og:image" content="https://digitalgrandpa.org/bob-profile-photo.webp">
+    <title>From Broken to Bridge - Digital Grandpa</title>
+    
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../favicon.png">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Program Page Styles */
+        .program-hero {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #1a252f 50%, var(--navy-blue) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .program-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            text-align: left;
+        }
+        
+        .program-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .program-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--gold-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .program-subtitle {
+            font-size: 1.4rem;
+            color: var(--gold-accent);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .program-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gold-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-cta:hover {
+            background: #d4a853;
+            transform: translateY(-2px);
+        }
+        
+        .hero-stats {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--gold-accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        /* Journey Phases */
+        .journey-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+        
+        .phases-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .phase {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .phase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold-accent), var(--navy-blue));
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .phase-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #1a252f 100%);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .phase-info h3 {
+            font-size: 1.8rem;
+            color: var(--navy-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase-duration {
+            color: var(--gold-accent);
+            font-weight: 600;
+        }
+        
+        .phase-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+        
+        .week-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .week-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold-accent);
+        }
+        
+        .week-title {
+            font-weight: bold;
+            color: var(--navy-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .week-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Program Components */
+        .components-section {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .components-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .component-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .component-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .component-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .component-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .component-description {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials-section {
+            padding: 6rem 0;
+            background: var(--navy-blue);
+            color: white;
+        }
+        
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--gold-accent);
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Pricing */
+        .pricing-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .pricing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid var(--gold-accent);
+            transform: scale(1.05);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold-accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-note {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--gold-accent);
+            font-weight: bold;
+        }
+        
+        .pricing-cta {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--gold-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-cta:hover {
+            background: var(--navy-blue);
+        }
+        
+        /* FAQ */
+        .faq-section {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--navy-blue);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .program-hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .program-title {
+                font-size: 2.5rem;
+            }
+            
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .week-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="nav-brand" aria-label="Digital Grandpa Home">
+                <img src="../favicon.webp" alt="Digital Grandpa Logo" class="brand-logo">
+                Digital Grandpa
+                <span class="veteran-badge">🎖️ Veteran Owned</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/store.html" class="nav-link">Store</a>
+                <a href="/blog.html" class="nav-link">Blog</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="/programs/" class="nav-link">Programs</a>
+                <a href="https://riseandreclaim.community" class="nav-link cta-button">Rise & Reclaim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Program Hero -->
+    <section class="program-hero">
+        <div class="program-hero-content">
+            <div class="hero-text">
+                <span class="program-icon">🌉</span>
+                <h1 class="program-title">From Broken to Bridge</h1>
+                <p class="program-subtitle">14-Week Transformation Journey</p>
+                <p class="program-description">
+                    A comprehensive transformation program that mirrors Robert's 14-year prison experience, 
+                    condensed into 14 powerful weeks of breaking, rebuilding, and bridging to help others.
+                </p>
+                <a href="#pricing" class="hero-cta">Start Your Journey Today</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">14</span>
+                    <span class="stat-label">Weeks of Transformation</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Distinct Phases</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12-15</span>
+                    <span class="stat-label">Participants per Cohort</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Life-Changing Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Phases -->
+    <section class="journey-section">
+        <div class="section-header">
+            <h2 class="section-title">The Three-Phase Journey</h2>
+            <p class="section-subtitle">
+                Each phase builds upon the last, creating a comprehensive transformation that prepares you to become a bridge for others
+            </p>
+        </div>
+        
+        <div class="phases-container">
+            <!-- Phase 1: Breaking -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">💔</div>
+                    <div class="phase-info">
+                        <h3>Phase 1: Breaking</h3>
+                        <p class="phase-duration">Weeks 1-3</p>
+                    </div>
+                </div>
+                <p class="phase-description">
+                    The journey begins with honest acknowledgment of where you are and embracing the brokenness that precedes breakthrough. 
+                    This phase creates the foundation for authentic transformation by surrendering the illusion of control.
+                </p>
+                <div class="week-list">
+                    <div class="week-item">
+                        <div class="week-title">Week 1: Acknowledging the Fall</div>
+                        <div class="week-description">Honest assessment of current situation without shame or judgment</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 2: Embracing Brokenness</div>
+                        <div class="week-description">Understanding that brokenness precedes breakthrough</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 3: Surrendering Control</div>
+                        <div class="week-description">Learning to let go of self-sufficiency and pride</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Rebuilding -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">🔨</div>
+                    <div class="phase-info">
+                        <h3>Phase 2: Rebuilding</h3>
+                        <p class="phase-duration">Weeks 4-10</p>
+                    </div>
+                </div>
+                <p class="phase-description">
+                    The longest and most intensive phase, where you systematically rebuild your life on a solid foundation. 
+                    This mirrors Robert's years of spiritual and personal reconstruction during his incarceration.
+                </p>
+                <div class="week-list">
+                    <div class="week-item">
+                        <div class="week-title">Week 4: Foundation Setting</div>
+                        <div class="week-description">Establishing core values and principles for your new life</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 5: Identity Reconstruction</div>
+                        <div class="week-description">Discovering who you are beyond your failures and mistakes</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 6: Purpose Discovery</div>
+                        <div class="week-description">Finding meaning and purpose in your pain and experiences</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 7: Skill Development</div>
+                        <div class="week-description">Building practical life capabilities and competencies</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 8: Relationship Restoration</div>
+                        <div class="week-description">Healing damaged connections and building healthy relationships</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 9: Service Orientation</div>
+                        <div class="week-description">Learning to help others while continuing your own healing</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 10: Spiritual Integration</div>
+                        <div class="week-description">Connecting with something greater than yourself</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Bridging -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">🌉</div>
+                    <div class="phase-info">
+                        <h3>Phase 3: Bridging</h3>
+                        <p class="phase-duration">Weeks 11-14</p>
+                    </div>
+                </div>
+                <p class="phase-description">
+                    The culmination of your journey, where you prepare to become a bridge for others. This phase focuses on 
+                    developing the skills and mindset needed to help others cross from brokenness to wholeness.
+                </p>
+                <div class="week-list">
+                    <div class="week-item">
+                        <div class="week-title">Week 11: Becoming a Bridge</div>
+                        <div class="week-description">Preparing to help others cross from brokenness to wholeness</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 12: Mentorship Training</div>
+                        <div class="week-description">Learning to guide others effectively without judgment</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 13: Community Integration</div>
+                        <div class="week-description">Finding your place in healthy, supportive community</div>
+                    </div>
+                    <div class="week-item">
+                        <div class="week-title">Week 14: Graduation & Commitment</div>
+                        <div class="week-description">Pledging to help the next person on their journey</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Components -->
+    <section class="components-section">
+        <div class="section-header">
+            <h2 class="section-title">What's Included</h2>
+            <p class="section-subtitle">
+                Comprehensive support system designed to ensure your success throughout the 14-week journey
+            </p>
+        </div>
+        
+        <div class="components-grid">
+            <div class="component-card">
+                <div class="component-icon">👥</div>
+                <h3 class="component-title">Weekly Group Sessions</h3>
+                <p class="component-description">
+                    2-hour weekly sessions with your cohort, facilitated by trained mentors who have completed the program themselves.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">📖</div>
+                <h3 class="component-title">Daily Reflection Journal</h3>
+                <p class="component-description">
+                    Guided prompts and exercises designed to deepen your self-awareness and track your transformation progress.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">🤝</div>
+                <h3 class="component-title">Peer Accountability</h3>
+                <p class="component-description">
+                    Matched with an accountability partner from your cohort for mutual support and encouragement.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">📞</div>
+                <h3 class="component-title">Monthly Mentoring Calls</h3>
+                <p class="component-description">
+                    One-on-one calls with experienced mentors for personalized guidance and support.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">📚</div>
+                <h3 class="component-title">Resource Library</h3>
+                <p class="component-description">
+                    Access to books, videos, worksheets, and tools curated specifically for your transformation journey.
+                </p>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-icon">🎓</div>
+                <h3 class="component-title">Graduation Ceremony</h3>
+                <p class="component-description">
+                    Celebrate your transformation with family and friends invited to witness your commitment to helping others.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2 class="section-title">Transformation Stories</h2>
+            <p class="section-subtitle">
+                Real stories from real people who have walked this journey from broken to bridge
+            </p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "I thought my life was over after my release from prison. This program didn't just give me hope - 
+                    it gave me a roadmap. Now I'm helping other men find their way back to purpose."
+                </p>
+                <div class="testimonial-author">Marcus T.</div>
+                <div class="testimonial-role">Program Graduate, Now Mentor</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "The 14 weeks felt like 14 years of therapy compressed into a manageable journey. I finally understand 
+                    that my pain has purpose, and I'm not ashamed of my story anymore."
+                </p>
+                <div class="testimonial-author">Sarah M.</div>
+                <div class="testimonial-role">Veteran, Program Graduate</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "This isn't just another self-help program. It's real transformation based on real experience. 
+                    Robert's story gave me permission to believe my story could have a different ending."
+                </p>
+                <div class="testimonial-author">David L.</div>
+                <div class="testimonial-role">Business Owner, Program Graduate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section" id="pricing">
+        <div class="pricing-container">
+            <div class="section-header">
+                <h2 class="section-title">Investment in Your Transformation</h2>
+                <p class="section-subtitle">
+                    Choose the option that works best for your situation. Scholarships available for those with financial hardship.
+                </p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-title">Scholarship Rate</div>
+                    <div class="pricing-price">$97</div>
+                    <div class="pricing-note">For those with financial hardship</div>
+                    <ul class="pricing-features">
+                        <li>All 14 weekly group sessions</li>
+                        <li>Daily reflection journal</li>
+                        <li>Peer accountability partner</li>
+                        <li>Basic resource library access</li>
+                        <li>Graduation ceremony</li>
+                    </ul>
+                    <a href="/contact.html" class="pricing-cta">Apply for Scholarship</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-title">Full Program</div>
+                    <div class="pricing-price">$497</div>
+                    <div class="pricing-note">or 3 payments of $167</div>
+                    <ul class="pricing-features">
+                        <li>All 14 weekly group sessions</li>
+                        <li>Daily reflection journal with guided prompts</li>
+                        <li>Peer accountability partnership</li>
+                        <li>Monthly one-on-one mentoring calls</li>
+                        <li>Complete resource library</li>
+                        <li>Graduation ceremony with family invited</li>
+                        <li>Alumni network access</li>
+                    </ul>
+                    <a href="/contact.html" class="pricing-cta">Enroll Now</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-title">Premium Tier</div>
+                    <div class="pricing-price">$997</div>
+                    <div class="pricing-note">Maximum support and guidance</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Full Program</li>
+                        <li>Weekly one-on-one coaching calls</li>
+                        <li>Direct access to Robert Burr</li>
+                        <li>Personalized transformation plan</li>
+                        <li>Priority support and resources</li>
+                        <li>Mentorship training preparation</li>
+                        <li>Lifetime alumni support</li>
+                    </ul>
+                    <a href="/contact.html" class="pricing-cta">Get Premium Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Who is this program for?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    This program is for anyone who has experienced significant setbacks, failures, or life transitions and wants to transform their pain into purpose. Whether you're formerly incarcerated, a veteran, someone who has lost everything, or simply feeling broken by life's circumstances, this program provides a proven pathway to rebuilding and helping others.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do I need to be religious to participate?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    No. While Robert's journey includes spiritual elements, this program operates as a "mission field, not a ministry." We welcome people of any faith or no faith at all. The focus is on practical transformation principles that work regardless of your religious background.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What if I can't afford the full program cost?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We offer scholarship rates for those experiencing financial hardship. Additionally, we have sponsor programs where community members and organizations help fund scholarships. No one is turned away due to inability to pay.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Are the sessions in-person or virtual?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We offer both in-person and virtual cohorts to accommodate different needs and locations. Virtual sessions use secure video conferencing and have proven just as effective as in-person meetings for building community and facilitating transformation.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What happens after I graduate?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Graduates become part of our alumni network and are encouraged to help mentor new participants. Many go on to take our "Starfish Principle Mentorship" training to become certified facilitators. The goal is to create a community of bridges helping others cross over.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Digital Grandpa</h4>
+                <p>Transforming setbacks into comebacks through authentic mentorship and proven strategies.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Programs</h5>
+                <ul>
+                    <li><a href="/programs/broken-to-bridge.html">From Broken to Bridge</a></li>
+                    <li><a href="/programs/starfish-mentorship.html">Starfish Mentorship</a></li>
+                    <li><a href="/programs/mission-field-mindset.html">Mission Field Mindset</a></li>
+                    <li><a href="/programs/veteran-transition.html">Veteran Transition</a></li>
+                    <li><a href="/programs/second-chance.html">Second Chance Success</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/about.html">About Robert</a></li>
+                    <li><a href="https://riseandreclaim.community">Rise & Reclaim</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Digital Grandpa Foundation. Built to serve people society has written off.</p>
+        </div>
+        
+        <!-- Messianic Faith Alliance Support -->
+        <div class="messianic-faith-support">
+            <div class="messianic-content">
+                <img src="../messianic-symbol.webp" alt="Messianic Faith Alliance Symbol" class="messianic-symbol">
+                <div class="messianic-text">
+                    <p>Digital Grandpa supports the <a href="https://drive.google.com/file/d/1wqoO-mUylZRXMQdMLQcSEeRcLXByT3OP/view?usp=sharing" target="_blank" rel="noopener noreferrer">Messianic Faith Alliance</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js" defer></script>
+</body>
+</html>
+

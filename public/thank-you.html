@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for supporting the Digital Grandpa mission! Your contribution helps transform setbacks into comebacks.">
+    <title>Thank You - Digital Grandpa Weekly Giveback</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Thank You Page Styles */
+        :root {
+            --fire-orange: #ff6b35;
+            --fire-red: #dc3545;
+            --fire-gold: #ffd700;
+            --warm-amber: #ffb347;
+            --deep-ember: #8b0000;
+            --charcoal: #2c3e50;
+            --soft-white: #fefefe;
+            --warm-gray: #f8f9fa;
+            --success-green: #28a745;
+            --gradient-fire: linear-gradient(135deg, var(--fire-orange) 0%, var(--fire-red) 100%);
+            --gradient-success: linear-gradient(135deg, var(--success-green) 0%, #20c997 100%);
+            --gradient-gold: linear-gradient(135deg, var(--fire-gold) 0%, var(--warm-amber) 100%);
+        }
+
+        .thank-you-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: relative;
+            overflow-x: hidden;
+            margin-top: 80px; /* Add margin to prevent navbar overlap */
+        }
+
+        /* Animated celebration background */
+        .thank-you-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(40, 167, 69, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+            animation: celebrationGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes celebrationGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        .thank-you-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Success Header */
+        .success-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: successBounce 2s ease infinite;
+            filter: drop-shadow(0 0 20px rgba(40, 167, 69, 0.6));
+        }
+
+        @keyframes successBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
+        }
+
+        .success-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: var(--gradient-success);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .success-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-success);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .impact-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .impact-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .impact-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(40, 167, 69, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .impact-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--success-green);
+            margin-bottom: 0.5rem;
+            animation: countUp 2s ease;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--charcoal);
+            font-size: 1rem;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        /* Digital Gifts Section */
+        .gifts-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 179, 71, 0.1) 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .gifts-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gift-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gift-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .gift-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .gift-title {
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .gift-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .download-button {
+            background: var(--gradient-gold);
+            color: var(--charcoal);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Drawing Status */
+        .drawing-status {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .drawing-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .drawing-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .drawing-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .drawing-date {
+            background: var(--gradient-gold);
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Next Steps */
+        .next-steps {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+
+        .next-steps-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step-item {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .step-item:hover {
+            border-color: var(--fire-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
+        }
+
+        .step-number {
+            background: var(--gradient-fire);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .step-link {
+            color: var(--fire-orange);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        .step-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Sharing */
+        .social-sharing {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .sharing-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .sharing-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .share-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 1rem;
+            }
+
+            .impact-section,
+            .gifts-section,
+            .next-steps {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .gifts-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sharing-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--fire-gold);
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-page">
+        <!-- Confetti Animation -->
+        <div class="confetti" id="confetti"></div>
+
+        <div class="thank-you-container">
+            <!-- Success Header -->
+            <header class="success-header">
+                <div class="success-icon">🎉</div>
+                <h1 class="success-title">You're In!</h1>
+                <p class="success-subtitle">Thank you for supporting the Digital Grandpa mission. Your contribution helps transform setbacks into comebacks for veterans, formerly incarcerated individuals, and at-risk youth.</p>
+            </header>
+
+            <!-- Impact Section -->
+            <section class="impact-section">
+                <div class="impact-header">
+                    <h2 class="impact-title">Your Impact in Action</h2>
+                    <p class="impact-description">Here's how your support is making a real difference in people's lives:</p>
+                </div>
+
+                <div class="impact-stats">
+                    <div class="impact-stat">
+                        <div class="stat-number" data-target="1247">0</div>
+                        <div class="stat-label">Lives Transformed</div>
+                        <div class="stat-description">Veterans, formerly incarcerated, at-risk youth</div>
+                    </div>
+                    <div class="impact-stat">
+                        <div class="stat-number" data-target="89">0</div>
+                        <div class="stat-label">Success Rate</div>
+                        <div class="stat-description">Members who complete our programs</div>
+                    </div>
+                    <div class="impact-stat">
+                        <div class="stat-number" data-target="156">0</div>
+                        <div class="stat-label">This Month</div>
+                        <div class="stat-description">New members joined the community</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Digital Gifts Section -->
+            <section class="gifts-section">
+                <h3 class="gifts-title">🎁 Your Supporter Gifts</h3>
+                <div class="gifts-grid">
+                    <div class="gift-item">
+                        <div class="gift-icon">📚</div>
+                        <div class="gift-title">Voices of Inspiration</div>
+                        <div class="gift-description">Exclusive digital collection of real transformation stories from our community members.</div>
+                        <a href="#" class="download-button" onclick="downloadGift('voices-of-inspiration')">Download Now</a>
+                    </div>
+                    <div class="gift-item">
+                        <div class="gift-icon">🎧</div>
+                        <div class="gift-title">Wisdom Audio Series</div>
+                        <div class="gift-description">Personal audio messages from Bob sharing insights from his journey and work with thousands.</div>
+                        <a href="#" class="download-button" onclick="downloadGift('wisdom-audio')">Listen Now</a>
+                    </div>
+                    <div class="gift-item">
+                        <div class="gift-icon">📋</div>
+                        <div class="gift-title">Comeback Blueprint</div>
+                        <div class="gift-description">Step-by-step guide for turning your biggest setbacks into your greatest comebacks.</div>
+                        <a href="#" class="download-button" onclick="downloadGift('comeback-blueprint')">Get Guide</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Drawing Status -->
+            <section class="drawing-status" id="drawingStatus">
+                <div class="drawing-icon">🎯</div>
+                <h3 class="drawing-title">You're Entered in This Week's Drawing!</h3>
+                <p class="drawing-description">Every Saturday, we select one supporter to receive a special surprise. Check your email for the announcement!</p>
+                <div class="drawing-date">Next Drawing: This Saturday</div>
+            </section>
+
+            <!-- Next Steps -->
+            <section class="next-steps">
+                <h3 class="next-steps-title">What Happens Next?</h3>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Check Your Email</div>
+                        <div class="step-description">You'll receive a personalized thank-you message with additional resources within the next few minutes.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Join the Community</div>
+                        <div class="step-description">Connect with other supporters and members in our Rise & Reclaim community.</div>
+                        <a href="https://joinriseandreclaim.com" class="step-link" target="_blank">Join Now →</a>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Stay Connected</div>
+                        <div class="step-description">Follow our journey and see the impact of your support through our regular updates.</div>
+                        <a href="/blog.html" class="step-link">Read Our Blog →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Sharing -->
+            <section class="social-sharing">
+                <h3 class="sharing-title">Help Us Spread the Mission</h3>
+                <div class="sharing-buttons">
+                    <a href="#" class="share-button" onclick="shareOnFacebook()">📘 Share on Facebook</a>
+                    <a href="#" class="share-button" onclick="shareOnTwitter()">🐦 Share on Twitter</a>
+                    <a href="#" class="share-button" onclick="shareOnLinkedIn()">💼 Share on LinkedIn</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Include main scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Thank You Page JavaScript -->
+    <script>
+        class ThankYouPageHandler {
+            constructor() {
+                this.supportData = null;
+                this.init();
+            }
+
+            init() {
+                console.log('🎉 Thank You page initializing...');
+                this.parseURLParameters();
+                this.setupAnimations();
+                this.animateStats();
+                this.createConfetti();
+                this.trackPageView();
+            }
+
+            parseURLParameters() {
+                const urlParams = new URLSearchParams(window.location.search);
+                this.supportData = {
+                    source: urlParams.get('source'),
+                    amount: urlParams.get('amount'),
+                    paymentIntent: urlParams.get('payment_intent'),
+                    includeInDrawing: urlParams.get('drawing') !== 'false'
+                };
+
+                console.log('📊 Support data:', this.supportData);
+                this.updatePageContent();
+            }
+
+            updatePageContent() {
+                // Update drawing status based on participation
+                const drawingStatus = document.getElementById('drawingStatus');
+                if (!this.supportData.includeInDrawing) {
+                    drawingStatus.innerHTML = `
+                        <div class="drawing-icon">ℹ️</div>
+                        <h3 class="drawing-title">Thank You for Your Support!</h3>
+                        <p class="drawing-description">You chose not to participate in the weekly drawing, but your support still makes a huge difference in our mission.</p>
+                    `;
+                }
+
+                // Customize gifts based on support level
+                if (this.supportData.amount) {
+                    this.customizeGifts(parseInt(this.supportData.amount));
+                }
+            }
+
+            customizeGifts(amount) {
+                // Add premium gifts for higher support levels
+                if (amount >= 250) {
+                    this.addPremiumGifts();
+                } else if (amount >= 100) {
+                    this.addRegularGifts();
+                }
+            }
+
+            addPremiumGifts() {
+                const giftsGrid = document.querySelector('.gifts-grid');
+                const premiumGift = document.createElement('div');
+                premiumGift.className = 'gift-item';
+                premiumGift.innerHTML = `
+                    <div class="gift-icon">👑</div>
+                    <div class="gift-title">Premium Supporter Package</div>
+                    <div class="gift-description">Exclusive access to Bob's personal mentorship videos and private community forum.</div>
+                    <a href="#" class="download-button" onclick="downloadGift('premium-package')">Access Now</a>
+                `;
+                giftsGrid.appendChild(premiumGift);
+            }
+
+            addRegularGifts() {
+                const giftsGrid = document.querySelector('.gifts-grid');
+                const regularGift = document.createElement('div');
+                regularGift.className = 'gift-item';
+                regularGift.innerHTML = `
+                    <div class="gift-icon">🎖️</div>
+                    <div class="gift-title">Supporter Bonus Pack</div>
+                    <div class="gift-description">Additional resources including exclusive interviews and behind-the-scenes content.</div>
+                    <a href="#" class="download-button" onclick="downloadGift('bonus-pack')">Download</a>
+                `;
+                giftsGrid.appendChild(regularGift);
+            }
+
+            setupAnimations() {
+                // Animate elements as they come into view
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all major sections
+                document.querySelectorAll('.impact-section, .gifts-section, .drawing-status, .next-steps').forEach(section => {
+                    observer.observe(section);
+                });
+            }
+
+            animateStats() {
+                const statNumbers = document.querySelectorAll('.stat-number');
+                
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    let current = 0;
+
+                    const updateStat = () => {
+                        current += increment;
+                        if (current < target) {
+                            stat.textContent = Math.floor(current);
+                            requestAnimationFrame(updateStat);
+                        } else {
+                            stat.textContent = target;
+                            if (stat.textContent === '89') {
+                                stat.textContent = '89%';
+                            }
+                        }
+                    };
+
+                    // Start animation when element is visible
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                updateStat();
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    });
+
+                    observer.observe(stat);
+                });
+            }
+
+            createConfetti() {
+                const confettiContainer = document.getElementById('confetti');
+                const colors = ['#ffd700', '#ff6b35', '#dc3545', '#28a745', '#007bff'];
+                
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confettiPiece = document.createElement('div');
+                        confettiPiece.className = 'confetti-piece';
+                        confettiPiece.style.left = Math.random() * 100 + '%';
+                        confettiPiece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        confettiPiece.style.animationDelay = Math.random() * 3 + 's';
+                        confettiPiece.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                        
+                        confettiContainer.appendChild(confettiPiece);
+                        
+                        // Remove after animation
+                        setTimeout(() => {
+                            confettiPiece.remove();
+                        }, 5000);
+                    }, i * 100);
+                }
+            }
+
+            trackPageView() {
+                const eventData = {
+                    type: 'thank_you_page_view',
+                    source: this.supportData.source,
+                    amount: this.supportData.amount,
+                    timestamp: Date.now()
+                };
+
+                console.log('📊 Thank you page view tracked:', eventData);
+
+                // Send to analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'page_view', {
+                        page_title: 'Thank You - Weekly Giveback',
+                        page_location: window.location.href,
+                        event_category: 'Weekly_Giveback'
+                    });
+                }
+            }
+        }
+
+        // Gift download functions
+        function downloadGift(giftType) {
+            console.log('📥 Downloading gift:', giftType);
+            
+            // Track download
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'download', {
+                    event_category: 'Digital_Gifts',
+                    event_label: giftType,
+                    value: 1
+                });
+            }
+
+            // In production, this would generate a secure download link
+            const downloadUrls = {
+                'voices-of-inspiration': '/downloads/voices-of-inspiration.pdf',
+                'wisdom-audio': '/downloads/wisdom-audio-series.zip',
+                'comeback-blueprint': '/downloads/comeback-blueprint.pdf',
+                'premium-package': '/downloads/premium-supporter-package.zip',
+                'bonus-pack': '/downloads/supporter-bonus-pack.zip'
+            };
+
+            const url = downloadUrls[giftType];
+            if (url) {
+                // Create temporary download link
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = '';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                alert('Download will be available shortly. Check your email for the direct link!');
+            }
+        }
+
+        // Social sharing functions
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.origin);
+            const text = encodeURIComponent('I just supported the Digital Grandpa mission to help transform setbacks into comebacks for veterans, formerly incarcerated individuals, and at-risk youth. Join me in making a difference!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            
+            trackSocialShare('facebook');
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.origin);
+            const text = encodeURIComponent('Just supported @DigitalGrandpa mission to transform setbacks into comebacks. Every story matters. Every life has value. #TransformSetbacks #DigitalGrandpa');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+            
+            trackSocialShare('twitter');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.origin);
+            const title = encodeURIComponent('Supporting Digital Grandpa Mission');
+            const summary = encodeURIComponent('Proud to support Digital Grandpa in transforming setbacks into comebacks for veterans, formerly incarcerated individuals, and at-risk youth.');
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`, '_blank', 'width=600,height=400');
+            
+            trackSocialShare('linkedin');
+        }
+
+        function trackSocialShare(platform) {
+            console.log('📱 Social share:', platform);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'share', {
+                    method: platform,
+                    content_type: 'thank_you_page',
+                    event_category: 'Social_Sharing'
+                });
+            }
+        }
+
+        // Initialize thank you page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            window.thankYouPageHandler = new ThankYouPageHandler();
+        });
+
+        // Add CSS for fade in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Digital Grandpa</title>
+    <link rel="icon" type="image/svg+xml" href="digital-grandpa-favicon.svg">
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="checkout-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="checkout-header">
+        <div class="container">
+            <div class="logo">
+                <span class="lantern">🏮</span>
+                <span class="brand-name">Digital Grandpa</span>
+            </div>
+            <div class="secure-badge">
+                🔒 Secure Checkout
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Checkout Content -->
+    <main class="checkout-main">
+        <div class="container">
+            <div class="checkout-grid">
+                <!-- Product Summary -->
+                <div class="product-summary">
+                    <div class="cabin-card">
+                        <div class="fireplace-glow">🔥</div>
+                        <h2>Your Order</h2>
+                        
+                        <div class="product-item" id="productItem">
+                            <!-- Product details will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="order-total">
+                            <div class="total-line">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="total-line final-total">
+                                <span>Total:</span>
+                                <span id="total">$0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trust-indicators">
+                            <div class="trust-item">
+                                <span>🔒</span>
+                                <span>256-bit SSL Encrypted</span>
+                            </div>
+                            <div class="trust-item">
+                                <span>💳</span>
+                                <span>30-Day Money Back</span>
+                            </div>
+                            <div class="trust-item">
+                                <span>⚡</span>
+                                <span>Instant Access</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <div class="checkout-form-section">
+                    <div class="form-card">
+                        <h2>Complete Your Purchase</h2>
+                        
+                        <form id="payment-form">
+                            <!-- Customer Information -->
+                            <div class="form-section">
+                                <h3>Your Information</h3>
+                                
+                                <div class="form-group">
+                                    <label for="customer-name">Full Name *</label>
+                                    <input type="text" id="customer-name" name="customerName" required 
+                                           placeholder="Enter your full name">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="customer-email">Email Address *</label>
+                                    <input type="email" id="customer-email" name="customerEmail" required 
+                                           placeholder="your@email.com">
+                                </div>
+                            </div>
+
+                            <!-- Payment Information -->
+                            <div class="form-section">
+                                <h3>Payment Details</h3>
+                                
+                                <div class="form-group">
+                                    <label for="card-element">Card Information *</label>
+                                    <div id="card-element" class="stripe-element">
+                                        <!-- Stripe Elements will create form elements here -->
+                                    </div>
+                                    <div id="card-errors" class="error-message" role="alert"></div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" id="submit-button" class="checkout-btn">
+                                <span id="button-text">
+                                    🔥 Complete Purchase
+                                </span>
+                                <div id="spinner" class="spinner hidden"></div>
+                            </button>
+                            
+                            <div class="payment-security">
+                                <p>
+                                    <span class="security-icon">🛡️</span>
+                                    Your payment information is encrypted and secure. 
+                                    We never store your card details.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Business Disclaimer -->
+    <div class="business-disclaimer">
+        <div class="container">
+            <p><small><em>Digital Grandpa is a for-profit educational and personal development business. This purchase is not a tax-deductible donation.</em></small></p>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="lantern-loader">🏮</div>
+            <p>Processing your order...</p>
+            <p class="loading-subtext">Please don't close this window</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content success-content">
+            <div class="success-icon">🎉</div>
+            <h2>Welcome to the Fellowship!</h2>
+            <p>Your payment has been processed successfully.</p>
+            <div id="success-details">
+                <!-- Success details will be populated by JavaScript -->
+            </div>
+            <div class="success-actions">
+                <button onclick="goToProduct()" class="btn btn-primary">Access Your Purchase</button>
+                <button onclick="goHome()" class="btn btn-secondary">Return Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="checkout-script.js"></script>
+</body>
+</html>

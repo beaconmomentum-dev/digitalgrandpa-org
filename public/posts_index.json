@@ -1,0 +1,129 @@
+{
+  "posts": [
+    {
+      "id": "ai-transform-life-grandfather-perspective",
+      "title": "How AI Can Transform Your Life: A Grandfather's Perspective on Technology and Human Connection",
+      "slug": "ai-transform-life-grandfather-perspective",
+      "author": "Bob",
+      "date": "2025-01-23",
+      "category": "AI & Technology",
+      "tags": ["AI", "Technology", "Personal Growth", "Digital Literacy"],
+      "excerpt": "At 65, I've watched technology evolve from rotary phones to smartphones, from typewriters to AI assistants. But here's what I've learned: the most powerful technology isn't about replacing human connection—it's about enhancing it.",
+      "featured": true,
+      "readTime": "5 min read",
+      "image": "/blog/images/ai-grandfather-perspective.jpg",
+      "metaDescription": "A grandfather's perspective on how AI and technology can enhance rather than replace human connection, with practical advice for embracing digital tools.",
+      "content": "/blog/ai-transform-life-grandfather-perspective.html"
+    },
+    {
+      "id": "second-battle-veterans-coming-home",
+      "title": "The Second Battle: Why Coming Home is Harder Than Combat",
+      "slug": "second-battle-veterans-coming-home",
+      "author": "Bob",
+      "date": "2025-01-20",
+      "category": "Veterans",
+      "tags": ["Veterans", "PTSD", "Transition", "Mental Health", "Support"],
+      "excerpt": "They prepare you for war, but nobody prepares you for peace. After serving with honor, many veterans face their toughest battle on home soil—adjusting to civilian life.",
+      "featured": false,
+      "readTime": "7 min read",
+      "image": "/blog/images/veteran-coming-home.jpg",
+      "metaDescription": "Understanding the challenges veterans face when transitioning to civilian life and practical strategies for overcoming the 'second battle' at home.",
+      "content": "/blog/second-battle-veterans-coming-home.html"
+    },
+    {
+      "id": "when-everything-falls-apart-rebuilding-guide",
+      "title": "When Everything Falls Apart: A Practical Guide to Rebuilding",
+      "slug": "when-everything-falls-apart-rebuilding-guide",
+      "author": "Bob",
+      "date": "2025-01-18",
+      "category": "Resilience",
+      "tags": ["Resilience", "Recovery", "Personal Growth", "Crisis Management"],
+      "excerpt": "I've lost everything three times in my life. Each time, I thought it was the end. Each time, I was wrong. The third time taught me something crucial: falling apart isn't failure—it's preparation for something better.",
+      "featured": false,
+      "readTime": "6 min read",
+      "image": "/blog/images/rebuilding-life.jpg",
+      "metaDescription": "A step-by-step guide to rebuilding your life after major setbacks, based on real experience of losing and rebuilding everything multiple times.",
+      "content": "/blog/when-everything-falls-apart-rebuilding-guide.html"
+    },
+    {
+      "id": "beyond-gates-rebuilding-after-incarceration",
+      "title": "Beyond the Gates: Rebuilding Life After Incarceration",
+      "slug": "beyond-gates-rebuilding-after-incarceration",
+      "author": "Bob",
+      "date": "2025-01-15",
+      "category": "Formerly Incarcerated",
+      "tags": ["Reentry", "Second Chances", "Employment", "Family Relationships"],
+      "excerpt": "The day you walk out those gates, you're free—but freedom and opportunity are two different things. Through my work at GraceHouse, I've walked alongside hundreds of men and women rebuilding their lives after incarceration.",
+      "featured": false,
+      "readTime": "8 min read",
+      "image": "/blog/images/beyond-the-gates.jpg",
+      "metaDescription": "Real challenges and practical solutions for rebuilding life after incarceration, based on years of experience helping formerly incarcerated individuals.",
+      "content": "/blog/beyond-gates-rebuilding-after-incarceration.html"
+    },
+    {
+      "id": "finding-path-when-everyone-gives-up",
+      "title": "Finding Your Path When Everyone Has Given Up on You",
+      "slug": "finding-path-when-everyone-gives-up",
+      "author": "Bob",
+      "date": "2025-01-12",
+      "category": "At-Risk Youth",
+      "tags": ["Youth", "Mentorship", "Second Chances", "Hope"],
+      "excerpt": "At 19, Sarah was heading down a dark path. Everyone had written her off—family, teachers, even herself. Today, she mentors other at-risk youth. What changed? Sometimes all it takes is one person who refuses to give up.",
+      "featured": false,
+      "readTime": "5 min read",
+      "image": "/blog/images/at-risk-youth-hope.jpg",
+      "metaDescription": "How to help at-risk youth find their path when society has given up on them, featuring real success stories and practical mentorship strategies.",
+      "content": "/blog/finding-path-when-everyone-gives-up.html"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Veterans",
+      "slug": "veterans",
+      "count": 1,
+      "description": "Resources and insights for military veterans transitioning to civilian life"
+    },
+    {
+      "name": "Resilience",
+      "slug": "resilience",
+      "count": 1,
+      "description": "Building mental toughness and bouncing back from life's challenges"
+    },
+    {
+      "name": "Formerly Incarcerated",
+      "slug": "formerly-incarcerated",
+      "count": 1,
+      "description": "Support and guidance for successful reentry into society"
+    },
+    {
+      "name": "At-Risk Youth",
+      "slug": "at-risk-youth",
+      "count": 1,
+      "description": "Mentorship and support for young people facing challenges"
+    },
+    {
+      "name": "AI & Technology",
+      "slug": "ai-technology",
+      "count": 1,
+      "description": "Embracing technology and AI for personal growth and connection"
+    },
+    {
+      "name": "Personal Stories",
+      "slug": "personal-stories",
+      "count": 0,
+      "description": "Real stories of transformation and hope"
+    },
+    {
+      "name": "Practical Advice",
+      "slug": "practical-advice",
+      "count": 0,
+      "description": "Actionable strategies for overcoming life's challenges"
+    }
+  ],
+  "metadata": {
+    "totalPosts": 5,
+    "lastUpdated": "2025-01-23",
+    "version": "1.0"
+  }
+}
+

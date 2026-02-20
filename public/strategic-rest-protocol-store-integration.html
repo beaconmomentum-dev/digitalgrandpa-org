@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Grandpa's comprehensive resource library - free content, courses, ebooks, and audio/video content to transform your setbacks into comebacks.">
+    <meta property="og:title" content="Digital Grandpa Resource Library - Transform Your Life">
+    <meta property="og:description" content="Access free resources and premium content designed to help veterans, formerly incarcerated individuals, and at-risk youth rebuild their lives.">
+    <meta property="og:image" content="https://digitalgrandpa.org/bob-profile-photo.webp">
+    <meta property="og:url" content="https://digitalgrandpa.org/store">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Resource Library - Digital Grandpa</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Enhanced Store Styles */
+        .store-hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c3e50 50%, #34495e 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .store-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            z-index: 1;
+        }
+        
+        .store-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .store-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .store-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Featured Product Section */
+        .featured-product {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c3e50 100%);
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            z-index: 1;
+        }
+        
+        .featured-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .featured-info h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f39c12 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .featured-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .featured-highlights {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .featured-highlights li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .featured-highlights li::before {
+            content: '✓';
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .featured-pricing {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .price-original {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .price-current {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+        
+        .price-save {
+            background: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .featured-cta {
+            background: linear-gradient(135deg, #d4af37 0%, #f39c12 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: 1rem;
+        }
+        
+        .featured-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .featured-preview {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .featured-preview:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .featured-visual {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .featured-mockup {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" text-anchor="middle" dy="0.3em" font-size="40" fill="rgba(212,175,55,0.3)">📖</text></svg>');
+            background-size: 60px 60px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-snippet {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #d4af37;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            padding: 6rem 0;
+        }
+        
+        .free-content-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-bottom: 4px solid var(--deep-gold);
+        }
+        
+        .premium-content-section {
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .free-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .premium-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--deep-gold) 0%, #f39c12 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .content-card.premium {
+            border: 2px solid var(--deep-gold);
+        }
+        
+        .content-thumbnail {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c3e50 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .content-type-icon {
+            font-size: 3rem;
+            color: var(--deep-gold);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .content-info {
+            padding: 2rem;
+        }
+        
+        .content-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .content-description {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-purchase {
+            background: linear-gradient(135deg, var(--deep-gold) 0%, #f39c12 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .btn-purchase:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-free {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .btn-free:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+        
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .featured-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .featured-pricing {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-indicators {
+                gap: 1rem;
+            }
+            
+            .trust-badge {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="favicon.webp" alt="Digital Grandpa" class="nav-logo">
+                <span>Digital Grandpa</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/store" class="nav-link active">Store</a>
+                <a href="/support" class="nav-link">Support</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Store Hero Section -->
+    <section class="store-hero">
+        <div class="container">
+            <h1 class="store-title">Digital Grandpa Resource Library</h1>
+            <p class="store-subtitle">
+                Transform your setbacks into comebacks with proven strategies, practical tools, and authentic wisdom from someone who's been there.
+            </p>
+            <div class="trust-indicators">
+                <div class="trust-badge">
+                    <span>🛡️</span>
+                    <span>Veteran Owned</span>
+                </div>
+                <div class="trust-badge">
+                    <span>📚</span>
+                    <span>Proven Methods</span>
+                </div>
+                <div class="trust-badge">
+                    <span>💯</span>
+                    <span>Real Results</span>
+                </div>
+                <div class="trust-badge">
+                    <span>🎯</span>
+                    <span>Life Rebuilders</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product: Strategic Rest Protocol -->
+    <section class="featured-product">
+        <div class="container">
+            <div class="featured-content">
+                <div class="featured-info">
+                    <div class="featured-badge">🏆 Featured Product</div>
+                    <h2>The Strategic Rest Protocol</h2>
+                    <p class="featured-description">
+                        Military-tested recovery science for life rebuilders. Not the "self-care" bubble bath nonsense. 
+                        This is a tactical manual for using rest as a strategic weapon in your comeback.
+                    </p>
+                    <ul class="featured-highlights">
+                        <li>127-page comprehensive guide with 7 chapters</li>
+                        <li>Military-tested recovery protocols</li>
+                        <li>9 types of strategic rest framework</li>
+                        <li>Complete sleep optimization system</li>
+                        <li>Daily and weekly implementation plans</li>
+                        <li>Audio version narrated by Digital Grandpa</li>
+                        <li>Quick reference cards for immediate action</li>
+                        <li>30-day email support and accountability</li>
+                    </ul>
+                    <div class="featured-pricing">
+                        <span class="price-original">$497</span>
+                        <span class="price-current">$67</span>
+                        <span class="price-save">Save $430!</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="https://liiuorgu.manus.space" class="featured-cta">
+                            <span>🛒</span>
+                            Get Instant Access - $67
+                        </a>
+                        <a href="https://liiuorgu.manus.space" class="featured-preview">
+                            <span>👁️</span>
+                            View Full Details
+                        </a>
+                    </div>
+                    <div class="testimonial-snippet">
+                        <p class="testimonial-text">
+                            "I thought rest was giving up. Bob showed me rest is gearing up. My decision-making improved dramatically once I stopped running on empty."
+                        </p>
+                        <p class="testimonial-author">- Michael R., Army Veteran</p>
+                    </div>
+                </div>
+                <div class="featured-visual">
+                    <div class="featured-mockup">
+                        <span>📖</span>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem; color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                        Perfect for Veterans, Entrepreneurs, and Life Rebuilders
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Content Section -->
+    <section class="content-section free-content-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="free-badge">100% Free</div>
+                <h2 class="section-title">Free Resources</h2>
+                <p class="section-subtitle">
+                    Start your transformation journey with these powerful free resources. No strings attached, no email required.
+                </p>
+            </div>
+            <div class="content-grid">
+                <!-- Free Content Cards -->
+                <div class="content-card">
+                    <div class="content-thumbnail">
+                        <div class="content-type-icon">🎧</div>
+                    </div>
+                    <div class="content-info">
+                        <h3 class="content-title">The Comeback Mindset Podcast</h3>
+                        <p class="content-description">
+                            Weekly episodes featuring real stories of transformation, practical strategies, and authentic conversations about rebuilding your life.
+                        </p>
+                        <div class="content-actions">
+                            <a href="#" class="btn-free">
+                                <span>🎧</span>
+                                Listen Free
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="content-thumbnail">
+                        <div class="content-type-icon">📄</div>
+                    </div>
+                    <div class="content-info">
+                        <h3 class="content-title">Life Rebuilder's Quick Start Guide</h3>
+                        <p class="content-description">
+                            Essential first steps for anyone starting over. Covers mindset, planning, and the critical early decisions that determine success.
+                        </p>
+                        <div class="content-actions">
+                            <a href="#" class="btn-free">
+                                <span>📥</span>
+                                Download Free
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="content-thumbnail">
+                        <div class="content-type-icon">🎥</div>
+                    </div>
+                    <div class="content-info">
+                        <h3 class="content-title">From Rock Bottom to Rise Up</h3>
+                        <p class="content-description">
+                            Bob's complete story of losing everything and rebuilding from scratch. Raw, honest, and inspiring.
+                        </p>
+                        <div class="content-actions">
+                            <a href="#" class="btn-free">
+                                <span>▶️</span>
+                                Watch Free
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Content Section -->
+    <section class="content-section premium-content-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="premium-badge">Premium Content</div>
+                <h2 class="section-title">Advanced Training & Resources</h2>
+                <p class="section-subtitle">
+                    Deep-dive training programs and comprehensive resources for serious life rebuilders ready to accelerate their transformation.
+                </p>
+            </div>
+            <div class="content-grid">
+                <!-- Premium Content Cards -->
+                <div class="content-card premium">
+                    <div class="content-thumbnail">
+                        <div class="content-type-icon">🎯</div>
+                    </div>
+                    <div class="content-info">
+                        <h3 class="content-title">The Complete Comeback Blueprint</h3>
+                        <p class="content-description">
+                            Comprehensive 12-module course covering every aspect of rebuilding your life from the ground up.
+                        </p>
+                        <div class="price-tag">
+                            <span class="price-original">$297</span>
+                            <span class="price-current">$197</span>
+                        </div>
+                        <div class="content-actions">
+                            <a href="#" class="btn-purchase">
+                                <span>🛒</span>
+                                Purchase Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card premium">
+                    <div class="content-thumbnail">
+                        <div class="content-type-icon">💼</div>
+                    </div>
+                    <div class="content-info">
+                        <h3 class="content-title">Veteran Entrepreneur Masterclass</h3>
+                        <p class="content-description">
+                            Specialized training for veterans starting businesses, including funding, networking, and military-to-civilian transition strategies.
+                        </p>
+                        <div class="price-tag">
+                            <span class="price-original">$497</span>
+                            <span class="price-current">$297</span>
+                        </div>
+                        <div class="content-actions">
+                            <a href="#" class="btn-purchase">
+                                <span>🛒</span>
+                                Purchase Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card premium">
+                    <div class="content-thumbnail">
+                        <div class="content-type-icon">🔄</div>
+                    </div>
+                    <div class="content-info">
+                        <h3 class="content-title">Reentry Success System</h3>
+                        <p class="content-description">
+                            Complete guide for formerly incarcerated individuals, covering housing, employment, relationships, and long-term success strategies.
+                        </p>
+                        <div class="price-tag">
+                            <span class="price-original">$397</span>
+                            <span class="price-current">$247</span>
+                        </div>
+                        <div class="content-actions">
+                            <a href="#" class="btn-purchase">
+                                <span>🛒</span>
+                                Purchase Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Digital Grandpa</h3>
+                    <p>Transforming setbacks into comebacks through authentic wisdom and proven strategies.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/store">Store</a></li>
+                        <li><a href="/support">Support</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Free Downloads</a></li>
+                        <li><a href="#">Podcast</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 director@digitalgrandpa.org</p>
+                    <p>📞 413-603-8478</p>
+                    <p>🌐 DigitalGrandpa.org</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Grandpa. All rights reserved.</p>
+                <p>Bob Burr - "Digital Grandpa" | U.S. Navy Veteran | Founder, Rise & Reclaim Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

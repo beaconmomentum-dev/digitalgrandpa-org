@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Digital Grandpa — PaymentIntent Probe</title>
+<style>
+  body { font-family: system-ui, Arial, sans-serif; margin: 24px; }
+  label{ display:block; margin: 12px 0 4px; }
+  input,button{ padding:10px; width: 420px; max-width: 100%; }
+  .row{ margin: 12px 0; }
+  .muted{ color:#666; font-size: 14px; }
+  pre{ background:#f6f8fa; padding:12px; border-radius:6px; overflow:auto; }
+</style>
+</head>
+<body>
+<h2>Digital Grandpa — PaymentIntent Probe</h2>
+<p class="muted">This calls <code>/api/create_intent.php</code> and prints the raw HTTP + JSON.</p>
+
+<div class="row">
+  <label>Price ID (leave blank to use Amount)</label>
+  <input id="priceId" placeholder="price_123..." />
+</div>
+
+<div class="row">
+  <label>Amount (USD) — used ONLY if Price ID is blank</label>
+  <input id="amount" placeholder="19.95" />
+</div>
+
+<div class="row">
+  <label>Email</label>
+  <input id="email" placeholder="you@example.com" />
+</div>
+
+<div class="row">
+  <label>Name (optional)</label>
+  <input id="name" placeholder="Jane Doe" />
+</div>
+
+<div class="row">
+  <button id="go">Create Intent</button>
+</div>
+
+<h3>Result</h3>
+<pre id="out">Waiting…</pre>
+
+<script>
+const out = document.getElementById('out');
+document.getElementById('go').onclick = async () => {
+  out.textContent = 'Calling /api/create_intent.php…';
+  const priceId = document.getElementById('priceId').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const name    = document.getElementById('name').value.trim();
+  const amountD = document.getElementById('amount').value.trim();
+
+  if (!email) { out.textContent = 'Email is required.'; return; }
+
+  let payload = { email, name };
+  if (priceId) {
+    payload.priceId = priceId;
+  } else {
+    if (!amountD) { out.textContent = 'Enter a Price ID or an Amount.'; return; }
+    // Convert "19.95" -> 1995 cents safely
+    const cents = Math.round(parseFloat(amountD) * 100);
+    if (!Number.isFinite(cents) || cents < 100) {
+      out.textContent = 'Amount invalid (min $1.00).';
+      return;
+    }
+    payload.amount = cents;
+  }
+
+  try {
+    const res = await fetch('/api/create_intent.php?v=2', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const text = await res.text();
+    out.textContent = `HTTP ${res.status}\n\n${text}`;
+  } catch (e) {
+    out.textContent = 'Network error: ' + e.message;
+  }
+};
+</script>
+</body>
+</html>

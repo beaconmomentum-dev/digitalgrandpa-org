@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Rest Protocol - Email Templates</title>
+    <style>
+        /* Email Template Styles */
+        .email-template {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+        
+        .email-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .email-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .email-content {
+            padding: 2rem;
+        }
+        
+        .email-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .email-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .download-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #f39c12 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .content-section {
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tip-box {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .email-footer {
+            background: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .signature {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .unsubscribe {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 1rem;
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            height: 8px;
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #d4af37 0%, #f39c12 100%);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .email-template {
+                margin: 0;
+            }
+            
+            .email-header,
+            .email-content,
+            .email-footer {
+                padding: 1rem;
+            }
+            
+            .download-btn {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- EMAIL TEMPLATE 1: INSTANT ACCESS CONFIRMATION -->
+<div class="email-template" id="email-1">
+    <div class="email-header">
+        <div class="email-logo">🛡️ Digital Grandpa</div>
+        <div class="email-tagline">Strategic Rest Protocol</div>
+    </div>
+    
+    <div class="email-content">
+        <h1 class="email-title">🎉 Your Strategic Rest Protocol is Ready!</h1>
+        <p class="email-subtitle">Hi {{first_name}},</p>
+        
+        <p>Welcome to your transformation journey! Your Strategic Rest Protocol package is ready for immediate download.</p>
+        
+        <div class="download-section">
+            <div class="download-title">📥 Download Your Complete Package</div>
+            <p>Click the buttons below to download all components of your Strategic Rest Protocol:</p>
+            
+            <a href="{{download_main_guide}}" class="download-btn">📖 Main Guide (PDF)</a>
+            <a href="{{download_audio}}" class="download-btn">🎧 Audio Version</a>
+            <a href="{{download_cards}}" class="download-btn">📋 Reference Cards</a>
+            <a href="{{download_bonus}}" class="download-btn">🎁 Bonus Materials</a>
+        </div>
+        
+        <div class="highlight-box">
+            <strong>⚡ Quick Start Tip:</strong> Begin with Chapter 1 of the main guide to understand why strategic rest is your secret weapon for success.
+        </div>
+        
+        <div class="content-section">
+            <h3>What You've Received (Worth $214):</h3>
+            <ul>
+                <li><strong>127-Page Main Guide:</strong> Complete strategic rest framework</li>
+                <li><strong>Audio Version ($47 value):</strong> Narrated by Digital Grandpa</li>
+                <li><strong>Quick Reference Cards ($27 value):</strong> Printable implementation guides</li>
+                <li><strong>30-Day Email Support ($73 value):</strong> Personal guidance starts now</li>
+            </ul>
+        </div>
+        
+        <div class="tip-box">
+            <strong>💡 Pro Tip:</strong> Save all files to your device immediately. Download links are active for 30 days.
+        </div>
+        
+        <p>Your 30-day support sequence begins now. You'll receive your first implementation guide in 2 hours.</p>
+        
+        <p>Questions? Simply reply to this email - I personally read every message.</p>
+    </div>
+    
+    <div class="email-footer">
+        <div class="signature">
+            "Your biggest breakthrough might be waiting on the other side of a good night's sleep."<br>
+            - Bob Burr, "Digital Grandpa"
+        </div>
+        <div class="contact-info">
+            U.S. Navy Veteran | Founder, Rise & Reclaim Community<br>
+            📧 director@digitalgrandpa.org | 📞 413-603-8478
+        </div>
+        <div class="unsubscribe">
+            <a href="{{unsubscribe_url}}">Unsubscribe</a> | <a href="{{manage_preferences_url}}">Manage Preferences</a>
+        </div>
+    </div>
+</div>
+
+<hr style="margin: 3rem 0; border: none; height: 2px; background: #e9ecef;">
+
+<!-- EMAIL TEMPLATE 2: GETTING STARTED GUIDE -->
+<div class="email-template" id="email-2">
+    <div class="email-header">
+        <div class="email-logo">🛡️ Digital Grandpa</div>
+        <div class="email-tagline">Strategic Rest Protocol - Day 1</div>
+    </div>
+    
+    <div class="email-content">
+        <h1 class="email-title">Your Strategic Rest Journey Starts Here</h1>
+        <p class="email-subtitle">Hi {{first_name}},</p>
+        
+        <p>It's been 2 hours since you downloaded your Strategic Rest Protocol. Ready to begin your transformation?</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 10%;"></div>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #666;">Day 1 of 30 - Foundation Building</p>
+        
+        <div class="content-section">
+            <h3>🎯 Your First Mission (Next 24 Hours):</h3>
+            <ol>
+                <li><strong>Read Chapter 1:</strong> "Why Strong People Rest (And Why Weak People Don't)"</li>
+                <li><strong>Complete the Rest Assessment:</strong> Identify your current rest deficit</li>
+                <li><strong>Choose Your First Rest Type:</strong> Pick one of the 9 types to implement today</li>
+            </ol>
+        </div>
+        
+        <div class="highlight-box">
+            <strong>🔥 Today's Power Move:</strong> Implement just ONE 15-minute strategic rest break. That's it. Small steps create massive momentum.
+        </div>
+        
+        <div class="tip-box">
+            <strong>💡 Quick Win Strategy:</strong> Most people try to change everything at once and fail. You're going to succeed because you're starting small and building systematically.
+        </div>
+        
+        <div class="content-section">
+            <h3>🚀 Join the Community:</h3>
+            <p>Connect with other life rebuilders implementing the Strategic Rest Protocol:</p>
+            <a href="https://riseandreclaim.community" class="download-btn">Join Rise & Reclaim Community</a>
+        </div>
+        
+        <p>Tomorrow, I'll send you the "9 Types of Strategic Rest" deep-dive. For now, focus on Chapter 1 and your first rest break.</p>
+        
+        <p>You've got this, {{first_name}}. One strategic rest at a time.</p>
+    </div>
+    
+    <div class="email-footer">
+        <div class="signature">
+            "The strongest warriors aren't those who never rest - they're those who rest strategically."<br>
+            - Bob Burr, "Digital Grandpa"
+        </div>
+        <div class="contact-info">
+            U.S. Navy Veteran | Founder, Rise & Reclaim Community<br>
+            📧 director@digitalgrandpa.org | 📞 413-603-8478
+        </div>
+        <div class="unsubscribe">
+            <a href="{{unsubscribe_url}}">Unsubscribe</a> | <a href="{{manage_preferences_url}}">Manage Preferences</a>
+        </div>
+    </div>
+</div>
+
+<hr style="margin: 3rem 0; border: none; height: 2px; background: #e9ecef;">
+
+<!-- EMAIL TEMPLATE 3: DAY 3 - 9 TYPES OF REST -->
+<div class="email-template" id="email-3">
+    <div class="email-header">
+        <div class="email-logo">🛡️ Digital Grandpa</div>
+        <div class="email-tagline">Strategic Rest Protocol - Day 3</div>
+    </div>
+    
+    <div class="email-content">
+        <h1 class="email-title">The 9 Types of Strategic Rest - Which One Do You Need Most?</h1>
+        <p class="email-subtitle">Hi {{first_name}},</p>
+        
+        <p>How did your first strategic rest break go? Even if it felt awkward at first, you're already rewiring your brain for success.</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 20%;"></div>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #666;">Day 3 of 30 - Understanding Your Rest Needs</p>
+        
+        <div class="content-section">
+            <h3>🎯 Today's Mission: Identify Your Primary Rest Deficit</h3>
+            <p>Most people think they just need more sleep. Wrong. You need the RIGHT type of rest for your specific situation.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <strong>🔍 Quick Assessment:</strong> Which of these describes you best right now?
+            <ul style="margin-top: 0.5rem;">
+                <li>Physically exhausted → You need <strong>Physical Rest</strong></li>
+                <li>Can't focus or make decisions → You need <strong>Mental Rest</strong></li>
+                <li>Overwhelmed by noise/stimulation → You need <strong>Sensory Rest</strong></li>
+                <li>Feeling creatively blocked → You need <strong>Creative Rest</strong></li>
+                <li>Emotionally drained → You need <strong>Emotional Rest</strong></li>
+                <li>Tired of people → You need <strong>Social Rest</strong></li>
+                <li>Spiritually empty → You need <strong>Spiritual Rest</strong></li>
+                <li>Screen fatigue → You need <strong>Digital Rest</strong></li>
+                <li>Disconnected from nature → You need <strong>Nature Rest</strong></li>
+            </ul>
+        </div>
+        
+        <div class="content-section">
+            <h3>📖 Your Reading Assignment:</h3>
+            <p>Turn to Chapter 2 in your guide and read about YOUR primary rest type. Don't try to read all 9 - focus on the one you need most right now.</p>
+        </div>
+        
+        <div class="tip-box">
+            <strong>💡 Implementation Tip:</strong> Once you identify your primary rest deficit, implement that specific rest type for the next 3 days. Master one before moving to the next.
+        </div>
+        
+        <p>Tomorrow, I'll share the "Warrior's Sleep Protocol" - the foundation that makes all other rest types more effective.</p>
+        
+        <p>Keep building momentum, {{first_name}}. You're exactly where you need to be.</p>
+    </div>
+    
+    <div class="email-footer">
+        <div class="signature">
+            "Rest isn't retreat - it's reloading."<br>
+            - Bob Burr, "Digital Grandpa"
+        </div>
+        <div class="contact-info">
+            U.S. Navy Veteran | Founder, Rise & Reclaim Community<br>
+            📧 director@digitalgrandpa.org | 📞 413-603-8478
+        </div>
+        <div class="unsubscribe">
+            <a href="{{unsubscribe_url}}">Unsubscribe</a> | <a href="{{manage_preferences_url}}">Manage Preferences</a>
+        </div>
+    </div>
+</div>
+
+<hr style="margin: 3rem 0; border: none; height: 2px; background: #e9ecef;">
+
+<!-- EMAIL TEMPLATE 4: WEEK 1 PROGRESS CHECK -->
+<div class="email-template" id="email-4">
+    <div class="email-header">
+        <div class="email-logo">🛡️ Digital Grandpa</div>
+        <div class="email-tagline">Strategic Rest Protocol - Week 1 Complete</div>
+    </div>
+    
+    <div class="email-content">
+        <h1 class="email-title">🏆 Week 1 Complete - You're Building Real Momentum</h1>
+        <p class="email-subtitle">Hi {{first_name}},</p>
+        
+        <p>Congratulations! You've completed your first week of strategic rest implementation. That puts you ahead of 90% of people who buy programs but never follow through.</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 25%;"></div>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #666;">Week 1 of 4 Complete - Foundation Established</p>
+        
+        <div class="content-section">
+            <h3>🎯 Week 1 Reflection Questions:</h3>
+            <ol>
+                <li>Which rest type felt most natural to implement?</li>
+                <li>What resistance did you notice (internal or external)?</li>
+                <li>How is your energy different from 7 days ago?</li>
+                <li>What's one decision you made better this week because you were more rested?</li>
+            </ol>
+        </div>
+        
+        <div class="highlight-box">
+            <strong>🔥 Success Story:</strong> "After just 5 days of strategic rest, I made the best business decision I've made in months. My mind was finally clear enough to see the obvious solution." - Michael R., Army Veteran
+        </div>
+        
+        <div class="content-section">
+            <h3>📈 Week 2 Preview - Implementation & Optimization:</h3>
+            <ul>
+                <li><strong>Day 10:</strong> The Warrior's Sleep Protocol deep-dive</li>
+                <li><strong>Day 12:</strong> Energy management vs. time management</li>
+                <li><strong>Day 14:</strong> Mid-point assessment and adjustments</li>
+            </ul>
+        </div>
+        
+        <div class="tip-box">
+            <strong>💡 Week 2 Focus:</strong> You've built the habit. Now we optimize for maximum impact. Small adjustments create exponential results.
+        </div>
+        
+        <p>If you're struggling with any aspect of the protocol, simply reply to this email. I read every message and often respond personally.</p>
+        
+        <p>You're not just learning about rest, {{first_name}} - you're rewiring decades of "hustle culture" programming. That takes courage.</p>
+    </div>
+    
+    <div class="email-footer">
+        <div class="signature">
+            "Courage isn't the absence of exhaustion - it's resting strategically despite the pressure to keep grinding."<br>
+            - Bob Burr, "Digital Grandpa"
+        </div>
+        <div class="contact-info">
+            U.S. Navy Veteran | Founder, Rise & Reclaim Community<br>
+            📧 director@digitalgrandpa.org | 📞 413-603-8478
+        </div>
+        <div class="unsubscribe">
+            <a href="{{unsubscribe_url}}">Unsubscribe</a> | <a href="{{manage_preferences_url}}">Manage Preferences</a>
+        </div>
+    </div>
+</div>
+
+<hr style="margin: 3rem 0; border: none; height: 2px; background: #e9ecef;">
+
+<!-- EMAIL TEMPLATE 5: 30-DAY COMPLETION -->
+<div class="email-template" id="email-5">
+    <div class="email-header">
+        <div class="email-logo">🛡️ Digital Grandpa</div>
+        <div class="email-tagline">Strategic Rest Protocol - Mission Complete</div>
+    </div>
+    
+    <div class="email-content">
+        <h1 class="email-title">🎉 Mission Complete - You've Mastered Strategic Rest!</h1>
+        <p class="email-subtitle">Hi {{first_name}},</p>
+        
+        <p>30 days ago, you made a decision that most people never make - to invest in strategic rest instead of grinding harder. Today, you've completed the full Strategic Rest Protocol.</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%;"></div>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #666;">30 Days Complete - Strategic Rest Master</p>
+        
+        <div class="content-section">
+            <h3>🏆 Your Transformation Assessment:</h3>
+            <p>Take a moment to compare where you are now to 30 days ago:</p>
+            <ul>
+                <li><strong>Energy Levels:</strong> How sustainable is your energy now?</li>
+                <li><strong>Decision Quality:</strong> Are you making clearer, better decisions?</li>
+                <li><strong>Stress Response:</strong> How do you handle pressure differently?</li>
+                <li><strong>Relationships:</strong> Are you more present with people you care about?</li>
+                <li><strong>Performance:</strong> Are you accomplishing more with less effort?</li>
+            </ul>
+        </div>
+        
+        <div class="highlight-box">
+            <strong>🎯 You've Proven:</strong> Rest isn't weakness - it's your competitive advantage. You've joined the ranks of elite performers who understand that recovery is where real strength is built.
+        </div>
+        
+        <div class="content-section">
+            <h3>🚀 Your Next Level Options:</h3>
+            <p>You've mastered the foundation. Ready to go deeper?</p>
+            
+            <a href="{{rise_reclaim_community_url}}" class="download-btn">Join Rise & Reclaim Community</a>
+            <a href="{{advanced_training_url}}" class="download-btn">Advanced Life Rebuilder Training</a>
+        </div>
+        
+        <div class="tip-box">
+            <strong>💡 Maintenance Mode:</strong> Continue your strategic rest practices. The compound effect builds over months and years, not just days.
+        </div>
+        
+        <p>{{first_name}}, you didn't just learn about rest - you transformed your relationship with recovery, energy, and sustainable success. That's rare.</p>
+        
+        <p>I'm proud of you. More importantly, you should be proud of yourself.</p>
+        
+        <p>Keep rising,</p>
+    </div>
+    
+    <div class="email-footer">
+        <div class="signature">
+            "You've proven that your biggest breakthrough was indeed waiting on the other side of a good night's sleep."<br>
+            - Bob Burr, "Digital Grandpa"
+        </div>
+        <div class="contact-info">
+            U.S. Navy Veteran | Founder, Rise & Reclaim Community<br>
+            📧 director@digitalgrandpa.org | 📞 413-603-8478
+        </div>
+        <div class="unsubscribe">
+            <a href="{{unsubscribe_url}}">Unsubscribe</a> | <a href="{{manage_preferences_url}}">Manage Preferences</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
