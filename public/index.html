@@ -143,6 +143,8 @@
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="preconnect" href="https://services.leadconnectorhq.com">
 </head>
@@ -196,12 +198,22 @@
         </div>
     </div>
 
+    <div class="beacon-family-strip" role="note">
+        <div class="beacon-family-strip__inner">
+            <span class="beacon-family-strip__parent">Beacon Momentum, LLC</span>
+            <span class="beacon-family-strip__divider" aria-hidden="true"></span>
+            <span>Digital Grandpa · Trusted guide</span>
+            <span class="beacon-family-strip__divider" aria-hidden="true"></span>
+            <span class="beacon-family-strip__note">Field notes for rebuilding seasons</span>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="/" class="nav-brand" aria-label="Digital Grandpa Home">
                 <img src="favicon.webp" alt="Digital Grandpa Logo" class="brand-logo" aria-hidden="true">
-                Digital Grandpa
+                <span class="brand-name">Digital Grandpa<span class="brand-role">Trusted guide</span></span>
                 <span class="veteran-badge">🎖️ Veteran Owned</span>
             </a>
             <div class="nav-menu">
@@ -265,6 +277,7 @@
                         Sometimes, you don't need a guru.<br>
                         <span class="guru-line">You need a grandpa.</span>
                     </h1>
+                    <p class="hero-kicker">Trusted guidance · Practical resources</p>
                     <p class="hero-subtitle">I'm Bob, and I've been where you are.</p>
                     <div class="hero-stats">
                         <p>Honorably discharged veteran • Self-made millionaire (lost and rebuilt multiple times) • 14 years behind the wire • 8+ years helping others transform setbacks into comebacks</p>
@@ -845,6 +858,7 @@
 
     <!-- Load external CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="brand-system.css">
     
     <!-- Scripts -->
     <script src="script.js" defer></script>
