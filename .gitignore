@@ -4,3 +4,5 @@ EMERGENCY_RECOVERY_README.md
 DG_EMERGENCY_RECOVERY_COMPLETE.zip
 TODAYS_WORK_PRESERVATION_PACKAGE.tar.gz
 subscribers.json
+public/node_modules/
+public/dist/

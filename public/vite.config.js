@@ -1,14 +1,30 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
-// https://vite.dev/config/
+const foundationScript = {
+  name: 'digital-grandpa-foundation-script',
+  enforce: 'pre',
+  transformIndexHtml(html) {
+    return html.replaceAll(
+      '<script src="dg-foundation.js" defer></script>',
+      '<script src="/dg-foundation.js" defer></script>',
+    )
+  },
+}
+
 export default defineConfig({
-  plugins: [react(),tailwindcss()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+  publicDir: path.resolve(__dirname, 'static'),
+  plugins: [foundationScript],
+  build: {
+    rollupOptions: {
+      input: {
+        home: path.resolve(__dirname, 'index.html'),
+        fieldNotes: path.resolve(__dirname, 'field-notes.html'),
+        stories: path.resolve(__dirname, 'stories.html'),
+        resources: path.resolve(__dirname, 'resources.html'),
+        about: path.resolve(__dirname, 'about.html'),
+        support: path.resolve(__dirname, 'support.html'),
+      },
     },
   },
 })
