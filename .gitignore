@@ -6,3 +6,4 @@ TODAYS_WORK_PRESERVATION_PACKAGE.tar.gz
 subscribers.json
 public/node_modules/
 public/dist/
+public/error_log
