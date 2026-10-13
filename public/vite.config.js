@@ -27,6 +27,8 @@ export default defineConfig({
         resources: path.resolve(__dirname, 'resources.html'),
         about: path.resolve(__dirname, 'about.html'),
         support: path.resolve(__dirname, 'support.html'),
+        theWorkYouStillCarry: path.resolve(__dirname, 'the-work-you-still-carry.html'),
+        porchLightPolicies: path.resolve(__dirname, 'porch-light-policies.html'),
       },
     },
   },

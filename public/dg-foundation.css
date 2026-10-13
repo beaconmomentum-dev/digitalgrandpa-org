@@ -129,3 +129,65 @@ p { margin: 0 0 1rem; }
   .dg-note-reading th, .dg-note-reading td { display: block; padding: .75rem 0; }
   .dg-note-reading th { border-bottom: 0; }
 }
+
+/* Porch Light Library product pages */
+.product-hero { background: radial-gradient(circle at 88% 12%, rgba(189,123,33,.22), transparent 29%), linear-gradient(145deg, #10223d, #1d375b); color: #edf3fa; }
+.product-hero__grid { min-height: 650px; padding: clamp(4rem, 8vw, 7rem) 0; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2.4rem, 7vw, 7rem); align-items: center; }
+.product-hero h1 { color: #fffdf8; max-width: 760px; }
+.product-hero .lede { color: #d9e6f3; }
+.product-subtitle { color: #f5cf85; margin: -.65rem 0 1.25rem; font: 700 clamp(1.22rem, 2.5vw, 1.75rem)/1.25 Georgia, serif; }
+.product-assurance { max-width: 660px; color: #bfcede; font-size: .9rem; }
+.package-card { background: var(--white); color: var(--ink); border-top: 4px solid var(--amber); box-shadow: 18px 18px 0 rgba(0,0,0,.13); padding: clamp(1.6rem, 3vw, 2.4rem); }
+.package-card h2 { font-size: clamp(1.8rem, 3vw, 2.55rem); }
+.package-card__eyebrow { color: var(--amber-deep); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.package-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: .55rem; margin: 1.3rem 0 .9rem; }
+.package-price span, .purchase-panel__price { color: var(--amber-deep); font: 700 clamp(2.55rem, 5vw, 4rem)/1 Georgia, serif; letter-spacing: -.05em; }
+.package-price small, .purchase-panel__price span { color: var(--ink-soft); font: 700 .82rem/1.3 Manrope, Arial, sans-serif; letter-spacing: .02em; }
+.check-list { list-style: none; padding: 0; margin: 1.15rem 0; }
+.check-list li { padding: .45rem 0 .45rem 1.55rem; position: relative; border-bottom: 1px solid var(--line); font-size: .92rem; }
+.check-list li::before { content: "✓"; position: absolute; left: .05rem; color: var(--amber-deep); font-weight: 800; }
+.package-card__note { margin-top: 1rem; color: var(--ink-soft); font-size: .82rem; }
+.two-column-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.soft-card { border-top: 3px solid var(--amber); padding: clamp(1.4rem, 3vw, 2rem); background: var(--white); box-shadow: 0 10px 26px rgba(23,43,77,.05); }
+.soft-card--quiet { border-top-color: var(--ink); background: var(--mist); }
+.inclusion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+.inclusion { padding: 1.65rem; background: var(--white); }
+.inclusion > span { color: var(--amber-deep); font: 700 1.02rem Georgia, serif; }
+.inclusion h3 { margin-top: .55rem; font-size: 1.34rem; }
+.inclusion p { color: var(--ink-soft); font-size: .92rem; }
+.purchase-panel { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; padding: clamp(2rem, 5vw, 4rem); border: 1px solid var(--line); background: linear-gradient(135deg, #fffdf8, #f4ecde); }
+.purchase-panel__action { border-left: 1px solid var(--line); padding-left: clamp(1.5rem, 4vw, 3rem); }
+.purchase-panel__price { margin-bottom: 1rem; }
+.button--purchase { width: 100%; margin-bottom: .9rem; background: var(--amber-deep); }
+.button--purchase:hover { background: #623a0e; }
+.button[aria-disabled="true"] { cursor: not-allowed; opacity: .68; pointer-events: none; }
+.policy-links { font-size: .8rem; font-weight: 800; color: var(--amber-deep); }
+.policy-links a { color: var(--amber-deep); }
+.faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem, 6vw, 5rem); }
+.faq-list details { border-top: 1px solid var(--line); padding: 1rem 0; }
+.faq-list details:last-child { border-bottom: 1px solid var(--line); }
+.faq-list summary { cursor: pointer; font-weight: 800; color: var(--ink); }
+.faq-list p { margin: .85rem 0 0; color: var(--ink-soft); }
+.section--ink { background: #10223d; color: #dce8f2; }
+.section--ink h2 { color: #fffdf8; }
+.closing-invitation { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.closing-invitation p { font-size: 1.06rem; }
+.eyebrow--light { color: #f5cf85; }
+.button--light { background: #f5cf85; color: #31220f; }
+.button--light:hover { background: #fff1c9; }
+.updated-note { color: var(--ink-soft); font-size: .86rem; font-weight: 700; }
+.porch-light-announcement { background: #f5ead5; border-bottom: 1px solid rgba(130,80,26,.2); }
+.porch-light-announcement__inner { padding: .82rem 0; display: flex; gap: 1rem; justify-content: space-between; align-items: center; color: var(--ink); font-size: .9rem; }
+.porch-light-announcement a { color: var(--amber-deep); font-weight: 800; white-space: nowrap; }
+
+@media (max-width: 860px) {
+  .product-hero__grid, .purchase-panel, .faq-grid, .closing-invitation { grid-template-columns: 1fr; }
+  .product-hero__grid { min-height: 0; }
+  .purchase-panel__action { border-left: 0; border-top: 1px solid var(--line); padding: 1.5rem 0 0; }
+  .inclusion-grid { grid-template-columns: 1fr 1fr; }
+  .porch-light-announcement__inner { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 560px) {
+  .two-column-cards, .inclusion-grid { grid-template-columns: 1fr; }
+}
