@@ -1,0 +1,17 @@
+name = "digital-grandpa-checkout"
+main = "src/index.js"
+compatibility_date = "2026-10-13"
+workers_dev = true
+
+# This configuration is intentionally test-only until the isolated test purchase
+# and signed webhook-to-entitlement trace pass. Secrets are set only through
+# `wrangler secret put`; never place them in this repository.
+[vars]
+CHECKOUT_MODE = "test"
+ALLOWED_ORIGINS = "https://digitalgrandpa.org,https://www.digitalgrandpa.org"
+HIGHLEVEL_API_VERSION = "v3"
+
+[[d1_databases]]
+binding = "DG_CHECKOUT_DB"
+database_name = "digital-grandpa-checkout-test"
+database_id = "REPLACE_WITH_TEST_D1_DATABASE_ID"
