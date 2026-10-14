@@ -1,0 +1,22 @@
+name = "digital-grandpa-checkout-live"
+main = "src/index.js"
+compatibility_date = "2026-10-14"
+workers_dev = true
+
+# Live configuration is deployed as a separate Worker and database from the
+# completed test trace. Store credentials only in Cloudflare secrets; never in
+# this repository or browser JavaScript.
+[vars]
+CHECKOUT_MODE = "live"
+ALLOWED_ORIGINS = "https://digitalgrandpa.org,https://www.digitalgrandpa.org"
+HIGHLEVEL_API_VERSION = "v3"
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+persist = true
+
+[[d1_databases]]
+binding = "DG_CHECKOUT_DB"
+database_name = "digital-grandpa-checkout-live"
+database_id = "de701871-0c38-44f8-85cd-76343b0f3207"

@@ -26,7 +26,7 @@ function clientOrigin(request, env) {
 
 function allowClientRequest(request, env) {
   const origin = clientOrigin(request, env);
-  return { origin, allowed: !origin || origin.length > 0 };
+  return { origin, allowed: Boolean(origin) };
 }
 
 function isEmail(value) {
@@ -38,7 +38,7 @@ function isUUID(value) {
 }
 
 function missingCheckoutConfig(env) {
-  return ["STRIPE_SECRET_KEY", "STRIPE_PUBLISHABLE_KEY", "STRIPE_WEBHOOK_SECRET", "HIGHLEVEL_LOCATION_ID", "HIGHLEVEL_PRIVATE_TOKEN", "HIGHLEVEL_OFFER_ID"]
+  return ["STRIPE_SECRET_KEY", "STRIPE_PUBLISHABLE_KEY", "STRIPE_WEBHOOK_SECRET", "HIGHLEVEL_LOCATION_ID", "HIGHLEVEL_PRIVATE_TOKEN", "HIGHLEVEL_OFFER_ID", "DG_CHECKOUT_DB"]
     .filter((name) => !env[name]);
 }
 
@@ -125,7 +125,7 @@ async function parseJson(request) {
 
 async function createPaymentIntent(request, env) {
   const origin = clientOrigin(request, env);
-  if (origin === "") return json({ error: "origin_not_allowed" }, 403);
+  if (!origin) return json({ error: "origin_not_allowed" }, 403);
   if (!checkoutReady(env)) return json({ error: "checkout_not_ready" }, 503, origin);
 
   const input = await parseJson(request);
@@ -282,7 +282,7 @@ export default {
     }
     if (request.method === "GET" && path === "/api/checkout/config") {
       const origin = clientOrigin(request, env);
-      if (origin === "") return json({ error: "origin_not_allowed" }, 403);
+      if (!origin) return json({ error: "origin_not_allowed" }, 403);
       const missing = missingCheckoutConfig(env);
       const ready = missing.length === 0;
       return json({ ready, mode: env.CHECKOUT_MODE || "test", priceLabel: "$297 USD · one time", amount: AMOUNT_CENTS, currency: CURRENCY, publishableKey: ready ? env.STRIPE_PUBLISHABLE_KEY : null, missing }, 200, origin);

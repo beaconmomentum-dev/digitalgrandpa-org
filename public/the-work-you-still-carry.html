@@ -15,7 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dg-foundation.css">
+  <script src="https://js.stripe.com/v3/" defer></script>
   <script src="dg-foundation.js" defer></script>
+  <script src="owned-checkout.js" defer></script>
   <title>The Work You Still Carry | Digital Grandpa Porch Light Library</title>
 </head>
 <body>
@@ -89,7 +91,7 @@
     <section class="section section--paper" id="purchase">
       <div class="shell purchase-panel">
         <div><div class="eyebrow">One complete self-guided package</div><h2>Take the next useful step in your own time.</h2><p class="lede">The Work You Still Carry brings the original book, accessible formats, chapter audio, reflection pages, choice cards, and protected reader access together for one purchase.</p></div>
-        <div class="purchase-panel__action"><div class="purchase-panel__price">$297 <span>USD · one time</span></div><span class="button button--purchase" aria-disabled="true">Checkout is being updated</span><p role="status" class="updated-note">Digital Grandpa is moving checkout back to this site. Please return shortly for the secure on-page purchase experience.</p><p>Before payment, you can review the formats, delivery terms, refund-review policy, support route, and privacy treatment. Access does not require agreement to optional updates.</p><p class="policy-links"><a href="porch-light-policies.html#refunds">Refund review</a> <span aria-hidden="true">·</span> <a href="porch-light-policies.html#privacy">Privacy</a> <span aria-hidden="true">·</span> <a href="support.html#reader-access">Reader access help</a></p></div>
+        <div class="purchase-panel__action"><div class="purchase-panel__price">$297 <span>USD · one time</span></div><form class="owned-checkout" data-checkout-form data-checkout-api="https://digital-grandpa-checkout-live.beacon-momentum-ecosystem-account.workers.dev" novalidate><div data-checkout-contact><label for="checkout-name">Your name</label><input id="checkout-name" name="name" autocomplete="name" required maxlength="128"><label for="checkout-email">Email for protected reader access</label><input id="checkout-email" name="email" type="email" autocomplete="email" required maxlength="320"><label class="checkout-consent"><input name="policyAccepted" type="checkbox" required> <span>I have read the <a href="porch-light-policies.html#reader-terms" target="_blank" rel="noopener">reader terms</a>, <a href="porch-light-policies.html#refunds" target="_blank" rel="noopener">refund-review policy</a>, and <a href="porch-light-policies.html#privacy" target="_blank" rel="noopener">privacy treatment</a>.</span></label></div><div data-checkout-payment hidden><div class="checkout-secure-note">Card details go directly to Stripe’s secure payment form. Digital Grandpa does not receive or store your card number.</div><div data-payment-element class="stripe-payment-element"></div></div><button class="button button--purchase" type="submit" data-checkout-submit>Continue to secure payment</button><p role="status" aria-live="polite" class="checkout-status" data-checkout-status></p></form><p>Protected reader access is granted only after Stripe’s verified payment confirmation. Purchase access is separate from optional Digital Grandpa updates.</p><p class="policy-links"><a href="porch-light-policies.html#refunds">Refund review</a> <span aria-hidden="true">·</span> <a href="porch-light-policies.html#privacy">Privacy</a> <span aria-hidden="true">·</span> <a href="support.html#reader-access">Reader access help</a></p></div>
       </div>
     </section>
 

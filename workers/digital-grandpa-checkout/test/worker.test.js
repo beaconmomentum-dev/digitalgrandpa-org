@@ -14,7 +14,7 @@ test("checkout config never exposes a Stripe secret and remains unready without 
   const body = await response.json();
   assert.equal(body.ready, false);
   assert.equal(body.publishableKey, null);
-  assert.deepEqual(body.missing, ["STRIPE_SECRET_KEY", "STRIPE_PUBLISHABLE_KEY", "STRIPE_WEBHOOK_SECRET", "HIGHLEVEL_LOCATION_ID", "HIGHLEVEL_PRIVATE_TOKEN", "HIGHLEVEL_OFFER_ID"]);
+  assert.deepEqual(body.missing, ["STRIPE_SECRET_KEY", "STRIPE_PUBLISHABLE_KEY", "STRIPE_WEBHOOK_SECRET", "HIGHLEVEL_LOCATION_ID", "HIGHLEVEL_PRIVATE_TOKEN", "HIGHLEVEL_OFFER_ID", "DG_CHECKOUT_DB"]);
   assert.equal(body.amount, 29700);
   assert.equal(body.currency, "usd");
 });
@@ -24,7 +24,7 @@ test("payment intent creation rejects missing policy acknowledgement before call
     method: "POST",
     headers: { origin: "https://digitalgrandpa.org", "content-type": "application/json" },
     body: JSON.stringify({ email: "test@example.invalid", name: "Test Reader", policyAccepted: false, checkoutAttemptId: "6a89a42a-c445-4e84-8175-240fdbca5a3b" }),
-  }), { STRIPE_SECRET_KEY: "secret", STRIPE_PUBLISHABLE_KEY: "publishable", STRIPE_WEBHOOK_SECRET: "webhook", HIGHLEVEL_LOCATION_ID: "location", HIGHLEVEL_PRIVATE_TOKEN: "token", HIGHLEVEL_OFFER_ID: "offer" });
+  }), { STRIPE_SECRET_KEY: "secret", STRIPE_PUBLISHABLE_KEY: "publishable", STRIPE_WEBHOOK_SECRET: "webhook", HIGHLEVEL_LOCATION_ID: "location", HIGHLEVEL_PRIVATE_TOKEN: "token", HIGHLEVEL_OFFER_ID: "offer", DG_CHECKOUT_DB: {} });
   assert.equal(response.status, 400);
   assert.deepEqual(await response.json(), { error: "invalid_checkout_request" });
 });

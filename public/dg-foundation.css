@@ -161,6 +161,18 @@ p { margin: 0 0 1rem; }
 .button--purchase { width: 100%; margin-bottom: .9rem; background: var(--amber-deep); }
 .button--purchase:hover { background: #623a0e; }
 .button[aria-disabled="true"] { cursor: not-allowed; opacity: .68; pointer-events: none; }
+.owned-checkout { display: grid; gap: 1rem; margin: 1.25rem 0 .9rem; }
+.owned-checkout label:not(.checkout-consent) { display: block; margin: .8rem 0 .35rem; color: var(--ink); font-size: .88rem; font-weight: 800; }
+.owned-checkout input[type="text"], .owned-checkout input[type="email"] { width: 100%; min-height: 46px; padding: .65rem .75rem; border: 1px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); font: inherit; }
+.owned-checkout input[type="text"]:focus, .owned-checkout input[type="email"]:focus { outline: 3px solid rgba(13,110,174,.28); outline-offset: 1px; border-color: var(--focus); }
+.checkout-consent { display: flex; gap: .65rem; align-items: flex-start; margin: 1.05rem 0 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.45; }
+.checkout-consent input { flex: 0 0 auto; width: 1rem; height: 1rem; margin: .15rem 0 0; }
+.checkout-secure-note { padding: .8rem .9rem; background: #fff6dc; border: 1px solid #e5cf8a; color: #59400e; font-size: .83rem; line-height: 1.45; }
+.stripe-payment-element { min-height: 112px; padding: .85rem; border: 1px solid var(--line); border-radius: 4px; background: var(--white); }
+.checkout-status { min-height: 1.4em; margin: 0; color: var(--ink-soft); font-size: .86rem; font-weight: 700; }
+.checkout-status[data-state="error"] { color: #9b2c2c; }
+.checkout-status[data-state="success"] { color: #276749; }
+.owned-checkout button[disabled] { cursor: wait; opacity: .76; }
 .policy-links { font-size: .8rem; font-weight: 800; color: var(--amber-deep); }
 .policy-links a { color: var(--amber-deep); }
 .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem, 6vw, 5rem); }
@@ -190,4 +202,5 @@ p { margin: 0 0 1rem; }
 
 @media (max-width: 560px) {
   .two-column-cards, .inclusion-grid { grid-template-columns: 1fr; }
+  .owned-checkout { gap: .85rem; }
 }
