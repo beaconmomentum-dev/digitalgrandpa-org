@@ -14,4 +14,4 @@ HIGHLEVEL_API_VERSION = "v3"
 [[d1_databases]]
 binding = "DG_CHECKOUT_DB"
 database_name = "digital-grandpa-checkout-test"
-database_id = "REPLACE_WITH_TEST_D1_DATABASE_ID"
+database_id = "56dfb679-2040-4075-8663-d414293eed33"
