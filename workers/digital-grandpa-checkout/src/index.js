@@ -37,8 +37,13 @@ function isUUID(value) {
   return typeof value === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
 }
 
+function missingCheckoutConfig(env) {
+  return ["STRIPE_SECRET_KEY", "STRIPE_PUBLISHABLE_KEY", "STRIPE_WEBHOOK_SECRET", "HIGHLEVEL_LOCATION_ID", "HIGHLEVEL_PRIVATE_TOKEN", "HIGHLEVEL_OFFER_ID"]
+    .filter((name) => !env[name]);
+}
+
 function checkoutReady(env) {
-  return Boolean(env.STRIPE_SECRET_KEY && env.STRIPE_PUBLISHABLE_KEY && env.STRIPE_WEBHOOK_SECRET && env.HIGHLEVEL_LOCATION_ID && env.HIGHLEVEL_PRIVATE_TOKEN && env.HIGHLEVEL_OFFER_ID);
+  return missingCheckoutConfig(env).length === 0;
 }
 
 function stripeHeaders(env, idempotencyKey = null) {
@@ -278,7 +283,9 @@ export default {
     if (request.method === "GET" && path === "/api/checkout/config") {
       const origin = clientOrigin(request, env);
       if (origin === "") return json({ error: "origin_not_allowed" }, 403);
-      return json({ ready: checkoutReady(env), mode: env.CHECKOUT_MODE || "test", priceLabel: "$297 USD · one time", amount: AMOUNT_CENTS, currency: CURRENCY, publishableKey: checkoutReady(env) ? env.STRIPE_PUBLISHABLE_KEY : null }, 200, origin);
+      const missing = missingCheckoutConfig(env);
+      const ready = missing.length === 0;
+      return json({ ready, mode: env.CHECKOUT_MODE || "test", priceLabel: "$297 USD · one time", amount: AMOUNT_CENTS, currency: CURRENCY, publishableKey: ready ? env.STRIPE_PUBLISHABLE_KEY : null, missing }, 200, origin);
     }
     if (request.method === "POST" && path === "/api/checkout/payment-intent") return createPaymentIntent(request, env);
     if (request.method === "POST" && path === "/api/stripe-webhook") return webhook(request, env);

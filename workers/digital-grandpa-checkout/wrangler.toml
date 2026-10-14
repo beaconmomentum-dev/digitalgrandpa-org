@@ -11,6 +11,11 @@ CHECKOUT_MODE = "test"
 ALLOWED_ORIGINS = "https://digitalgrandpa.org,https://www.digitalgrandpa.org"
 HIGHLEVEL_API_VERSION = "v3"
 
+[observability.logs]
+enabled = true
+invocation_logs = true
+persist = true
+
 [[d1_databases]]
 binding = "DG_CHECKOUT_DB"
 database_name = "digital-grandpa-checkout-test"

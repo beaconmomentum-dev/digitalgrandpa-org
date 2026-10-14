@@ -14,6 +14,7 @@ test("checkout config never exposes a Stripe secret and remains unready without 
   const body = await response.json();
   assert.equal(body.ready, false);
   assert.equal(body.publishableKey, null);
+  assert.deepEqual(body.missing, ["STRIPE_SECRET_KEY", "STRIPE_PUBLISHABLE_KEY", "STRIPE_WEBHOOK_SECRET", "HIGHLEVEL_LOCATION_ID", "HIGHLEVEL_PRIVATE_TOKEN", "HIGHLEVEL_OFFER_ID"]);
   assert.equal(body.amount, 29700);
   assert.equal(body.currency, "usd");
 });
