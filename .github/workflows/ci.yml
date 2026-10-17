@@ -21,6 +21,10 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
+      - name: Test DG local production ledger
+        working-directory: .
+        run: cd ops/dg-production-ledger && python3 -m unittest discover -s tests -v
+
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
