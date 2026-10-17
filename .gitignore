@@ -7,3 +7,5 @@ subscribers.json
 public/node_modules/
 public/dist/
 public/error_log
+__pycache__/
+*.py[cod]
