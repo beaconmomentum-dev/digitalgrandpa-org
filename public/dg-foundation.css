@@ -30,7 +30,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline
 .site-header { position: sticky; top: 0; z-index: 10; background: rgba(251,248,241,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
 .nav { width: min(1160px, calc(100% - 2rem)); min-height: 76px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; min-width: 0; }
-.brand-mark { width: 39px; height: 39px; border-radius: 50%; background: var(--amber); color: white; display: grid; place-items: center; font: 700 1.25rem Georgia, serif; box-shadow: inset 0 0 0 4px #f4d18c; }
+.brand-mark-image { display: block; flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%; box-shadow: 0 2px 9px rgba(23,43,58,.12); }
+.brand-copy { display: block; min-width: 0; }
 .brand-name { font: 700 clamp(1.12rem, 2.5vw, 1.45rem)/1.05 Georgia, serif; letter-spacing: -.025em; }
 .brand-sub { display: block; margin-top: .22rem; color: var(--ink-soft); font-size: .67rem; letter-spacing: .09em; text-transform: uppercase; }
 .nav-toggle { display: none; border: 1px solid var(--line); background: var(--white); color: var(--ink); padding: .48rem .72rem; font: inherit; }
@@ -84,6 +85,13 @@ p { margin: 0 0 1rem; }
 .footer { background: #10223d; color: #d8e4f1; margin-top: 2rem; }
 .footer__inner { width: min(1160px, calc(100% - 2rem)); margin: auto; padding: 2.8rem 0 1.3rem; display: grid; grid-template-columns: 1.3fr .7fr .7fr; gap: 2rem; }
 .footer h2 { color: white; font-size: 1.35rem; }
+.footer__brand { display: inline-flex; align-items: center; gap: .8rem; margin-bottom: .8rem; color: #fffdf8; text-decoration: none; }
+.footer .footer__brand { color: #fffdf8; }
+.footer__brand img { display: block; width: 54px; height: 54px; border-radius: 50%; }
+.footer__brand span { display: grid; gap: .2rem; }
+.footer__brand strong { font: 700 1.45rem/1.05 Georgia, serif; }
+.footer__brand small { color: #f5cf85; font-size: .66rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.footer__identity p { max-width: 370px; }
 .footer a { color: #f5cf85; }
 .footer p { color: #bfcede; font-size: .9rem; }
 .footer ul { list-style: none; padding: 0; margin: 0; }

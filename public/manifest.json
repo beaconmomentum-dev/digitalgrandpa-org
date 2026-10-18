@@ -1,72 +1,57 @@
 {
-  "name": "Digital Grandpa - Transform Setbacks into Comebacks",
+  "name": "Digital Grandpa \u2014 Wisdom offered with care",
   "short_name": "Digital Grandpa",
-  "description": "Wisdom from Digital Grandpa: Resources for veterans, formerly incarcerated individuals, and at-risk youth to transform setbacks into comebacks.",
+  "description": "A distinct legacy-and-wisdom property offering field notes, consent-aware stories, and practical human orientation with hope, dignity, and compassion.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1a252f",
-  "theme_color": "#2c3e50",
+  "background_color": "#fbf8f1",
+  "theme_color": "#172b3a",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-US",
-  "categories": ["education", "lifestyle", "books"],
+  "categories": [
+    "education",
+    "lifestyle",
+    "books"
+  ],
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "favicon.ico",
-      "sizes": "16x16 32x32 48x48",
-      "type": "image/x-icon"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Digital Grandpa homepage on desktop"
-    },
-    {
-      "src": "screenshot-narrow.png",
-      "sizes": "375x812",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Digital Grandpa homepage on mobile"
+      "purpose": "any"
     }
   ],
   "shortcuts": [
     {
-      "name": "Free Resources",
-      "short_name": "Resources",
-      "description": "Access free resources and tools",
-      "url": "/?section=resources",
+      "name": "Field Notes",
+      "short_name": "Field Notes",
+      "description": "Read Digital Grandpa field notes.",
+      "url": "/field-notes.html",
       "icons": [
         {
-          "src": "icon-192.png",
-          "sizes": "192x192"
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
         }
       ]
     },
     {
-      "name": "My Journey",
-      "short_name": "Journey",
-      "description": "Read Bob's story",
-      "url": "/?section=journey",
+      "name": "Resources",
+      "short_name": "Resources",
+      "description": "Find public-resource orientation.",
+      "url": "/resources.html",
       "icons": [
         {
-          "src": "icon-192.png",
-          "sizes": "192x192"
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
         }
       ]
     }
