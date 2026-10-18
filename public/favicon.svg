@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Digital Grandpa favicon</title>
+  <circle cx="32" cy="32" r="30" fill="#F3E8D6" stroke="#244239" stroke-width="3"/>
+  <circle cx="44" cy="34" r="13" fill="#EAB653" opacity=".28"/>
+  <!-- Simple elder profile and coat. -->
+  <path fill="#171A18" d="M18 27c-2-8 2-14 9-16 8-2 14 3 14 10v3l5 4-5 3c-1 5-5 8-10 9v5h7c6 2 9 7 10 14H10c1-13 4-22 12-26l3-1c-4-2-6-6-7-10z"/>
+  <!-- Extended arm. -->
+  <path d="M36 34l8 1" stroke="#171A18" stroke-width="4" stroke-linecap="round"/>
+  <!-- Hurricane lamp and wick. -->
+  <path d="M44 28v-4c0-5 9-5 9 0v4m-11 0h13l-2 3h-9zm2 3h9v13l-3 3h-4l-2-3zm-1 16h11l-2 3h-7z" fill="#171A18" stroke="#171A18" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M48 40c-3-3 0-5 1-8 3 3 4 6 2 8-1 2-2 2-3 0z" fill="#FFF2C4"/>
+</svg>
