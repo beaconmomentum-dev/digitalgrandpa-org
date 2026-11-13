@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Private preview of AI Without Fear, a Digital Grandpa guide to approaching artificial intelligence with care and discernment.">
+  <meta name="theme-color" content="#172b4d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="../dg-foundation.css" rel="stylesheet">
+  <link href="draft-pages.css" rel="stylesheet">
+  <style>
+    /* Embedded fallback for direct HTML-file previews where sibling assets are unavailable. */
+:root {
+  --ink: #172b4d;
+  --ink-soft: #314a71;
+  --paper: #fbf8f1;
+  --paper-deep: #f0e9db;
+  --amber: #bd7b21;
+  --amber-deep: #82501a;
+  --line: rgba(23, 43, 77, 0.16);
+  --mist: #e8eef5;
+  --white: #fffdf8;
+  --focus: #0d6eae;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Manrope", Arial, sans-serif;
+  line-height: 1.65;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 0; z-index: 99; display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; background: var(--white); padding: .8rem 1rem; }
+.skip:focus { left: 1rem; top: 1rem; }
+.family-bar { background: var(--ink); color: #eaf0f7; font-size: .78rem; letter-spacing: .03em; }
+.family-bar__inner { width: min(1160px, calc(100% - 2rem)); margin: auto; padding: .55rem 0; display: flex; gap: .65rem; flex-wrap: wrap; align-items: center; }
+.family-bar a { color: #f7cf80; display: inline-flex; align-items: center; min-height: 44px; }
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(251,248,241,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+.nav { width: min(1160px, calc(100% - 2rem)); min-height: 76px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; min-width: 0; }
+.brand-mark-image { display: block; flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%; box-shadow: 0 2px 9px rgba(23,43,58,.12); }
+.brand-copy { display: block; min-width: 0; }
+.brand-name { font: 700 clamp(1.12rem, 2.5vw, 1.45rem)/1.05 Georgia, serif; letter-spacing: -.025em; }
+.brand-sub { display: block; margin-top: .22rem; color: var(--ink-soft); font-size: .67rem; letter-spacing: .09em; text-transform: uppercase; }
+.nav-toggle { display: none; min-width: 44px; min-height: 44px; border: 1px solid var(--line); background: var(--white); color: var(--ink); padding: .48rem .72rem; font: inherit; }
+.nav-links { display: flex; align-items: center; gap: .15rem; }
+.nav-links a { display: flex; align-items: center; min-height: 44px; padding: .55rem .72rem; border-radius: 4px; text-decoration: none; font-size: .88rem; font-weight: 700; }
+.nav-links a:hover, .nav-links a[aria-current="page"] { background: var(--mist); }
+.nav-links .nav-beacon { color: var(--amber-deep); }
+.shell { width: min(1160px, calc(100% - 2rem)); margin: auto; }
+.hero { padding: clamp(4rem, 9vw, 8rem) 0 clamp(3.7rem, 7vw, 6rem); display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2.3rem, 6vw, 6rem); align-items: center; }
+.eyebrow { color: var(--amber-deep); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: var(--ink); line-height: 1.08; letter-spacing: -.035em; }
+h1 { font-size: clamp(2.7rem, 6vw, 5.3rem); margin: .65rem 0 1.2rem; max-width: 760px; }
+h2 { font-size: clamp(2rem, 4vw, 3.25rem); margin: 0 0 1rem; }
+h3 { font-size: 1.42rem; margin: 0 0 .65rem; }
+p { margin: 0 0 1rem; }
+.lede { font-size: clamp(1.09rem, 2vw, 1.38rem); color: var(--ink-soft); max-width: 680px; }
+.hero-actions { margin-top: 1.7rem; display: flex; flex-wrap: wrap; gap: .75rem; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .72rem 1rem; border: 1px solid transparent; background: var(--ink); color: white; border-radius: 4px; text-decoration: none; font-size: .9rem; font-weight: 800; }
+.button:hover { background: #0c1c36; }
+.button--quiet { border-color: var(--line); background: transparent; color: var(--ink); }
+.button--quiet:hover { background: var(--mist); }
+.portrait-frame { background: linear-gradient(145deg, #243d66, #152949); padding: 1rem; border-radius: 2px; box-shadow: 15px 15px 0 var(--paper-deep); }
+.portrait-frame img { display: block; width: 100%; min-height: 370px; max-height: 520px; object-fit: cover; object-position: center; }
+.portrait-caption { margin: .85rem .25rem .1rem; color: #edf3fa; font-size: .82rem; }
+.principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.principle { padding: 1.6rem; background: var(--white); }
+.principle-num { display: block; color: var(--amber-deep); font: 700 1rem Georgia, serif; }
+.principle h3 { margin-top: .55rem; font-size: 1.22rem; }
+.section { padding: clamp(3.5rem, 7vw, 6.2rem) 0; }
+.section--paper { background: var(--white); }
+.section--mist { background: var(--mist); }
+.section-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); }
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.card { border: 1px solid var(--line); padding: 1.55rem; background: var(--white); border-radius: 2px; }
+.card p { color: var(--ink-soft); }
+.note-list { display: grid; gap: .8rem; }
+.note { display: block; text-decoration: none; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.note:hover h3 { color: var(--amber-deep); }
+.note small { color: var(--amber-deep); font-size: .75rem; letter-spacing: .09em; font-weight: 800; text-transform: uppercase; }
+.callout { border-left: 4px solid var(--amber); background: #fff9ed; padding: 1.25rem 1.3rem; }
+.plain-list { padding-left: 1.2rem; margin: .4rem 0 1rem; }
+.plain-list li { margin: .45rem 0; }
+.page-hero { padding: clamp(3.3rem, 7vw, 6rem) 0 2.5rem; max-width: 800px; }
+.page-hero h1 { font-size: clamp(2.6rem, 5vw, 4.5rem); }
+.prose { max-width: 780px; font-size: 1.04rem; }
+.prose h2 { margin-top: 2.8rem; font-size: 2rem; }
+.resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
+.resource { padding: 1.45rem; border-top: 3px solid var(--amber); background: var(--white); }
+.resource a { color: var(--amber-deep); font-weight: 800; }
+.route-card { margin-top: 1.2rem; padding: 1.2rem; border: 1px solid var(--line); background: var(--paper); }
+.footer { background: #10223d; color: #d8e4f1; margin-top: 2rem; }
+.footer__inner { width: min(1160px, calc(100% - 2rem)); margin: auto; padding: 2.8rem 0 1.3rem; display: grid; grid-template-columns: 1.3fr .7fr .7fr; gap: 2rem; }
+.footer h2 { color: white; font-size: 1.35rem; }
+.footer__brand { display: inline-flex; align-items: center; gap: .8rem; margin-bottom: .8rem; color: #fffdf8; text-decoration: none; }
+.footer .footer__brand { color: #fffdf8; }
+.footer__brand img { display: block; width: 54px; height: 54px; border-radius: 50%; }
+.footer__brand span { display: grid; gap: .2rem; }
+.footer__brand strong { font: 700 1.45rem/1.05 Georgia, serif; }
+.footer__brand small { color: #f5cf85; font-size: .66rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.footer__identity p { max-width: 370px; }
+.footer a { color: #f5cf85; }
+.footer p { color: #bfcede; font-size: .9rem; }
+.footer ul { list-style: none; padding: 0; margin: 0; }
+.footer li { margin: .45rem 0; font-size: .88rem; }
+.footer li a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer__base { width: min(1160px, calc(100% - 2rem)); margin: auto; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,.18); color: #9eb0c4; font-size: .78rem; }
+.notice { padding: 1.05rem 1.2rem; background: #fff6dc; border: 1px solid #e5cf8a; color: #59400e; font-size: .9rem; }
+.muted { color: var(--ink-soft); }
+.section-intro { max-width: 760px; margin-bottom: 2rem; }
+.dg-note-library { padding-top: 1rem; }
+.dg-note-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.dg-note-card { display: flex; flex-direction: column; min-height: 100%; color: var(--ink); text-decoration: none; background: var(--white); border: 1px solid var(--line); box-shadow: 0 10px 24px rgba(23,43,77,.06); }
+.dg-note-card:hover { transform: translateY(-2px); border-color: rgba(189,123,33,.56); }
+.dg-note-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.dg-note-card__body { display: flex; flex: 1; flex-direction: column; padding: 1.35rem; }
+.dg-note-card__body strong { margin-top: .6rem; font: 700 clamp(1.5rem, 2.4vw, 2rem)/1.04 Georgia, serif; letter-spacing: -.035em; }
+.dg-note-card__body > span:not(.eyebrow) { margin-top: .8rem; color: var(--ink-soft); font-size: .93rem; }
+.dg-note-card__body em { margin-top: auto; padding-top: 1.2rem; color: var(--amber-deep); font-size: .8rem; font-style: normal; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.dg-note-reading { max-width: 780px; margin: clamp(3rem, 7vw, 5.5rem) 0; padding-top: 1rem; font-size: 1.04rem; }
+.dg-note-reading h2 { margin-top: .55rem; }
+.dg-note-reading h3 { margin-top: 2.2rem; }
+.dg-note-reading__lede { color: var(--ink-soft); font: clamp(1.24rem, 2.2vw, 1.55rem)/1.5 Georgia, serif; }
+.dg-note-reading blockquote { margin: 1.6rem 0; padding: .8rem 0 .8rem 1.2rem; border-left: 4px solid var(--amber); color: var(--ink); font: 700 clamp(1.35rem, 2.6vw, 1.85rem)/1.25 Georgia, serif; }
+.dg-note-reading table { width: 100%; border-collapse: collapse; margin: 1.3rem 0 1.6rem; }
+.dg-note-reading th, .dg-note-reading td { padding: .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.dg-note-reading th { color: var(--amber-deep); font-size: .73rem; letter-spacing: .08em; text-transform: uppercase; }
+.dg-note-reading li { margin: .65rem 0; }
+.dg-byline { color: var(--amber-deep); font-weight: 800; }
+
+@media (max-width: 860px) {
+  .nav-toggle { display: block; }
+  .nav-links { display: none; position: absolute; top: 76px; left: 1rem; right: 1rem; padding: .7rem; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 12px 28px rgba(18,36,62,.14); flex-direction: column; align-items: stretch; }
+  .nav-links[data-open="true"] { display: flex; }
+  .nav-links a { padding: .8rem; }
+  .hero, .section-grid { grid-template-columns: 1fr; }
+  .portrait-frame { max-width: 490px; }
+  .principles, .card-grid, .resource-grid, .dg-note-card-grid { grid-template-columns: 1fr 1fr; }
+  .footer__inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .principles, .card-grid, .resource-grid, .dg-note-card-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 3.3rem; }
+  .portrait-frame img { min-height: 280px; }
+  .dg-note-reading th, .dg-note-reading td { display: block; padding: .75rem 0; }
+  .dg-note-reading th { border-bottom: 0; }
+}
+
+/* Porch Light Library product pages */
+.product-hero { background: radial-gradient(circle at 88% 12%, rgba(189,123,33,.22), transparent 29%), linear-gradient(145deg, #10223d, #1d375b); color: #edf3fa; }
+.product-hero__grid { min-height: 650px; padding: clamp(4rem, 8vw, 7rem) 0; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2.4rem, 7vw, 7rem); align-items: center; }
+.product-hero h1 { color: #fffdf8; max-width: 760px; }
+.product-hero .lede { color: #d9e6f3; }
+.product-subtitle { color: #f5cf85; margin: -.65rem 0 1.25rem; font: 700 clamp(1.22rem, 2.5vw, 1.75rem)/1.25 Georgia, serif; }
+.product-assurance { max-width: 660px; color: #bfcede; font-size: .9rem; }
+.package-card { background: var(--white); color: var(--ink); border-top: 4px solid var(--amber); box-shadow: 18px 18px 0 rgba(0,0,0,.13); padding: clamp(1.6rem, 3vw, 2.4rem); }
+.package-card h2 { font-size: clamp(1.8rem, 3vw, 2.55rem); }
+.package-card__eyebrow { color: var(--amber-deep); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.package-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: .55rem; margin: 1.3rem 0 .9rem; }
+.package-price span, .purchase-panel__price { color: var(--amber-deep); font: 700 clamp(2.55rem, 5vw, 4rem)/1 Georgia, serif; letter-spacing: -.05em; }
+.package-price small, .purchase-panel__price span { color: var(--ink-soft); font: 700 .82rem/1.3 Manrope, Arial, sans-serif; letter-spacing: .02em; }
+.check-list { list-style: none; padding: 0; margin: 1.15rem 0; }
+.check-list li { padding: .45rem 0 .45rem 1.55rem; position: relative; border-bottom: 1px solid var(--line); font-size: .92rem; }
+.check-list li::before { content: "✓"; position: absolute; left: .05rem; color: var(--amber-deep); font-weight: 800; }
+.package-card__note { margin-top: 1rem; color: var(--ink-soft); font-size: .82rem; }
+.two-column-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.soft-card { border-top: 3px solid var(--amber); padding: clamp(1.4rem, 3vw, 2rem); background: var(--white); box-shadow: 0 10px 26px rgba(23,43,77,.05); }
+.soft-card--quiet { border-top-color: var(--ink); background: var(--mist); }
+.inclusion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+.inclusion { padding: 1.65rem; background: var(--white); }
+.inclusion > span { color: var(--amber-deep); font: 700 1.02rem Georgia, serif; }
+.inclusion h3 { margin-top: .55rem; font-size: 1.34rem; }
+.inclusion p { color: var(--ink-soft); font-size: .92rem; }
+.purchase-panel { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; padding: clamp(2rem, 5vw, 4rem); border: 1px solid var(--line); background: linear-gradient(135deg, #fffdf8, #f4ecde); }
+.purchase-panel__action { border-left: 1px solid var(--line); padding-left: clamp(1.5rem, 4vw, 3rem); }
+.purchase-panel__price { margin-bottom: 1rem; }
+.button--purchase { width: 100%; margin-bottom: .9rem; background: var(--amber-deep); }
+.button--purchase:hover { background: #623a0e; }
+.button[aria-disabled="true"] { cursor: not-allowed; opacity: .68; pointer-events: none; }
+.owned-checkout { display: grid; gap: 1rem; margin: 1.25rem 0 .9rem; }
+.owned-checkout label:not(.checkout-consent) { display: block; margin: .8rem 0 .35rem; color: var(--ink); font-size: .88rem; font-weight: 800; }
+.owned-checkout input[type="text"], .owned-checkout input[type="email"] { width: 100%; min-height: 46px; padding: .65rem .75rem; border: 1px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); font: inherit; }
+.owned-checkout input[type="text"]:focus, .owned-checkout input[type="email"]:focus { outline: 3px solid rgba(13,110,174,.28); outline-offset: 1px; border-color: var(--focus); }
+.checkout-consent { display: flex; gap: .65rem; align-items: flex-start; margin: 1.05rem 0 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.45; }
+.checkout-consent a { display: inline-flex; align-items: center; min-height: 44px; vertical-align: middle; }
+.checkout-consent input { flex: 0 0 auto; width: 1rem; height: 1rem; margin: .15rem 0 0; }
+.checkout-secure-note { padding: .8rem .9rem; background: #fff6dc; border: 1px solid #e5cf8a; color: #59400e; font-size: .83rem; line-height: 1.45; }
+.stripe-payment-element { min-height: 112px; padding: .85rem; border: 1px solid var(--line); border-radius: 4px; background: var(--white); }
+.checkout-status { min-height: 1.4em; margin: 0; color: var(--ink-soft); font-size: .86rem; font-weight: 700; }
+.checkout-status[data-state="error"] { color: #9b2c2c; }
+.checkout-status[data-state="success"] { color: #276749; }
+.owned-checkout button[disabled] { cursor: wait; opacity: .76; }
+.policy-links { font-size: .8rem; font-weight: 800; color: var(--amber-deep); }
+.policy-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .3rem; color: var(--amber-deep); vertical-align: middle; }
+.faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem, 6vw, 5rem); }
+.faq-list details { border-top: 1px solid var(--line); padding: 1rem 0; }
+.faq-list details:last-child { border-bottom: 1px solid var(--line); }
+.faq-list summary { display: list-item; min-height: 44px; padding: .5rem 0; cursor: pointer; font-weight: 800; color: var(--ink); }
+.faq-list p { margin: .85rem 0 0; color: var(--ink-soft); }
+.section--ink { background: #10223d; color: #dce8f2; }
+.section--ink h2 { color: #fffdf8; }
+.closing-invitation { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.closing-invitation p { font-size: 1.06rem; }
+.eyebrow--light { color: #f5cf85; }
+.button--light { background: #f5cf85; color: #31220f; }
+.button--light:hover { background: #fff1c9; }
+.updated-note { color: var(--ink-soft); font-size: .86rem; font-weight: 700; }
+.porch-light-announcement { background: #f5ead5; border-bottom: 1px solid rgba(130,80,26,.2); }
+.porch-light-announcement__inner { padding: .82rem 0; display: flex; gap: 1rem; justify-content: space-between; align-items: center; color: var(--ink); font-size: .9rem; }
+.porch-light-announcement a { display: inline-flex; align-items: center; min-height: 44px; color: var(--amber-deep); font-weight: 800; white-space: nowrap; }
+
+@media (max-width: 860px) {
+  .product-hero__grid, .purchase-panel, .faq-grid, .closing-invitation { grid-template-columns: 1fr; }
+  .product-hero__grid { min-height: 0; }
+  .purchase-panel__action { border-left: 0; border-top: 1px solid var(--line); padding: 1.5rem 0 0; }
+  .inclusion-grid { grid-template-columns: 1fr 1fr; }
+  .porch-light-announcement__inner { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 560px) {
+  .two-column-cards, .inclusion-grid { grid-template-columns: 1fr; }
+  .owned-checkout { gap: .85rem; }
+}
+
+.preview-banner {
+  padding: .85rem 1rem;
+  border-bottom: 1px solid #e5cf8a;
+  background: #fff6dc;
+  color: #59400e;
+  text-align: center;
+  font-size: .9rem;
+}
+
+.draft-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.draft-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.55rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--amber);
+  background: var(--white);
+  box-shadow: 0 10px 24px rgba(23, 43, 77, .06);
+}
+
+.draft-card h3 { margin-top: 1rem; }
+.draft-card > p { color: var(--ink-soft); }
+.draft-card .button { align-self: flex-start; margin-top: auto; }
+.draft-card__status {
+  margin: .5rem 0 1.25rem;
+  padding: .8rem .9rem;
+  border-left: 3px solid var(--amber);
+  background: #fff9ed;
+  color: #59400e !important;
+  font-size: .84rem;
+}
+
+.status-pill {
+  align-self: flex-start;
+  padding: .28rem .55rem;
+  border: 1px solid rgba(130, 80, 26, .35);
+  border-radius: 999px;
+  color: var(--amber-deep);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.status-pill--live {
+  border-color: rgba(23, 43, 77, .24);
+  color: var(--ink-soft);
+}
+
+.mock-form {
+  display: grid;
+  gap: .8rem;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.mock-form legend,
+.mock-form label:not(.checkout-consent) {
+  color: var(--ink);
+  font-size: .88rem;
+  font-weight: 800;
+}
+
+.mock-form input[type="email"] {
+  width: 100%;
+  min-height: 46px;
+  padding: .65rem .75rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #f2f2f2;
+  color: var(--ink);
+  font: inherit;
+}
+
+.mock-form input:disabled,
+.mock-form button:disabled {
+  cursor: not-allowed;
+  opacity: .72;
+}
+
+.mock-form .checkout-consent { margin: .35rem 0; }
+.mock-form button { width: 100%; }
+
+@media (max-width: 860px) {
+  .draft-card-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .draft-card-grid { grid-template-columns: 1fr; }
+  .preview-banner { text-align: left; }
+}
+
+  </style>
+  <script defer src="draft-page.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.__dgDraftBehaviorInitialized) return
+      window.__dgDraftBehaviorInitialized = true
+      const toggle = document.querySelector('[data-nav-toggle]')
+      const links = document.querySelector('[data-nav-links]')
+      if (toggle && links) {
+        toggle.addEventListener('click', () => {
+          const open = links.getAttribute('data-open') === 'true'
+          links.setAttribute('data-open', String(!open))
+          toggle.setAttribute('aria-expanded', String(!open))
+          toggle.textContent = open ? 'Menu' : 'Close'
+        })
+      }
+      const year = document.querySelector('[data-year]')
+      if (year) year.textContent = String(new Date().getFullYear())
+    })
+  </script>
+  <title>AI Without Fear | Private Preview | Digital Grandpa</title>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <div class="preview-banner" role="status"><strong>Private preview.</strong> Product details are under review. There is no price, email capture, download, or purchase action here.</div>
+  <div class="family-bar"><div class="family-bar__inner">Digital Grandpa is a distinct Porch Light Library property <span aria-hidden="true">·</span> <a href="../support.html">Reader support and policies</a> <span aria-hidden="true">·</span> No Beacon account or data transfer occurs automatically.</div></div>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="Digital Grandpa home"><img class="brand-mark-image" src="https://digitalgrandpa.org/digital-grandpa-mark.svg" alt="" aria-hidden="true"><span class="brand-copy"><span class="brand-name">Digital Grandpa</span><span class="brand-sub">Wisdom offered with care</span></span></a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <div class="nav-links" id="main-nav" data-nav-links data-open="false"><a href="../index.html">Home</a><a href="index.html">Library preview</a><a href="../support.html">Support &amp; Policies</a></div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="product-hero">
+      <div class="shell product-hero__grid">
+        <div>
+          <div class="eyebrow eyebrow--light">Porch Light Library · guide page · private draft</div>
+          <h1>AI Without Fear</h1>
+          <p class="product-subtitle">A clear-eyed guide to a powerful tool—and the human judgment it still needs.</p>
+          <p class="lede">Artificial intelligence can sound impressive, confusing, or both. This guide is being shaped to help readers ask plain questions, notice uncertainty, and keep privacy and human responsibility in view.</p>
+          <p class="product-assurance">Curiosity and caution can belong together. No one has to trust every tool, understand every technical detail, or make a decision before they are ready.</p>
+          <div class="hero-actions"><a class="button button--light" href="#questions">Read the page outline</a><a class="button button--quiet" href="index.html">Back to the library preview</a></div>
+        </div>
+        <aside class="package-card" aria-label="Release review status">
+          <div class="package-card__eyebrow">Release details under review</div>
+          <h2>A guide, not a guarantee.</h2>
+          <p>The product files exist in a private release package, but the public offer and final approval still need to be reconciled.</p>
+          <p class="draft-card__status">This preview intentionally omits price, package inclusions, download links, and checkout.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--paper" id="questions">
+      <div class="shell section-grid">
+        <div><div class="eyebrow">The questions worth keeping</div><h2>Fluent answers still deserve a second look.</h2></div>
+        <div class="prose">
+          <p>The intended reader journey begins with a simple truth: a tool can be useful without being wise, and a confident answer is not the same as a checked answer.</p>
+          <ul class="plain-list"><li>What is the tool actually doing, and what does it need from me?</li><li>What should I verify before relying on an answer?</li><li>What information is private, and does the tool need it at all?</li><li>Who remains responsible if the tool is wrong or causes harm?</li><li>Is there a simpler, more familiar, or more human way to do the task?</li></ul>
+          <p>These are starting questions for reflection, not a technical checklist that fits every situation. Some decisions deserve qualified advice from someone who can understand the circumstances.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--mist">
+      <div class="shell two-column-cards">
+        <article class="soft-card"><div class="eyebrow">A human-sized starting point</div><h2>Learn enough to choose.</h2><p>The aim is not to make every reader an AI expert. It is to make room for understandable explanations, careful questions, and choices made at a human pace.</p><p>Readers of different ages and backgrounds are welcome. Digital Grandpa is a legacy-and-wisdom project, not a technology-training site for one age group.</p></article>
+        <article class="soft-card soft-card--quiet"><div class="eyebrow">What this is not</div><h2>No promise of certainty.</h2><p>This guide cannot guarantee safety, accuracy, work, income, or a particular outcome. It is not professional advice, a certification, or a substitute for qualified help on a high-stakes decision.</p><p>It invites discernment; it does not ask anyone to surrender their judgment.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="availability-heading">
+      <div class="shell purchase-panel">
+        <div><div class="eyebrow">Availability</div><h2 id="availability-heading">The offer will be clear before it is offered.</h2><p class="lede">The guide's final public description, package contents, price, privacy language, and delivery route must match the approved files.</p></div>
+        <div class="purchase-panel__action"><p class="notice" role="status">There is no purchase or signup in this private preview. We will add an action only after the release details are confirmed and approved.</p><p><a href="index.html">Return to the Porch Light Library preview</a></p></div>
+      </div>
+    </section>
+
+    <section class="section section--ink">
+      <div class="shell closing-invitation"><div><div class="eyebrow eyebrow--light">Keep your footing</div><h2>New tools do not take the human question away.</h2></div><div><p>What matters is not only what a tool can do. It is also what we ask it to serve, whose interests it carries, and how we care for the people affected by its use.</p><a class="button button--light" href="when-the-world-changes-fast.html">Read the other book preview</a></div></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__identity"><a class="footer__brand" href="../index.html" aria-label="Digital Grandpa home"><img src="https://digitalgrandpa.org/digital-grandpa-mark.svg" alt="" aria-hidden="true"><span><strong>Digital Grandpa</strong><small>Wisdom offered with care</small></span></a><p>Field notes, consented stories, and practical orientation shaped by hope, wisdom, love, and compassion.</p></div>
+      <div><h2>Explore</h2><ul><li><a href="index.html">Library preview</a></li><li><a href="../the-work-you-still-carry.html">The Work You Still Carry</a></li><li><a href="../field-notes.html">Field Notes</a></li></ul></div>
+      <div><h2>Reader care</h2><ul><li><a href="../support.html">Support &amp; Policies</a></li><li><a href="../porch-light-policies.html">Reader policies</a></li><li><a href="https://beaconmomentum.com" rel="external">Beacon Momentum</a></li></ul></div>
+    </div>
+    <div class="footer__base">© <span data-year></span> Digital Grandpa · A distinct Porch Light Library property in the Beacon Momentum LLC family.</div>
+  </footer>
+</body>
+</html>

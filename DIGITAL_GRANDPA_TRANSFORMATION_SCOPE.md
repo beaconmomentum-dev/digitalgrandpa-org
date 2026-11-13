@@ -27,9 +27,13 @@ Every future Field Note must state its basis: **Founder reflection**, **named pu
 
 ## 4. Data, account, and service boundaries
 
-Phase one has no email capture, checkout, webhook, payment, CRM sync, automatic referral, or contributor intake. It uses no third-party automation platform as a system of record.
+**Phase-one boundary:** Email capture, public forms, checkout, payment, webhooks, CRM sync, automatic referral, and contributor intake remain out of scope except for the narrowly approved free-book request flow below. No Beacon CRM or shared cross-property audience may serve as the Digital Grandpa reader list.
 
-Future forms may be considered only after a Digital Grandpa-specific privacy notice, minimal-data specification, retention schedule, consent record, support owner, export/deletion process, and approved implementation path exist. Any Beacon referral must use a direct link and its own destination-specific notice; no profile, email, story, or account data transfers automatically.
+**Owner-approved scope amendment — *When the World Changes Fast* free-book request (2026-11-13):** A dedicated book page may request the reader’s email address, verify it with a confirmation link, and deliver the book they requested. Delivery is transactional and does not enroll the reader in ongoing Digital Grandpa messages. Any ongoing notes require a separate optional checkbox, unchecked by default, plus confirmation. Every promotional message must include a working unsubscribe path.
+
+This flow must not go live until the final title/package/download URL, Digital Grandpa-specific privacy notice, dedicated sender/list provider, minimal-data and retention/deletion rules, support owner, confirmation/delivery/unsubscribe behavior, and end-to-end tests using fictional addresses are approved and working. Keep the consent record and audience separate from Beacon and all other properties; do not transfer or cross-enroll records. This amendment does not authorize email sending, site publication, or checkout, and it does not change requirements for any other product.
+
+Any other future form may be considered only after a Digital Grandpa-specific privacy notice, minimal-data specification, retention schedule, consent record, support owner, export/deletion process, and approved implementation path exist. Any Beacon referral must use a direct link and its own destination-specific notice; no profile, email, story, or account data transfers automatically.
 
 ## 5. Design direction
 
@@ -50,7 +54,7 @@ The implementation must remove or disable the following legacy elements from pha
 The public foundation is ready for release only when all of the following are true:
 
 - Every published claim has an identified basis or has been removed.
-- There is no public form, webhook, payment, CRM, tracking pixel, or invisible data transfer.
+- There is no public form, webhook, payment, CRM, tracking pixel, or invisible data transfer, except for the *When the World Changes Fast* book-request flow after every Section 4 gate is met; book delivery remains transactional and separate from optional updates consent.
 - Every route shares the same header, footer, accessibility patterns, support link, and explicit Beacon relationship language.
 - Desktop and mobile views work without horizontal overflow or unreadable contrast.
 - The `www` canonical route and HTTPS redirect behavior have been fixed or a documented deployment correction is ready.

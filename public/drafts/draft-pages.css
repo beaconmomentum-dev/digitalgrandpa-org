@@ -1,0 +1,98 @@
+.preview-banner {
+  padding: .85rem 1rem;
+  border-bottom: 1px solid #e5cf8a;
+  background: #fff6dc;
+  color: #59400e;
+  text-align: center;
+  font-size: .9rem;
+}
+
+.draft-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.draft-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.55rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--amber);
+  background: var(--white);
+  box-shadow: 0 10px 24px rgba(23, 43, 77, .06);
+}
+
+.draft-card h3 { margin-top: 1rem; }
+.draft-card > p { color: var(--ink-soft); }
+.draft-card .button { align-self: flex-start; margin-top: auto; }
+.draft-card__status {
+  margin: .5rem 0 1.25rem;
+  padding: .8rem .9rem;
+  border-left: 3px solid var(--amber);
+  background: #fff9ed;
+  color: #59400e !important;
+  font-size: .84rem;
+}
+
+.status-pill {
+  align-self: flex-start;
+  padding: .28rem .55rem;
+  border: 1px solid rgba(130, 80, 26, .35);
+  border-radius: 999px;
+  color: var(--amber-deep);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.status-pill--live {
+  border-color: rgba(23, 43, 77, .24);
+  color: var(--ink-soft);
+}
+
+.mock-form {
+  display: grid;
+  gap: .8rem;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.mock-form legend,
+.mock-form label:not(.checkout-consent) {
+  color: var(--ink);
+  font-size: .88rem;
+  font-weight: 800;
+}
+
+.mock-form input[type="email"] {
+  width: 100%;
+  min-height: 46px;
+  padding: .65rem .75rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #f2f2f2;
+  color: var(--ink);
+  font: inherit;
+}
+
+.mock-form input:disabled,
+.mock-form button:disabled {
+  cursor: not-allowed;
+  opacity: .72;
+}
+
+.mock-form .checkout-consent { margin: .35rem 0; }
+.mock-form button { width: 100%; }
+
+@media (max-width: 860px) {
+  .draft-card-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .draft-card-grid { grid-template-columns: 1fr; }
+  .preview-banner { text-align: left; }
+}
