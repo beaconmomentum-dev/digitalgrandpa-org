@@ -1,29 +1,25 @@
 # TODO — Digital Grandpa custom-domain deployment
 
-**Status as of 2026-11-13:** GitHub has verified ownership of `digitalgrandpa.org`. The Cloudflare verification TXT remains in place. The custom-domain root artifact and desktop/mobile previews have been tested locally on branch `feature/digitalgrandpa-custom-domain`; nothing has been committed, pushed, or switched in production. The existing Cloudflare Pages apex and `www` records remain active. The repository Pages `cname` is still unset. The GitHub repository and Pages preview are public; `noindex` does not restrict access.
+**Status, 2026-11-13:** The custom domain is assigned in GitHub Pages and the root-path site is deployed from commit `e490fec1e3258ad0e9f8c7987b2e550b10f6066f` on `main`. Cloudflare DNS now points the apex and `www` to GitHub Pages. Public DNS checks pass, HTTP pages load, and GitHub reports “DNS check successful.” **HTTPS certificate issuance is still pending.** The Pages API currently reports `https_enforced: false`, and the certificate presented for the domain is the default `*.github.io` certificate, not a valid `digitalgrandpa.org` certificate. Do not mark the cutover fully complete until a hostname-valid certificate is present and HTTPS enforcement is on.
 
-## Outcome 1 — Root-domain artifact and design QA: complete locally
+## Outcome 1 — Root-domain artifact, responsive behavior, and route checks: complete
 
-The existing Vite site now builds for `/` at `https://digitalgrandpa.org/`, not just the repository subpath. The artifact preparer keeps the project-path fallback and uses `PAGES_BASE_PATH=/` for this deployment. `pnpm lint`, `pnpm build`, artifact link checks, and desktop/mobile browser renders passed. All local page and asset targets resolve. The three `/drafts/` routes remain `noindex` and have no active forms or enabled signup/purchase controls.
+The existing Vite site builds at `/` for `https://digitalgrandpa.org/`; the artifact preparer retains the project-site fallback and the Pages workflow uses `PAGES_BASE_PATH=/`. Lint, build, root-path artifact checks, and the 390px mobile review passed. All 11 production and draft routes were exercised locally and again on the live HTTP origin: titles are present, shared headers/footers match, mobile menus open and close, internal links resolve, no horizontal overflow or browser page errors occur, and live routes return 200. Sitemap and robots work at the custom domain; the sitemap excludes `/drafts/` and uses the custom-domain origin.
 
-## Outcome 2 — GitHub domain ownership verification: complete
+## Outcome 2 — GitHub domain verification and repository setting: complete
 
-The owner account `beaconmomentum-dev` verified `digitalgrandpa.org` in GitHub Pages settings using a dedicated TXT record. Keep that verification record. The repository-level Pages custom-domain setting remains unset pending the approved cutover.
+The owner account `beaconmomentum-dev` verified `digitalgrandpa.org` with a TXT record that remains in Cloudflare. The repository Pages setting now specifies `digitalgrandpa.org`, and the site source remains GitHub Actions.
 
-## Outcome 3 — Cloudflare web DNS cutover: awaiting final confirmation
+## Outcome 3 — Cloudflare web DNS cutover and email-DNS preservation: complete
 
-The current apex and `www` web records are proxied CNAMEs to `digitalgrandpa-org.pages.dev`. If authorized, replace only those two records with the following DNS-only targets and automatic TTL:
+The two previous proxied CNAMEs—to `digitalgrandpa-org.pages.dev` at the apex and `www`—were replaced with DNS-only records using automatic TTL: apex A records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; apex AAAA records `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`; and `www` CNAME `beaconmomentum-dev.github.io`. Cloudflare's batch verification showed four A, four AAAA, and one CNAME record at the expected names, all DNS-only with Auto TTL. Both Cloudflare and Google public DNS-over-HTTPS resolvers return the expected targets.
 
-- Apex A: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
-- Apex AAAA: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
-- `www` CNAME: `beaconmomentum-dev.github.io`.
+All three Email Routing MX records and all nine TXT records remain in the zone, including SPF, DKIM, DMARC, and GitHub ownership verification. Nameservers and routing rules were not changed. The previous Cloudflare Pages origin `digitalgrandpa-org.pages.dev` is retained in the deployment plan for rollback. No email, mailbox, or forwarding settings were modified.
 
-Keep the Cloudflare Email Routing MX records, SPF/DKIM/DMARC and all other TXT records—including the GitHub verification TXT—nameservers, and existing routing configuration unchanged. Do not alter email forwarding or destination verification. Cloudflare's DNS batch is one database transaction, but propagation across its DNS network is not atomic. Before writing, re-read the zone and verify the exact old web records and IDs. The user must confirm the exact replacement payload and accept the brief DNS/HTTPS transition.
+## Outcome 4 — GitHub Pages HTTPS: pending GitHub certificate issuance
 
-## Outcome 4 — Pages custom-domain assignment and HTTPS: pending
+The deployed site currently responds over HTTP at the apex; `www` and the old GitHub project URL redirect to the apex. GitHub's custom-domain DNS check is successful, but HTTPS is not yet available: HTTPS requests receive a certificate for `*.github.io`, and GitHub reports enforcement unavailable until the custom domain is properly configured for HTTPS. DNS A/AAAA/CNAME values are correct and no CAA records are published. GitHub documents that DNS/HTTPS provisioning may take up to 24 hours. When GitHub issues a certificate whose SAN covers `digitalgrandpa.org`, verify both HTTPS hosts and then enable “Enforce HTTPS”; do not leave HTTPS marked complete before that.
 
-After confirmation, set the repository Pages custom domain to `digitalgrandpa.org`, commit and deploy the root-path build, then apply the web-record batch. Verify `www` to apex behavior, the Pages custom-domain status, HTTPS issuance, root-relative assets, sitemap/robots responses, and preserved email DNS. GitHub documents that DNS propagation and HTTPS can take up to 24 hours. Keep the old Cloudflare Pages origin and record inventory for rollback.
+## Outcome 5 — Book preview visibility and release boundaries: preserved
 
-## Outcome 5 — New-book product-release boundaries: unchanged
-
-*When the World Changes Fast* has no live email capture or delivery action. Its request control remains disabled until the accessible book file, separate privacy/data handling, confirmed-email delivery, optional updates consent, and reader-care operations are approved and tested. *AI Without Fear* has no price, download, signup, checkout, or purchase action until offer details and a separate release decision are approved. Do not modify the existing *The Work You Still Carry* page or checkout. No email/CRM transfer, customer-data operation, payment action, or mass communication is authorized by the domain request.
+The owner approved keeping the three `/drafts/` routes in the public Pages artifact. They are unlinked from the public navigation, excluded from the sitemap, and marked `noindex,nofollow,noarchive`, but remain directly reachable by anyone with the URL; `noindex` is not access control. The free-book email-request control remains disabled; *AI Without Fear* has no price, download, signup, or checkout. Existing *The Work You Still Carry* content and checkout are unchanged. No customer-data action, email/CRM transfer, payment action, or mass communication occurred.
