@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare the Digital Grandpa static build for its GitHub Pages project URL."""
+"""Prepare the Digital Grandpa static build for GitHub Pages."""
 from __future__ import annotations
 
 import json
@@ -17,14 +17,24 @@ repository = os.environ.get("GITHUB_REPOSITORY", "beaconmomentum-dev/digitalgran
 repository_name = repository.rsplit("/", 1)[-1].strip()
 if not repository_name or "/" in repository_name:
     raise SystemExit(f"Invalid GITHUB_REPOSITORY value: {repository!r}")
-BASE = f"/{repository_name}/"
+
+# GitHub project sites need /<repo>/, while a custom-domain site is served at /.
+# A workflow may explicitly select either path; absent an override, retain the
+# repository-site default for non-production previews.
+BASE = os.environ.get("PAGES_BASE_PATH", f"/{repository_name}/")
+if (
+    not BASE.startswith("/")
+    or not BASE.endswith("/")
+    or BASE.startswith("//")
+    or ".." in BASE.split("/")
+    or "\\" in BASE
+):
+    raise SystemExit(f"PAGES_BASE_PATH must be '/' or a safe absolute path ending in '/': {BASE!r}")
 BASE_PREFIX = BASE.rstrip("/")
 
 if not (DIST / "index.html").is_file():
     raise SystemExit(f"Build output is missing: {DIST / 'index.html'}")
 
-# The production site assumes the domain root. A project Pages site is served below
-# /<repository>/, so prefix only local root-relative HTML attributes and CSS urls.
 html_attribute = re.compile(
     r"(?P<prefix>\b(?:href|src|action|poster|data|srcset)\s*=\s*)"
     r"(?P<quote>[\"'])(?P<url>/[^\"']*)(?P=quote)",
@@ -38,6 +48,8 @@ css_url = re.compile(
 
 def prefix_local_url(value: str) -> str:
     if not value.startswith("/") or value.startswith("//"):
+        return value
+    if BASE == "/":
         return value
     if value == BASE_PREFIX or value.startswith(BASE):
         return value
@@ -107,8 +119,10 @@ for name in sorted(allowed):
         raise SystemExit(f"Required draft preview file is missing: {source}")
     shutil.copy2(source, output_drafts / name)
 
-# A project Pages build uses the repository subpath, not the Digital Grandpa domain.
-# This small file also prevents Jekyll from changing static files during deployment.
+# Preserve static assets exactly on GitHub Pages without Jekyll processing.
 (DIST / ".nojekyll").write_text("", encoding="utf-8")
-print(f"Prepared {DIST} for https://{repository.split('/')[0]}.github.io{BASE}")
+if BASE == "/":
+    print(f"Prepared {DIST} for domain-root serving (PAGES_BASE_PATH=/).")
+else:
+    print(f"Prepared {DIST} for https://{repository.split('/')[0]}.github.io{BASE}")
 print("Copied 3 preview pages, their 2 local assets, and the shared stylesheet.")

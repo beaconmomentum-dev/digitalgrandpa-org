@@ -38,6 +38,8 @@ jobs:
         run: pnpm build
       - name: Prepare project-site paths and draft previews
         working-directory: .
+        env:
+          PAGES_BASE_PATH: /
         run: python3 scripts/prepare-github-pages.py
       - name: Configure Pages
         uses: actions/configure-pages@v5

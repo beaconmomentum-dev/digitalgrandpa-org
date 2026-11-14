@@ -1,36 +1,29 @@
-# TODO — Digital Grandpa book pages and GitHub Pages
+# TODO — Digital Grandpa custom-domain deployment
 
-**Status as of 2026-11-13:** The requested changes are committed on `main` as `234797b` and the GitHub Pages deployment succeeded. The Pages URL is `https://beaconmomentum-dev.github.io/digitalgrandpa-org/`. The existing Cloudflare-served `digitalgrandpa.org` domain and its DNS were not changed. The repository and Pages site are public; the draft pages are directly reachable by URL even though they carry `noindex` metadata.
+**Status as of 2026-11-13:** GitHub has verified ownership of `digitalgrandpa.org`. The Cloudflare verification TXT remains in place. The custom-domain root artifact and desktop/mobile previews have been tested locally on branch `feature/digitalgrandpa-custom-domain`; nothing has been committed, pushed, or switched in production. The existing Cloudflare Pages apex and `www` records remain active. The repository Pages `cname` is still unset. The GitHub repository and Pages preview are public; `noindex` does not restrict access.
 
-## Outcome 1 — Three-book preview hub: complete
+## Outcome 1 — Root-domain artifact and design QA: complete locally
 
-- `public/drafts/index.html` presents *When the World Changes Fast*, *AI Without Fear*, and the already-existing *The Work You Still Carry* as distinct titles.
-- The Work link explicitly opens its existing public page and identifies that page's live checkout; that page and checkout were not changed.
-- The hub and both new book pages carry `noindex,nofollow,noarchive`; they are not linked from public navigation or the public sitemap. This is crawl guidance, not access control.
+The existing Vite site now builds for `/` at `https://digitalgrandpa.org/`, not just the repository subpath. The artifact preparer keeps the project-path fallback and uses `PAGES_BASE_PATH=/` for this deployment. `pnpm lint`, `pnpm build`, artifact link checks, and desktop/mobile browser renders passed. All local page and asset targets resolve. The three `/drafts/` routes remain `noindex` and have no active forms or enabled signup/purchase controls.
 
-## Outcome 2 — Free-book page: preview deployed; reader release blocked
+## Outcome 2 — GitHub domain ownership verification: complete
 
-- `public/drafts/when-the-world-changes-fast.html` uses the approved title and compassionate page copy.
-- The email-request layout is a disabled mockup, not a working form. It has no submission, endpoint, or data collection. Book delivery is not active because the final download package is not present in the site repository.
-- Delivery remains separate from the optional, unchecked updates choice. Activation still requires every Section 4 release gate.
+The owner account `beaconmomentum-dev` verified `digitalgrandpa.org` in GitHub Pages settings using a dedicated TXT record. Keep that verification record. The repository-level Pages custom-domain setting remains unset pending the approved cutover.
 
-## Outcome 3 — AI Without Fear page: preview deployed; offer release blocked
+## Outcome 3 — Cloudflare web DNS cutover: awaiting final confirmation
 
-- `public/drafts/ai-without-fear.html` uses inclusive, person-first language and does not frame Digital Grandpa as technology training for seniors.
-- It has no price, package promise, download, signup, checkout, or purchase action. Final public offer terms and owner approval remain open.
+The current apex and `www` web records are proxied CNAMEs to `digitalgrandpa-org.pages.dev`. If authorized, replace only those two records with the following DNS-only targets and automatic TTL:
 
-## Outcome 4 — GitHub Pages deployment: complete
+- Apex A: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+- Apex AAAA: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
+- `www` CNAME: `beaconmomentum-dev.github.io`.
 
-- `.github/workflows/deploy-pages.yml` builds the locked Vite project on `main` pushes or manual dispatch and deploys through GitHub's custom Pages workflow.
-- `scripts/prepare-github-pages.py` rewrites local root paths for the repository subpath and copies only the three requested draft pages plus their CSS and behavior script into the artifact.
-- Pages is in workflow mode with HTTPS enforced and no custom domain. The existing Cloudflare-served `digitalgrandpa.org` remains untouched.
-- GitHub Actions run `43530877866` completed successfully. HTTP checks returned 200 for the Pages home, all three preview routes, the shared stylesheet, the draft stylesheet, and the draft script.
+Keep the Cloudflare Email Routing MX records, SPF/DKIM/DMARC and all other TXT records—including the GitHub verification TXT—nameservers, and existing routing configuration unchanged. Do not alter email forwarding or destination verification. Cloudflare's DNS batch is one database transaction, but propagation across its DNS network is not atomic. Before writing, re-read the zone and verify the exact old web records and IDs. The user must confirm the exact replacement payload and accept the brief DNS/HTTPS transition.
 
-## Outcome 5 — Scope and property boundaries: amendment retained
+## Outcome 4 — Pages custom-domain assignment and HTTPS: pending
 
-- `DIGITAL_GRANDPA_TRANSFORMATION_SCOPE.md` records the narrow owner-approved allowance for confirmed delivery of *When the World Changes Fast*, with separate optional updates consent, no Beacon audience transfer, and no email-sending authorization.
-- No customer data, consent record, payment, email, or CRM action was created.
+After confirmation, set the repository Pages custom domain to `digitalgrandpa.org`, commit and deploy the root-path build, then apply the web-record batch. Verify `www` to apex behavior, the Pages custom-domain status, HTTPS issuance, root-relative assets, sitemap/robots responses, and preserved email DNS. GitHub documents that DNS propagation and HTTPS can take up to 24 hours. Keep the old Cloudflare Pages origin and record inventory for rollback.
 
-## Remaining release gates for the new books
+## Outcome 5 — New-book product-release boundaries: unchanged
 
-The free-book download, email request, and optional updates must remain disabled until the final accessible book package, Digital Grandpa privacy notice, dedicated sender/list provider, minimal-data and retention/deletion rules, support owner, confirmation/delivery/unsubscribe behavior, and fictional-address end-to-end tests are approved and working. *AI Without Fear* still needs reconciled offer terms and separate owner release approval before price, download, signup, or checkout is added.
+*When the World Changes Fast* has no live email capture or delivery action. Its request control remains disabled until the accessible book file, separate privacy/data handling, confirmed-email delivery, optional updates consent, and reader-care operations are approved and tested. *AI Without Fear* has no price, download, signup, checkout, or purchase action until offer details and a separate release decision are approved. Do not modify the existing *The Work You Still Carry* page or checkout. No email/CRM transfer, customer-data operation, payment action, or mass communication is authorized by the domain request.
