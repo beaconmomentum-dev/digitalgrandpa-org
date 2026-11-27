@@ -62,6 +62,8 @@ export default defineConfig({
         support: path.resolve(__dirname, 'support.html'),
         theWorkYouStillCarry: path.resolve(__dirname, 'the-work-you-still-carry.html'),
         porchLightPolicies: path.resolve(__dirname, 'porch-light-policies.html'),
+        books: path.resolve(__dirname, 'books.html'),
+        booksThankYou: path.resolve(__dirname, 'books-thank-you.html'),
       },
     },
   },
